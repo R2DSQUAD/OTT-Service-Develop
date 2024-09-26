@@ -1,0 +1,46 @@
+/* 왼쪽 헤더 */
+
+.headerNav {
+  background-color: #141517;
+  display: flex;
+  
+}
+
+.headerNav .headerNav-con {
+  height: 100vh;
+  width: 100%;
+}
+
+.headerNav .headerNav-con h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 80px;
+}
+
+.headerNav .headerNav-con h1 img{
+  width: 120px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.headerNav .headerNav-con .gnb {
+  padding: 0px 70px;
+  
+  
+}
+
+.headerNav .headerNav-con .gnb > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.headerNav .headerNav-con .gnb > ul > li {
+}
+
+.headerNav .headerNav-con .gnb > ul > li > a {
+  color: inherit;
+}
