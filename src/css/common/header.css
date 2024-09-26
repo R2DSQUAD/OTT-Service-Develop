@@ -1,0 +1,29 @@
+/* 상단헤더 */
+
+.header {
+  background-color: #141517;
+  display: flex;
+}
+
+.header .header-con {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end
+}
+
+.header .header-con>.gnb {
+}
+
+.header .header-con>.gnb>ul {
+  display: flex;
+  gap: 50px;
+  padding: 100px;
+}
+
+.header .header-con>.gnb>ul>li {}
+
+.header .header-con>.gnb>ul>li a {
+  color: inherit;
+}
