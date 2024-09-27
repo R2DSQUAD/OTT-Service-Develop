@@ -3,6 +3,8 @@
 @import url(./css/common/headerNav.css);
 @import url(./css/common/content.css);
 @import url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo.css');
+@import url(./css//webtoon/webtoonIndex.css);
+
 
 #root {
   background-color: black;
