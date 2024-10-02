@@ -11,10 +11,10 @@ const Header = () => {
               <Link to={"/"}>장바구니</Link>
             </li>
             <li>
-              <Link to={"/"}>로그인</Link>
+              <Link to={"/signIn"}>로그인</Link>
             </li>
             <li>
-              <Link to={"/"}>회원가입</Link>
+              <Link to={"/signUp"}>회원가입</Link>
             </li>
           </ul>
         </div>

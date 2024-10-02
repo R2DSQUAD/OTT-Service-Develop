@@ -2,7 +2,11 @@ import React from 'react'
 
 const SignInIndex = () => {
   return (
-    <div>SignInIndex</div>
+    <div className="signIn">
+      <div className="signIn-con">
+        
+      </div>
+    </div>
   )
 }
 
