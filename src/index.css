@@ -3,6 +3,10 @@
 @import url(./css/common/headerNav.css);
 @import url(./css/common/content.css);
 @import url('https://cdn.jsdelivr.net/gh/fonts-archive/AppleSDGothicNeo/AppleSDGothicNeo.css');
+@import url(./css//webtoon/webtoonIndex.css);
+@import url(./css/drama/dramaPage.css);
+@import url(./css/cart/cart.css);
+
 
 #root {
   background-color: black;

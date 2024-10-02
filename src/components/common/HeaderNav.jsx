@@ -14,13 +14,13 @@ const HeaderNav = () => {
               <Link to={"/"}>영화</Link>
             </li>
             <li>
-              <Link to={"/"}>드라마</Link>
+              <Link to={"/drama"}>드라마</Link>
             </li>
             <li>
               <Link to={"/"}>애니메이션</Link>
             </li>
             <li>
-              <Link to={"/"}>웹툰</Link>
+              <Link to={"/webtoon"}>웹툰</Link>
             </li>
           </ul>
         </div>

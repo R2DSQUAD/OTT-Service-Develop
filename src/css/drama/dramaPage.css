@@ -1,0 +1,79 @@
+@import url(dramaModal.css);
+.drama{
+  width: 100%;
+  height: calc(100vh - 80px);
+  display: flex;
+  justify-content: center;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+.drama-con{
+  width: 100%;
+}
+.drama-con h1{
+  height: 90px;
+  border-bottom: 2px solid gray;
+  box-sizing: border-box;
+}
+.drama-list {
+  display: flex;
+  flex-direction: column;
+}
+.drama-list ul{
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4,330px);
+  grid-template-rows: repeat(1,240px);
+  grid-auto-rows: 200px;
+  gap: 2vw;
+}
+.drama-list ul li{
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+  transition: all 0.2s;
+}
+.drama-list ul li:hover{
+  cursor: pointer;
+  filter: grayscale(100%);
+  transform: scale(1.05);
+}
+.drama-list ul li img{
+  display: block;
+}
+.popularList{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw 0;
+  box-sizing: border-box;
+}
+.actionList{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw 0;
+  box-sizing: border-box;
+}
+.horrorList{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw 0;
+  box-sizing: border-box;
+}
+.fantasyList{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw 0;
+  box-sizing: border-box;
+}
+.sfList{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw 0;
+  box-sizing: border-box;
+}
+.romanceList{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw 0;
+  box-sizing: border-box;
+}

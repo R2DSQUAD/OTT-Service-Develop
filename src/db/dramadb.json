@@ -1,0 +1,28 @@
+{
+  "dramaItems":[
+    {"id":0,"title": "A","price": 10000,"img": "image-1.png","type": "action"},
+    {"id":1,"title": "B","price": 15000,"img": "image-2.png","type": "action"},
+    {"id":2,"title": "C","price": 12000,"img": "image-3.png","type": "action"},
+    {"id":3,"title": "D","price": 13000,"img": "image-4.png","type": "action"},
+    {"id":4,"title": "E","price": 20000,"img": "image-5.png","type": "horror"},
+    {"id":5, "title": "F","price": 14000,"img": "image-6.png","type": "horror"},
+    {"id":6, "title": "G","price": 16000,"img": "image-7.png","type": "horror"},
+    {"id":7,"title": "H","price": 17000,"img": "image-8.png","type": "horror"},
+    {"id":8,"title": "I","price": 18000,"img": "image-9.png","type": "fantasy"},
+    {"id":9,"title": "J","price": 19000,"img": "image-10.png","type": "fantasy"},
+    {"id":10,"title": "K","price": 10000,"img": "image-11.png","type": "fantasy"},
+    {"id":11,"title": "L","price": 11000,"img": "image-12.png","type": "fantasy"},
+    {"id":12,"title": "M","price": 12000,"img": "image-13.png","type": "sf"},
+    {"id":13,"title": "N","price": 13000,"img": "image-14.png","type": "sf"},
+    {"id":14,"title": "O","price": 15000,"img": "image-15.png","type": "sf"},
+    {"id":15,"title": "Ax","price": 10000,"img": "image-1.png","type": "sf"},
+    {"id":16,"title": "Bx","price": 10000,"img": "image-2.png","type": "romance"},
+    {"id":17,"title": "Cx","price": 10000,"img": "image-3.png","type": "romance"},
+    {"id":18,"title": "Dx", "price": 10000,"img": "image-4.png","type": "romance"},
+    {"id":19,"title": "Ex","price": 10000,"img": "image-5.png","type": "romance"},
+    {"id":20,"title": "Fx","price": 10000,"img": "image-6.png","type": "popular"},
+    {"id":21,"title": "Gx","price": 10000,"img": "image-7.png","type": "popular"},
+    {"id":22,"title": "Hx","price": 10000,"img": "image-8.png","type": "popular"},
+    {"id":23,"title": "Ix","price": 10000,"img": "image-9.png","type": "popular"}
+    ]
+}
