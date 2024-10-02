@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: column;
 }
-ul{
+.drama-list ul{
   flex: 1;
   display: grid;
   grid-template-columns: repeat(4,330px);
@@ -27,18 +27,18 @@ ul{
   grid-auto-rows: 200px;
   gap: 2vw;
 }
-ul li{
+.drama-list ul li{
   display: flex;
   flex-direction: column;
   gap: 0.5vw;
   transition: all 0.2s;
 }
-ul li:hover{
+.drama-list ul li:hover{
   cursor: pointer;
   filter: grayscale(100%);
   transform: scale(1.05);
 }
-ul li img{
+.drama-list ul li img{
   display: block;
 }
 .popularList{
