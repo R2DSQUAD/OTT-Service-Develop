@@ -190,5 +190,198 @@
       "year": "2023",
       "comment": "대한민국은 X같은 법들로 가득하다 나를 지옥으로 밀어넣고도 처벌받지 않았던 ‘촉법소년’들 그 X같은 법의 결과물들에게, 지금부터 복수를 시작한다"
     }
+  ],
+  "animeItems": [
+    {
+      "id": "1",
+      "img": "a1.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를.",
+      "subtitle": "인기작품"
+    },
+    {
+      "id": "2",
+      "img": "a2.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "3",
+      "img": "a3.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "4",
+      "img": "a4.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "5",
+      "img": "a5.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를.",
+      "subtitle": "최신작품"
+    },
+    {
+      "id": "6",
+      "img": "a6.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "7",
+      "img": "a7.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "8",
+      "img": "a8.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "9",
+      "img": "a9.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를.",
+      "subtitle": "이달의작품"
+    },
+    {
+      "id": "10",
+      "img": "a10.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+      
+    {
+      "id": "11",
+      "img": "a11.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "12",
+      "img": "a12.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "13",
+      "img": "a13.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를.",
+      "subtitle": "대표작품"
+    },
+    {
+      "id": "14",
+      "img": "a14.jpg", 
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "15",
+      "img": "a15.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    },
+    {
+      "id": "16",
+      "img": "a16.jpg",
+      "title": "제목",
+      "price": "10000원",
+      "genre": "판타지 로맨스",
+      "age": "15",
+      "time": "20분 2020 09 20",
+      "text": "일진에게 맞고 사는 서열 꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
+    } 
+],
+"dramaItems":[
+  {"id":0,"title": "A","price": 10000,"img": "image-1.png","type": "action"},
+  {"id":1,"title": "B","price": 15000,"img": "image-2.png","type": "action"},
+  {"id":2,"title": "C","price": 12000,"img": "image-3.png","type": "action"},
+  {"id":3,"title": "D","price": 13000,"img": "image-4.png","type": "action"},
+  {"id":4,"title": "E","price": 20000,"img": "image-5.png","type": "horror"},
+  {"id":5, "title": "F","price": 14000,"img": "image-6.png","type": "horror"},
+  {"id":6, "title": "G","price": 16000,"img": "image-7.png","type": "horror"},
+  {"id":7,"title": "H","price": 17000,"img": "image-8.png","type": "horror"},
+  {"id":8,"title": "I","price": 18000,"img": "image-9.png","type": "fantasy"},
+  {"id":9,"title": "J","price": 19000,"img": "image-10.png","type": "fantasy"},
+  {"id":10,"title": "K","price": 10000,"img": "image-11.png","type": "fantasy"},
+  {"id":11,"title": "L","price": 11000,"img": "image-12.png","type": "fantasy"},
+  {"id":12,"title": "M","price": 12000,"img": "image-13.png","type": "sf"},
+  {"id":13,"title": "N","price": 13000,"img": "image-14.png","type": "sf"},
+  {"id":14,"title": "O","price": 15000,"img": "image-15.png","type": "sf"},
+  {"id":15,"title": "Ax","price": 10000,"img": "image-1.png","type": "sf"},
+  {"id":16,"title": "Bx","price": 10000,"img": "image-2.png","type": "romance"},
+  {"id":17,"title": "Cx","price": 10000,"img": "image-3.png","type": "romance"},
+  {"id":18,"title": "Dx", "price": 10000,"img": "image-4.png","type": "romance"},
+  {"id":19,"title": "Ex","price": 10000,"img": "image-5.png","type": "romance"},
+  {"id":20,"title": "Fx","price": 10000,"img": "image-6.png","type": "popular"},
+  {"id":21,"title": "Gx","price": 10000,"img": "image-7.png","type": "popular"},
+  {"id":22,"title": "Hx","price": 10000,"img": "image-8.png","type": "popular"},
+  {"id":23,"title": "Ix","price": 10000,"img": "image-9.png","type": "popular"}
   ]
 }

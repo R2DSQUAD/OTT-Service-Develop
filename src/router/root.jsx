@@ -7,6 +7,9 @@ const MainIndexPage = lazy(()=> import('../pages/main/MainIndex'));
 const WebtoonIndexPage = lazy(()=> import('../pages/webtoon/WebtoonIndexPage'));
 const Drama = lazy(()=> import('../components/drama/Drama'));
 const Cart = lazy(()=> import('../components/cart/CartList'));
+const AnimePage = lazy(() => import("../pages/anime/AnimePage"));
+const SignInLayout = lazy(()=> import('../layout/auth/SignInLayout'))
+const SignUpLayout = lazy(() => import('../layout/auth/SignUpLayout'))
 
 const root = createBrowserRouter([
   {
@@ -27,8 +30,20 @@ const root = createBrowserRouter([
       ,{
         path: 'cart',
         element: <Suspense fallback = {Loading}><Cart/></Suspense>
-      }
-    ]
+      },
+      {
+        path: "anime",
+        element: <Suspense fallback={Loading}><AnimePage /></Suspense>,
+      },
+    ],
+  },
+  {
+    path: '/signIn',
+    element: <Suspense fallback = {Loading}><SignInLayout/></Suspense>
+  },
+  {
+    path: '/signUp',
+    element:  <Suspense fallback = {Loading}><SignUpLayout/></Suspense>
   }
 ])
 

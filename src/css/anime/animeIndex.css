@@ -1,0 +1,111 @@
+@import url(animeModal.css);
+
+.anime {
+  width: 100%;
+
+  padding: 5vw;
+  box-sizing: border-box;
+}
+
+/* 컨텐츠  */
+.anime .anime-con {
+  width: 100%;
+  background-color: #000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ainme .anime-con .top-content > h1 {
+  font-size: 40px;
+}
+
+.ainme .anime-con .top-content hr {
+  height: 0.1px;
+  background-color: white;
+}
+
+.anime .anime-con .bottom-content > h1 {
+  color: #fff;
+}
+
+
+
+/* 그리드 */
+.anime .anime-con .bottom-content > ul {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(9, auto);
+  grid-auto-rows: auto;
+  
+
+
+  padding: 2vw 0;
+  gap: 2vw;
+
+  box-sizing: border-box;
+}
+
+/* 큰제목 4개 grid 행, 열 선택해서 배치 */
+.anime .anime-con .bottom-content > ul > h1.ani-title1 {
+  grid-row-start: 1;
+  grid-row-end: 2;
+
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+.anime .anime-con .bottom-content > ul > h1.ani-title2 {
+  grid-row-start: 3;
+  grid-row-end: 4;
+
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+.anime .anime-con .bottom-content > ul > h1.ani-title3 {
+  grid-row-start: 5;
+  grid-row-end: 6;
+
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+.anime .anime-con .bottom-content > ul > h1.ani-title4 {
+  grid-row-start: 7;
+  grid-row-end: 8;
+
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
+
+
+.anime .anime-con .bottom-content > ul > li {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 20px; 
+  
+  overflow: hidden;
+  
+  box-sizing: border-box;
+}
+
+/* .anime .anime-con .bottom-content > ul > li h1{
+  color: #fff;
+} */
+
+
+.anime .anime-con .bottom-content > ul > li .top {
+ 
+  border-radius: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.anime .anime-con .bottom-content > ul > li .top img {
+  display: block;
+  width: 100%;
+}
+
+/* .anime .anime-con .bottom-content > ul > li .bottom h3 {
+  color: #fff;
+} */
