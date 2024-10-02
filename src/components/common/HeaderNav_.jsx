@@ -14,7 +14,7 @@ const HeaderNav = () => {
               <Link to={"/"}>영화</Link>
             </li>
             <li>
-              <Link to={"/drama"}>드라마</Link>
+              <Link to={"/"}>드라마</Link>
             </li>
             <li>
               <Link to={"/anime"}>애니메이션</Link>
