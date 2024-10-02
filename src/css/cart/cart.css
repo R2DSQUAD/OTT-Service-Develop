@@ -1,0 +1,11 @@
+.bottom{
+  display: flex;
+  flex-direction: column;
+
+}
+.cart .cart-con .item-list .cart-items .bottom span{
+  color: white;
+}
+button.delete{
+  width: 100px;
+}
