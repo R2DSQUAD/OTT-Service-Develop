@@ -1,0 +1,5 @@
+.admin-content {
+  background-color: black;
+  height: calc(100vh - 80px);
+  overflow: auto;
+}

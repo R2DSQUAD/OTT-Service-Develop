@@ -11,7 +11,7 @@ const HeaderNav = () => {
         <div className="gnb">
           <ul>
             <li>
-              <Link to={"/"}>영화</Link>
+              <Link to={"/movie"}>영화</Link>
             </li>
             <li>
               <Link to={"/drama"}>드라마</Link>
