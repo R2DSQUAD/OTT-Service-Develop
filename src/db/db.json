@@ -5,7 +5,7 @@
       "title": "이혼 후 코인 대박",
       "price": "12000",
       "img": "coinJackpotAfterDivorce.jpg",
-      "genre": "anotherWorld",
+      "genre": "판타지",
       "age": "ALL",
       "year": "2024",
       "comment": "1년간의 결혼 생활은 끔찍했다. 도박에 미쳐있던 아버지의 유품을 정리하던 도중 발견한 코인. 아버지께 빌려준 내 천만 원으로 코인을 샀다고? 떡상한 코인과 180도 달라진 내 인생!"
@@ -15,7 +15,7 @@
       "title": "엽총소년",
       "price": "14000",
       "img": "shotgunBoy.jpg",
-      "genre": "horror",
+      "genre": "스릴러",
       "age": "15",
       "year": "2021",
       "comment": "약자에서 영웅이 될 수밖에 없었던 소년 '한규환', 그리고 그 소년을 영웅으로 만들어줄 엽총 한 자루가 눈앞에.."
@@ -25,7 +25,7 @@
       "title": "나 혼자만 레벨업",
       "price": "20000",
       "img": "soloLeveling.jpg",
-      "genre": "anotherWorld",
+      "genre": "액션",
       "age": "ALL",
       "year": "2018",
       "comment": "최약체 헌터에서 최강 헌터로 각성하다!"
@@ -35,7 +35,7 @@
       "title": "입학용병",
       "price": "15000",
       "img": "teenageMercenary.jpg",
-      "genre": "anotherWorld",
+      "genre": "액션",
       "age": "12",
       "year": "2020",
       "comment": "어린 시절 비행기 추락 사고의 유일한 생존자 유이진. 살아남기 위해 용병으로 살아가던 유이진은 10년 후, 가족이 있는 고향으로 돌아왔다."
@@ -45,7 +45,7 @@
       "title": "싸움독학",
       "price": "19000",
       "img": "viralHit.jpg",
-      "genre": "action",
+      "genre": "액션",
       "age": "15",
       "year": "2019",
       "comment": "일진에게 맞고 사는 서열꼴등 유호빈의 인생, 일진 저격 방송으로 인생 역전의 기회를."
@@ -55,7 +55,7 @@
       "title": "내 여자친구는",
       "price": "13000",
       "img": "myGirlFriend.jpg",
-      "genre": "horror",
+      "genre": "",
       "age": "15",
       "year": "2024",
       "comment": "여자친구가 사람을 잡아먹는 것을 목격한 주인공. 그럴 리가 없어. 살인자 여자친구로부터 도망치던 주인공은 죽은 줄 알았던 형과 마주치는데. 내 여자친구가 사람을 죽인 증거와 죽이지 않은 증거가 공존한다. 무엇이 진짜일까?"
@@ -65,7 +65,7 @@
       "title": "전지적 독자 시점",
       "price": "13000",
       "img": "omniscientReaderPoint.jpg",
-      "genre": "anotherWorld",
+      "genre": "액션",
       "age": "15",
       "year": "2020",
       "comment": "'이건 내가 아는 그 전개다' 한순간에 세계가 멸망하고, 새로운 세상이 펼쳐졌다. 오직 나만이 완주했던 소설 세계에서 평범했던 독자의 새로운 삶이 시작된다."
@@ -75,7 +75,7 @@
       "title": "두번 사는 랭커",
       "price": "13000",
       "img": "rankersThatLiveTwice.jpg",
-      "genre": "anotherWorld",
+      "genre": "판타지",
       "age": "ALL",
       "year": "2019",
       "comment": "5년 전 사라진 쌍둥이 동생을 잊고 살던 연우. 어느날 그에게 동생의 유품인 회중시계가 돌아왔다."
@@ -85,7 +85,7 @@
       "title": "기기괴괴2",
       "price": "13000",
       "img": "talesOfTheUnusual2.jpg",
-      "genre": "horror",
+      "genre": "공포",
       "age": "15",
       "year": "2024",
       "comment": "돌아온 오성대 작가의 기묘하고 괴상한 이야기들! 잊고 있던 공포라는 감정을 다시 느끼게 해줄 소름 돋는 옴니버스 미스테리 스릴러."
@@ -95,7 +95,7 @@
       "title": "픽미업",
       "price": "13000",
       "img": "pickMeUp.jpg",
-      "genre": "anotherWorld",
+      "genre": "판타지",
       "age": "ALL",
       "year": "2022",
       "comment": "마스터 오브 마스터라 불리는 세계 랭킹 5위의 마스터 '로키'는 던전을 깨던 중 정신을 잃게 된다."
@@ -105,7 +105,7 @@
       "title": "템빨",
       "price": "13000",
       "img": "overGeared.jpg",
-      "genre": "anotherWorld",
+      "genre": "판타지",
       "age": "ALL",
       "year": "2020",
       "comment": "20억 명이 넘는 유저 중 유일한 최강의 레전드리 직업으로 전직. '어떻게 아직 살아있는 거지...?!' '뭐, 특별한 건 없고...''템빨이죠.'"
@@ -115,7 +115,7 @@
       "title": "던전리셋",
       "price": "13000",
       "img": "dungeonReset.jpg",
-      "genre": "anotherWorld",
+      "genre": "판타지",
       "age": "ALL",
       "year": "2020",
       "comment": "[던전이 리셋됩니다.] 한번 플레이한 던전이나 함정은 다음 '유저'들을 위해 '리셋'이라는 과정을 거친다. 그 '리셋'이, '나'에게는 적용되지 않는다?!"
@@ -125,10 +125,70 @@
       "title": "무한의 마법사",
       "price": "13000",
       "img": "wizardOfInfinity.jpg",
-      "genre": "anotherWorld",
+      "genre": "판타지",
       "age": "ALL",
       "year": "2022",
       "comment": "마굿간에 버려져 평민으로 키워진 아이, 시로네. 타고난 통찰력으로 글까지 깨우친 아이는 도시로 나간 어느 날 그토록 궁금해하던 마법을 경험한다."
+    },
+    {
+      "id": "14",
+      "title": "똑닮은 딸",
+      "price": "13000",
+      "img": "likeMotherLikeDaughter.jpg",
+      "genre": "스릴러",
+      "age": "15",
+      "year": "2021",
+      "comment": "'우리 엄마가 살인마인 것 같다.' 성적 우수, 품행 단정, 모범적인 자식인 길소명은 엄마가 요구하는 기준에 맞춰 완벽한 딸로 살아왔다. 그러나 남동생이 강물에서 시체로 떠오른 그 날, 소명의 머릿속엔 섬뜩한 의혹이 피어오른다."
+    },
+    {
+      "id": "15",
+      "title": "좋아? 죽어!",
+      "price": "13000",
+      "img": "LoveYouTillDeath.jpg",
+      "genre": "스릴러",
+      "age": "18",
+      "year": "2024",
+      "comment": "남자들이면 한번쯤 뒤돌아볼만한 예쁜 외모를 가진 '민주' 그녀의 직업은 인터넷 방송인. 그저 시청자 수를 늘리고 유명해지기만을 꿈꾸며 달려오던 민주에게 서서히 다가오는 두 검은 그림자."
+    },
+    {
+      "id": "16",
+      "title": "욕망일기Deep",
+      "price": "13000",
+      "img": "TalesOfGreedDeep.jpg",
+      "genre": "스릴러",
+      "age": "15",
+      "year": "2023",
+      "comment": "더욱 더 매운맛으로 돌아온 욕망일기의 새로운 에피소드 인간이라면 누구나 가질법한 욕망, 그것이 현실로 이루어진다면? 그 끝은 과연 행복일까 파멸일까.."
+    },
+    {
+      "id": "17",
+      "title": "당신이 범인이야!",
+      "price": "13000",
+      "img": "itsYourCulprit.jpg",
+      "genre": "스릴러",
+      "age": "15",
+      "year": "2024",
+      "comment": "사건 현장의 형사가 되어 진범을 밝혀라! 범인은 분명 이 안에 있다!"
+    },
+    {
+      "id": "18",
+      "title": "참교육",
+      "price": "13000",
+      "img": "GetSchooled.jpg",
+      "genre": "액션",
+      "age": "15",
+      "year": "2020",
+      "comment": "무너진 교권을 지키기 위해 교권보호국 소속 나화진의 참교육이 시작된다! <부활남> 채용택 작가 X <신석기녀> 한가람 작가의 신작!"
+    },
+    {
+      "id": "19",
+      "title": "촉법소년",
+      "price": "13000",
+      "img": "JuvenileOffender.jpg",
+      "genre": "액션",
+      "age": "15",
+      "year": "2023",
+      "comment": "대한민국은 X같은 법들로 가득하다 나를 지옥으로 밀어넣고도 처벌받지 않았던 ‘촉법소년’들 그 X같은 법의 결과물들에게, 지금부터 복수를 시작한다"
     }
   ]
 }

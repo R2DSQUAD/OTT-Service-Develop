@@ -3,8 +3,8 @@ import { createBrowserRouter } from 'react-router-dom';
 
 const Loading = <div className='loading'>Loading...</div>
 const DefaultLayout = lazy(()=> import('../layout/common/DefaultLayout'));
-const MainIndex = lazy(()=> import('../pages/main/MainIndex'));
-const WebtoonIndex = lazy(()=> import('../components/webtoon/WebtoonIndex'));
+const MainIndexPage = lazy(()=> import('../pages/main/MainIndex'));
+const WebtoonIndexPage = lazy(()=> import('../pages/webtoon/WebtoonIndexPage'));
 
 const root = createBrowserRouter([
   {
@@ -13,11 +13,11 @@ const root = createBrowserRouter([
     children: [
       {
         path: '',
-        element: <Suspense fallback = {Loading}><MainIndex/></Suspense>
+        element: <Suspense fallback = {Loading}><MainIndexPage/></Suspense>
       },
       {
         path: 'webtoon',
-        element: <Suspense fallback = {Loading}><WebtoonIndex/></Suspense>
+        element: <Suspense fallback = {Loading}><WebtoonIndexPage/></Suspense>
       }
     ]
   }

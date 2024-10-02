@@ -9,13 +9,25 @@ const webtoonItems = {
   img: "",
 };
 
+const webtoonBanner = [];
 
 const WebtoonIndex = () => {
   const [isWebtoon, setIsWebtoonModal] = useState(false);
   const [modalItem, setModalItem] = useState(webtoonItems);
   const [webtoonItem, setWebtoonItem] = useState([]);
 
-
+  if (webtoonItem.length > 0) {
+    while (
+      webtoonBanner.length < 4 &&
+      webtoonBanner.length < webtoonItem.length
+    ) {
+      const random = Math.floor(Math.random() * webtoonItem.length);
+      if (!webtoonBanner.includes(webtoonItem[random])) {
+        webtoonBanner.push(webtoonItem[random]);
+      }
+    }
+  }
+  
   useEffect(() => {
     const axiosFn = async () => {
       try {
@@ -31,7 +43,7 @@ const WebtoonIndex = () => {
   const webtoonModalFn = (e) => {
     const eId = e.currentTarget.getAttribute("data-id");
     setModalItem({
-      id: parseInt(eId)
+      id: parseInt(eId),
     });
     setIsWebtoonModal(true);
   };
@@ -39,7 +51,10 @@ const WebtoonIndex = () => {
   return (
     <>
       {isWebtoon ? (
-        <WebtoonModal modalItem={modalItem} setIsWebtoonModal={setIsWebtoonModal}/>
+        <WebtoonModal
+          modalItem={modalItem}
+          setIsWebtoonModal={setIsWebtoonModal}
+        />
       ) : (
         <></>
       )}
@@ -52,8 +67,8 @@ const WebtoonIndex = () => {
           <div className="bottomContent">
             <div className="mainBanner">
               <ul>
-                {webtoonItem &&
-                  webtoonItem.map((el, idx) => {
+                {webtoonBanner &&
+                  webtoonBanner.map((el, idx) => {
                     return (
                       <li key={idx} data-id={el.id} onClick={webtoonModalFn}>
                         <div className="itemImg">
@@ -84,13 +99,18 @@ const WebtoonIndex = () => {
               <ul>
                 {webtoonItem &&
                   webtoonItem.map((el, idx) => {
-                    return (
-                      <li key={idx} data-id={el.id} onClick={webtoonModalFn}>
-                        <div className="itemImg">
-                          <img src={`/images/webtoon/${el.img}`} alt={el.img} />
-                        </div>
-                      </li>
-                    );
+                    if (el.genre === "스릴러" || el.genre === "공포") {
+                      return (
+                        <li key={idx} data-id={el.id} onClick={webtoonModalFn}>
+                          <div className="itemImg">
+                            <img
+                              src={`/images/webtoon/${el.img}`}
+                              alt={el.img}
+                            />
+                          </div>
+                        </li>
+                      );
+                    }
                   })}
               </ul>
             </div>
@@ -99,28 +119,38 @@ const WebtoonIndex = () => {
               <ul>
                 {webtoonItem &&
                   webtoonItem.map((el, idx) => {
-                    return (
-                      <li key={idx} data-id={el.id} onClick={webtoonModalFn}>
-                        <div className="itemImg">
-                          <img src={`/images/webtoon/${el.img}`} alt={el.img} />
-                        </div>
-                      </li>
-                    );
+                    if (el.genre === "액션") {
+                      return (
+                        <li key={idx} data-id={el.id} onClick={webtoonModalFn}>
+                          <div className="itemImg">
+                            <img
+                              src={`/images/webtoon/${el.img}`}
+                              alt={el.img}
+                            />
+                          </div>
+                        </li>
+                      );
+                    }
                   })}
               </ul>
             </div>
             <div className="subMenu">
-              <h2>판타지 / 이세계</h2>
+              <h2>판타지</h2>
               <ul>
                 {webtoonItem &&
                   webtoonItem.map((el, idx) => {
-                    return (
-                      <li key={idx} data-id={el.id} onClick={webtoonModalFn}>
-                        <div className="itemImg">
-                          <img src={`/images/webtoon/${el.img}`} alt={el.img} />
-                        </div>
-                      </li>
-                    );
+                    if (el.genre === "판타지") {
+                      return (
+                        <li key={idx} data-id={el.id} onClick={webtoonModalFn}>
+                          <div className="itemImg">
+                            <img
+                              src={`/images/webtoon/${el.img}`}
+                              alt={el.img}
+                            />
+                          </div>
+                        </li>
+                      );
+                    }
                   })}
               </ul>
             </div>

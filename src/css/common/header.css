@@ -22,8 +22,8 @@
   padding: 100px;
 }
 
-.header .header-con>.gnb>ul>li {}
-
 .header .header-con>.gnb>ul>li a {
   color: inherit;
+  white-space: nowrap;
+
 }

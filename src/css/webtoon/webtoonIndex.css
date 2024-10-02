@@ -1,3 +1,5 @@
+@import url(webtoonModal.css);
+
 .webtoon {
   width: 100%;
 }
@@ -56,10 +58,6 @@
   cursor: pointer;
 }
 
-.webtoon .webtoon-con .bottomContent .mainBanner>ul>li:nth-child(n+5) {
-  display: none;
-}
-
 .webtoon .webtoon-con .bottomContent .subMenu {
   display: flex;
   flex-direction: column;
@@ -80,6 +78,11 @@
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+}
+
+
+.webtoon .webtoon-con .bottomContent .subMenu>ul>li:nth-child(n+7) {
+  display: none;
 }
 
 .itemImg>img {
