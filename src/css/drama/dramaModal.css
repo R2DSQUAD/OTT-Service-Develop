@@ -28,20 +28,20 @@
   right: 0;
   top: 0;
 }
-.item{
+.dramaModal .dramaModal-con .item{
   width: 100%;
   height: calc(350px - 31px);
   overflow: hidden;
 }
-.item img{
+.dramaModal .dramaModal-con .item img{
   width: 100%;
   height: auto;
   display: block;
 }
-span{
+.dramaModal .dramaModal-con span{
   color: black;
 }
-.item .modal-list{
+.dramaModal .dramaModal-con .item .modal-list{
   width: 100%;
   display: flex;
   flex-direction: column;
