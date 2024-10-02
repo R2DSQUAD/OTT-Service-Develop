@@ -1,0 +1,46 @@
+/* 왼쪽 헤더 */
+
+.admin-left {
+  background-color: #141517;
+  display: flex;
+  
+}
+
+.admin-left .admin-left-con {
+  height: 100vh;
+  width: auto;
+}
+
+.admin-left .admin-left-con h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 80px;
+}
+
+.admin-left .admin-left-con h1 img{
+  width: 120px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.admin-left .admin-left-con .admin-gnb {
+  padding: 0px 70px;
+  
+  
+}
+
+.admin-left .admin-left-con .admin-gnb > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-left .admin-left-con .admin-gnb > ul > li {
+}
+
+.admin-left .admin-left-con .admin-gnb > ul > li > a {
+  color: inherit;
+}

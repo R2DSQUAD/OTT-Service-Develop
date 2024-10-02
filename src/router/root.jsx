@@ -1,15 +1,18 @@
 import React, { lazy, Suspense } from 'react'
 import { createBrowserRouter } from 'react-router-dom';
+import toAdminRouter from './toAdminRouter';
 
 const Loading = <div className='loading'>Loading...</div>
 const DefaultLayout = lazy(()=> import('../layout/common/DefaultLayout'));
-const MainIndexPage = lazy(()=> import('../pages/main/MainIndex'));
+const MainIndexPage = lazy(()=> import('../pages/main/MainIndexPage'));
 const WebtoonIndexPage = lazy(()=> import('../pages/webtoon/WebtoonIndexPage'));
 const Drama = lazy(()=> import('../components/drama/Drama'));
 const Cart = lazy(()=> import('../components/cart/CartList'));
 const AnimePage = lazy(() => import("../pages/anime/AnimePage"));
 const SignInLayout = lazy(()=> import('../layout/auth/SignInLayout'))
 const SignUpLayout = lazy(() => import('../layout/auth/SignUpLayout'))
+const MovieIndex = lazy(()=> import('../pages/movie/MovieIndexPage'));
+const AdminLayout = lazy(()=> import('../layout/admin/AdminLayout'));
 
 const root = createBrowserRouter([
   {
@@ -34,7 +37,11 @@ const root = createBrowserRouter([
       {
         path: "anime",
         element: <Suspense fallback={Loading}><AnimePage /></Suspense>,
-      },
+      },{
+        path: 'movie',
+        element: <Suspense fallback = {Loading}><MovieIndex/></Suspense>
+      }
+
     ],
   },
   {
@@ -44,6 +51,13 @@ const root = createBrowserRouter([
   {
     path: '/signUp',
     element:  <Suspense fallback = {Loading}><SignUpLayout/></Suspense>
+  },
+  
+  {
+    path: '/admin',
+    element: <Suspense fallback = {Loading}><AdminLayout/></Suspense>,
+    children:toAdminRouter()
+    
   }
 ])
 

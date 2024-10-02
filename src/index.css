@@ -8,6 +8,14 @@
 @import url(./css/cart/cart.css);
 @import url(./css/anime/animeIndex.css);
 @import url(./css/auth/auth.css);
+@import url(./css/main/MainIndex.css);
+@import url(./css/movie/movie.css);
+@import url(./css/movie/moviemodal.css);
+@import url(./css/main/MainModal.css);
+@import url(./css/admin/admin-left.css);
+@import url(./css/admin/admin-right.css);
+@import url(./css/admin/admin-content.css);
+@import url(./css/admin/admin-product.css);
 
 #root {
   background-color: black;
@@ -29,6 +37,26 @@
 }
 
 .layout .right {
+  flex: 1;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+.admin {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-between; 
+}
+
+.admin .admin-left {
+  flex: 0 0 260px;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.admin .admin-right {
   flex: 1;
   position: sticky;
   top: 0;

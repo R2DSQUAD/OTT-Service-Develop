@@ -1,0 +1,189 @@
+.main{
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.main .main-con{
+  width: 100%;
+  box-sizing: border-box;
+}
+.main .main-con .best{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.movie{
+  width: 100%;
+  height: auto;
+  
+}
+.movie .movie-con{
+  width: 100%;
+  
+}
+.movie .movie-con .top{
+  width: 100%;
+}
+.movie .movie-con .top ul{
+  display: flex;
+  justify-content: space-between;
+  /* padding: 10px; */
+}
+.movie .movie-con .top ul li:nth-child(2){
+  background-color: rgb(187, 11, 108);
+  border-radius: 5px 5px 5px 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  }
+.movie .movie-con .bottom {
+width: 100%;
+box-sizing: border-box;
+display: flex;
+justify-content: center;
+}
+
+
+.movie .movie-con .bottom ul{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(1,200px);
+  gap: 10px;
+  
+
+}
+.movie .movie-con .bottom ul li .image img{
+width: 100%;
+}
+  
+
+
+
+.main-drama{
+  width: 100%;
+  height: auto;
+  
+}
+.main-drama .main-drama-con{
+  width: 100%;
+  
+}
+.main-drama .main-drama-con .top{
+  width: 100%;
+}
+.main-drama .main-drama-con .top ul{
+  display: flex;
+  justify-content: space-between;
+  /* padding: 10px; */
+}
+.main-drama .main-drama-con .top ul li:nth-child(2){
+  background-color: rgb(187, 11, 108);
+  border-radius: 5px 5px 5px 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  }
+.main-drama .main-drama-con .bottom ul{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(1,200px);
+  gap: 10px;
+
+}
+.main-drama-con .bottom ul li{
+  /* background-color: rgb(11, 187, 49); */
+
+}
+.main-anime{
+  width: 100%;
+  height: auto;
+}
+.main-anime .main-anime-con{
+  width: 100%;
+  
+}
+.main-anime .main-anime-con .top{
+  width: 100%;
+}
+.main-anime .main-anime-con .top ul li:nth-child(2){
+background-color: rgb(187, 11, 108);
+
+  border-radius: 5px 5px 5px 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  }
+.main-anime .main-anime-con .top ul{
+  display: flex;
+  justify-content: space-between;
+  /* padding: 10px; */
+}
+.main-anime .main-anime-con .bottom ul{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(1,200px);
+  gap: 10px;
+
+}
+.main-anime-con .bottom ul li{
+  /* background-color: rgb(11, 58, 187); */
+
+}
+.main-webtoon{
+  width: 100%;
+  height: auto;
+  
+}
+.main-webtoon .main-webtoon-con{
+  width: 100%;
+  
+}
+.main-webtoon .main-webtoon-con .top{
+  width: 100%;
+}
+.main-webtoon .main-webtoon-con .top ul{
+  display: flex;
+  justify-content: space-between;
+  /* padding: 10px; */
+}
+.main-webtoon .main-webtoon-con .top ul li:nth-child(2){
+  background-color: rgb(187, 11, 108);
+  border-radius: 5px 5px 5px 5px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  }
+  .main-webtoon .main-webtoon-con .bottom {
+width: 100%;
+box-sizing: border-box;
+display: flex;
+justify-content: center;
+}
+
+
+.main-webtoon .main-webtoon-con .bottom ul{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(1,200px);
+  gap: 10px;
+  overflow: hidden;
+  
+
+}
+.main-webtoon .main-webtoon-con .bottom ul li .image img{
+width: 100%;
+
+}
