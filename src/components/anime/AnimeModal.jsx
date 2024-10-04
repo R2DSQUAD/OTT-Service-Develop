@@ -12,7 +12,7 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
   useEffect(() => {
     const axiosFn = async () => {
       try {
-        const items = await axios.get(`http://localhost:3001/animeItems?id=${itemId.id}`)
+        const items = await axios.get(`http://localhost:3001/allItems?id=${itemId.id}`)
 
         setModalData(items.data[0]); // [{}]
         
@@ -38,7 +38,7 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
         <div className="animeModal-con">
           <span className="close" onClick={closeBtn}>×</span> {/* x 버튼 */}
           <div className="top">
-            <img src={`/images/anime/${modalData.img}`} alt={modalData.img} />
+            <img src={`/images/itemData/${modalData.img}`} alt={modalData.img} />
             <h3>{modalData.title}</h3>
           </div>
           <div className="bottom">

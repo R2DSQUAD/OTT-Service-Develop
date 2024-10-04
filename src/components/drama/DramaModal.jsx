@@ -24,7 +24,7 @@ const DramaModal = ({modalItem,setDramaModal}) => {
   useEffect(()=>{
     const axFn= async()=>{
       try{
-        const res=await axios.get(`http://localhost:3001/dramaItems?id=${modalItem.id}`)
+        const res=await axios.get(`http://localhost:3001/allItems?id=${modalItem.id}`)
         // console.log(typeof(res.data))
         // console.log(typeof(res.data[0]))
         // console.log(res.data)
@@ -46,7 +46,7 @@ const DramaModal = ({modalItem,setDramaModal}) => {
       id : modalList.id,
       price: modalList.price,
       title: modalList.title,
-      img: `/images/drama/${modalList.img}`,
+      img: `/images/itemData/${modalList.img}`,
       type: modalList.type,
       count: count      
     }
@@ -73,7 +73,7 @@ const DramaModal = ({modalItem,setDramaModal}) => {
           <span className='close' onClick={closeFn}>X</span>
           <div className="item">
             <div className="modal-list">
-               <img src={`/images/drama/${modalList.img}`} alt={modalList.img} />
+               <img src={`/images/itemData/${modalList.img}`} alt={modalList.img} />
                <span>제목:{modalList.title}</span>
                <span>가격:{modalList.price}</span>
             </div>
