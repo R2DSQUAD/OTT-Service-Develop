@@ -24,7 +24,7 @@ const WebtoonModal = ({ modalItem, setIsWebtoonModal }) => {
     const axiosFn = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/webtoonItems?id=${modalItem.id}`
+          `http://localhost:3001/allItems?id=${modalItem.id}`
         );
         setModalItems(res.data[0]);
       } catch (err) {
@@ -46,7 +46,7 @@ const WebtoonModal = ({ modalItem, setIsWebtoonModal }) => {
             </span>
             <div className="top">
               <img
-                src={`/images/webtoon/${modalItems.img}`}
+                src={`/images/itemData/${modalItems.img}`}
                 alt={modalItems.img}
               />
               <span className="title">{modalItems.title}</span>

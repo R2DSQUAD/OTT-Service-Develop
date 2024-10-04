@@ -63,10 +63,10 @@ const Drama = () => {
           <div className="popularList">
             <h3>인기컨텐츠</h3>
             <ul>
-              {items &&items.filter(el => el.type==="popular").map((el,idx)=>{
+              {items &&items.filter(el => el.type==="드라마" && el.genre==="인기" ).map((el,idx)=>{
                 return(
                   <li key={idx} data-id={el.id} onClick={dramaModalFn}>                
-                    <img src={`/images/drama/${el.img}`} alt={el.img} />
+                    <img src={`/images/itemData/${el.img}`} alt={el.img} />
                 </li>
                 )
               })}
@@ -75,10 +75,10 @@ const Drama = () => {
           <div className="actionList">
             <h3>액션</h3>
             <ul>
-              {items &&items.filter(el => el.type==="action").map((el,idx)=>{
+              {items &&items.filter(el => el.type==="드라마" && el.genre==="액션").map((el,idx)=>{
                 return(
                   <li key={idx} data-id={el.id} onClick={dramaModalFn}>                
-                    <img src={`/images/drama/${el.img}`} alt={el.img} />
+                    <img src={`/images/itemData/${el.img}`} alt={el.img} />
                 </li>
                 )
               })}
@@ -87,10 +87,10 @@ const Drama = () => {
           <div className="fantasyList">
             <h3>판타지</h3>
             <ul>
-              {items &&items.filter(el => el.type==="fantasy").map((el,idx)=>{
+              {items &&items.filter(el => el.type==="드라마" && el.genre==="판타지").map((el,idx)=>{
                 return(
                   <li key={idx} data-id={el.id} onClick={dramaModalFn}>                
-                    <img src={`/images/drama/${el.img}`} alt={el.img} />
+                    <img src={`/images/itemData/${el.img}`} alt={el.img} />
                 </li>
                 )
               })}
@@ -99,10 +99,10 @@ const Drama = () => {
           <div className="horrorList">
             <h3>호러</h3>
             <ul>
-              {items &&items.filter(el => el.type==="horror").map((el,idx)=>{
+              {items &&items.filter(el => el.type==="드라마" && el.genre==="공포").map((el,idx)=>{
                 return(
                   <li key={idx} data-id={el.id} onClick={dramaModalFn}>                
-                    <img src={`/images/drama/${el.img}`} alt={el.img} />
+                    <img src={`/images/itemData/${el.img}`} alt={el.img} />
                 </li>
                 )
               })}
@@ -111,10 +111,10 @@ const Drama = () => {
           <div className="sfList">
             <h3>SF</h3>
             <ul>
-              {items &&items.filter(el => el.type==="sf").map((el,idx)=>{
+              {items &&items.filter(el => el.type==="드라마" && el.genre==="SF").map((el,idx)=>{
                 return(
                   <li key={idx} data-id={el.id} onClick={dramaModalFn}>                
-                    <img src={`/images/drama/${el.img}`} alt={el.img} />
+                    <img src={`/images/itemData/${el.img}`} alt={el.img} />
                 </li>
                 )
               })}
@@ -123,10 +123,10 @@ const Drama = () => {
           <div className="romanceList">
             <h3>로맨스</h3>
             <ul>
-              {items &&items.filter(el => el.type==="romance").map((el,idx)=>{
+              {items &&items.filter(el => el.type==="드라마" && el.genre==="로맨스").map((el,idx)=>{
                 return(
                   <li key={idx} data-id={el.id} onClick={dramaModalFn}>                
-                    <img src={`/images/drama/${el.img}`} alt={el.img} />
+                    <img src={`/images/itemData/${el.img}`} alt={el.img} />
                 </li>
                 )
               })}
