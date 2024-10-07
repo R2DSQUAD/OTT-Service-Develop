@@ -16,6 +16,7 @@
 @import url(./css/admin/admin-right.css);
 @import url(./css/admin/admin-content.css);
 @import url(./css/admin/admin-product.css);
+@import url(./css/cart/cart.css);
 
 #root {
   background-color: black;

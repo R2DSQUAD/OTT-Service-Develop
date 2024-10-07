@@ -9,7 +9,7 @@ const item={
   title:'',
   price:'',
   img:'',
-  type:''
+  genre:''
 }
 
 const DramaModal = ({modalItem,setDramaModal}) => {
@@ -51,7 +51,7 @@ const DramaModal = ({modalItem,setDramaModal}) => {
       count: count      
     }
     dispatch(addCart(dramaCart))
-    console.log(dramaCart)
+    alert('장바구니에 추가되었습니다')
     
   }
   const navigate=useNavigate()
@@ -76,6 +76,7 @@ const DramaModal = ({modalItem,setDramaModal}) => {
                <img src={`/images/itemData/${modalList.img}`} alt={modalList.img} />
                <span>제목:{modalList.title}</span>
                <span>가격:{modalList.price}</span>
+               <span>총 금액:{modalList.price * count}</span>
             </div>
             <button onClick={increFn}>+</button>
             <span>{count}</span>

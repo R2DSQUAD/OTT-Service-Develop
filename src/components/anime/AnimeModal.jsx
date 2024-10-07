@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addCart } from "../../slice/cartslice";
 
 const AnimeModal = ({ itemId, setIsAnimeModal }) => {
 
@@ -31,6 +33,19 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
   const closeBtn = () => {
     setIsAnimeModal(false);
   };
+  const dispatch=useDispatch()
+  const addCartFn=()=>{
+    const animeCart={
+      id : modalData.id,
+      price: modalData.price,
+      title: modalData.title,
+      img: `/images/itemData/${modalData.img}`,
+      type: modalData.type,
+      //count 수량 데이터 추가
+    }
+    dispatch(addCart(animeCart))
+    alert('장바구니에 추가되었습니다')
+  }
 
   return (
     <>
@@ -50,7 +65,7 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
               <span>{modalData.genre}</span>
             </div>
             <div className="bottom-line2">
-              <button>장바구니</button>
+              <button onClick={addCartFn}>장바구니</button>
               <button>구매하기</button>
             </div>
             <div className="bottom-line3">

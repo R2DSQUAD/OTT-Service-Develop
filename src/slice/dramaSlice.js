@@ -37,7 +37,7 @@ const dramaSlice = createSlice({
     }
   }
 )
-export const dramaThunk=createAsyncThunk('cart/dramaThunk',
+export const dramaThunk=createAsyncThunk('dramaItem/dramaThunk',
   async ()=>{
     const res=await axios.get('http://localhost:3001/allItems')
     const data=res.data

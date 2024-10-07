@@ -8,7 +8,7 @@ const Header = () => {
         <div className="gnb">
           <ul>
             <li>
-              <Link to={"/"}>장바구니</Link>
+              <Link to={"/cart"}>장바구니</Link>
             </li>
             <li>
               <Link to={"/signIn"}>로그인</Link>

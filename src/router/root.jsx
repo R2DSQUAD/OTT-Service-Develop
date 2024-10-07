@@ -6,7 +6,7 @@ const Loading = <div className='loading'>Loading...</div>
 const DefaultLayout = lazy(()=> import('../layout/common/DefaultLayout'));
 const MainIndexPage = lazy(()=> import('../pages/main/MainIndexPage'));
 const WebtoonIndexPage = lazy(()=> import('../pages/webtoon/WebtoonIndexPage'));
-const Drama = lazy(()=> import('../components/drama/Drama'));
+const DramaIndexPage = lazy(()=> import('../pages/drama/DramaPage'));
 const Cart = lazy(()=> import('../components/cart/CartList'));
 const AnimePage = lazy(() => import("../pages/anime/AnimePage"));
 const SignInLayout = lazy(()=> import('../layout/auth/SignInLayout'))
@@ -28,7 +28,7 @@ const root = createBrowserRouter([
         element: <Suspense fallback = {Loading}><WebtoonIndexPage/></Suspense>
       },{
         path: 'drama',
-        element: <Suspense fallback = {Loading}><Drama/></Suspense>
+        element: <Suspense fallback = {Loading}><DramaIndexPage/></Suspense>
       },
       ,{
         path: 'cart',
