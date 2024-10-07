@@ -1,9 +1,10 @@
 import React from 'react'
-import Drama from '../../components/drama/Drama'
+import DramaIndex from '../../components/drama/DramaIndex'
+
 
 const DramaPage = () => {
   return (
-    <Drama/>
+    <DramaIndex/>
   )
 }
 

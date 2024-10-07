@@ -27,6 +27,22 @@ const cartslice = createSlice({
       if(num1!==-1){
         state.items.splice(num1,1)
       }
+    },
+    increCount: (state,action)=>{
+      const num=state.items.findIndex(el=>{
+        return el.id===action.payload
+      })
+      state.items[num].count +=1
+    },
+    decreCount: (state,action)=>{
+      const num=state.items.findIndex(el=>{
+        return el.id===action.payload
+      })
+      if(state.items[num].count<=1){
+        state.items[num].count=1
+      }else{
+        state.items[num].count-=1
+      }
     }
   }
 })
@@ -34,5 +50,5 @@ const cartslice = createSlice({
 
 
 
-export const {addCart,deleteCart}=cartslice.actions
+export const {addCart,deleteCart,increCount,decreCount}=cartslice.actions
 export default cartslice

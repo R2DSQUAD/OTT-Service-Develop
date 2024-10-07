@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { addCart } from '../../slice/cartslice'
 
 const movietData ={
     id:0,
@@ -29,6 +31,19 @@ const MovieModal = ({modalitem,setMovieModal}) => {
     //     }
     //     axiosFn1()
     //   },[])
+    const dispatch=useDispatch()
+    const addCartFn=()=>{
+      const movieCart={
+        id : modalitem.id,
+      price: modalitem.price,
+      title: modalitem.title,
+      img: modalitem.img,
+      type: modalitem.type
+      //count 개수 데이터 추가
+      }
+      dispatch(addCart(movieCart))
+      alert('장바구니에 추가되었습니다')
+    }
   return (
   <>
     <div className="movieModal">
@@ -44,7 +59,7 @@ const MovieModal = ({modalitem,setMovieModal}) => {
             <span>{modalitem.title}</span>
             <div className="payment">
                 <li className='payment'>결제하기</li>
-                <li className='cart'>장바구니</li>
+                <li className='cart' onClick={addCartFn}>장바구니</li>
             </div>
             <span>{modalitem.comment}</span>
             <span><li>{modalitem.price}원</li></span>

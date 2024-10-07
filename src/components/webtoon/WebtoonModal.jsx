@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addCart } from "../../slice/cartslice";
 
 const WebtoonModal = ({ modalItem, setIsWebtoonModal }) => {
   const [modalItemCount, setModalItemCount] = useState(1);
@@ -34,7 +36,19 @@ const WebtoonModal = ({ modalItem, setIsWebtoonModal }) => {
     axiosFn();
   }, []);
 
-
+  const dispatch=useDispatch()
+  const addCartFn=()=>{
+    const webtoonCart={
+      id:modalItems.id,
+      price:modalItems.price,
+      title:modalItems.title,
+      img: `/images/itemData/${modalItems.img}`,
+      type: modalItems.type,
+      count: modalItemCount
+    }
+    dispatch(addCart(webtoonCart))
+    alert('장바구니에 추가되었습니다')
+  }
 
   return (
     <>
@@ -63,7 +77,7 @@ const WebtoonModal = ({ modalItem, setIsWebtoonModal }) => {
               </div>
               <div className="cartBtn">
                 <button>📼 구매하기</button>
-                <button>🛒 장바구니</button>
+                <button onClick={addCartFn}>🛒 장바구니</button>
                 <div className="itemCount">
                   <button onClick={decrementFn}>-</button>
                   <span>{modalItemCount}</span>
