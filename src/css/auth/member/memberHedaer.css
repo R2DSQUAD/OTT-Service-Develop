@@ -1,0 +1,39 @@
+.member-header {
+  background-color: #141517;
+  display: flex;
+}
+
+.member-header .member-header-con {
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+
+.member-header .member-header-con h1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 80px;
+}
+
+.member-header .member-header-con h1 img{
+  width: 120px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+.member-header .member-header-con>.gnb>ul {
+  display: flex;
+  gap: 50px;
+  padding: 100px;
+}
+
+.member-header .member-header-con>.gnb>ul>li a {
+  color: inherit;
+  white-space: nowrap;
+}

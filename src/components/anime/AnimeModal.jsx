@@ -2,10 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addCart } from "../../slice/cartslice";
+import { useNavigate } from "react-router-dom";
 
 const AnimeModal = ({ itemId, setIsAnimeModal }) => {
 
-
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
 
 
   // 모달 데이터
@@ -33,19 +35,34 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
   const closeBtn = () => {
     setIsAnimeModal(false);
   };
-  const dispatch=useDispatch()
-  const addCartFn=()=>{
+
+  const [itemCount, setItemCount] = useState(1)
+  
+  const addCartFn = () => {
     const animeCart={
       id : modalData.id,
       price: modalData.price,
       title: modalData.title,
       img: `/images/itemData/${modalData.img}`,
       type: modalData.type,
-      //count 수량 데이터 추가
+      count: itemCount
     }
     dispatch(addCart(animeCart))
     alert('장바구니에 추가되었습니다')
   }
+
+  const plusFn = () => {
+    setItemCount(itemCount + 1)
+  }
+  
+  const minusFn = () => {
+    if (itemCount === 1) {
+      return
+    }
+    setItemCount(itemCount - 1)
+  }
+
+
 
   return (
     <>
@@ -65,12 +82,16 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
               <span>{modalData.genre}</span>
             </div>
             <div className="bottom-line2">
-              <button onClick={addCartFn}>장바구니</button>
+              <button onClick={addCartFn}>장바구니 추가</button>
               <button>구매하기</button>
+              <button onClick={minusFn}>-</button>
+              <span>{itemCount}</span>
+              <button onClick={plusFn}>+</button>
+              <button onClick={() => {navigate('/cart')}}>장바구니 이동</button>
             </div>
             <div className="bottom-line3">
-              <span className="text">{modalData.text}</span>
-              <span className="price">{modalData.price}</span>
+              <span className="text">{modalData.comment}</span>
+              <span className="price">{modalData.price}원</span>
             </div>
           </div>
         </div>

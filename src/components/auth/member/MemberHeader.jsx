@@ -1,28 +1,27 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom/dist";
-import { signOutFn } from "../../slice/authSlice";
+import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { signOutFn } from '../../../slice/authSlice'
 
-const Header = () => {
+const MemberHeader = () => {
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const isSignIn = useSelector(state => state.auth.isSignIn)
   const signInUser = useSelector(state => state.auth.signInUser)
 
-  console.log(isSignIn)
-  console.log(signInUser, "유저정보")
-  
-
 
 
   return (
-    <div className="header">
-      <div className="header-con">
+    <div className="member-header">
+      <div className="member-header-con">
+        <h1 className="logo">
+            <Link to={"/"}><img src="/images/common/logo.svg" alt="logo" /></Link>
+        </h1>
         <div className="gnb">
           <ul>
             <li>
-              <Link to={"/cart"}>장바구니</Link>
+              <Link to={"/"}>장바구니</Link>
             </li>
             <li>
               {isSignIn ?
@@ -61,7 +60,7 @@ const Header = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Header;
+export default MemberHeader

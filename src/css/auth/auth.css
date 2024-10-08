@@ -10,3 +10,12 @@
 @import url(./signUp/signUpHeader.css);
 @import url(./signUp/signUpIndex.css);
 @import url(./signUp/signUpFooter.css);
+
+/* 회원 정보 css */
+@import url(./member/member.css);
+@import url(./member/memberHedaer.css);
+@import url(./member/memberFooter.css);
+
+@import url(./member/memberUpdate.css);
+@import url(./member/memberUpdateFooter.css);
+@import url(./member//memberUpdateHeader.css);

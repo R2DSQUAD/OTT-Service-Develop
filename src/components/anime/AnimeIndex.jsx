@@ -13,7 +13,7 @@ const AnimeIndex = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const items = await axios.get(`http://localhost:3001/allItems`)
+        const items = await axios.get(`http://localhost:3001/allItems/`)
         setAnimeList(items.data) 
         
       } catch(err) {
@@ -55,12 +55,11 @@ const AnimeIndex = () => {
           <div className="bottom-content">
             <ul>
               {animeList.map((el, idx) => {
-                if (el.type === "애니메이션"){
-
-                
-                return(
-                  <>
-                     {idx%4==0 ? <h1 className={`ani-title${idx/4 + 1}`}>{el.subtitle}</h1> : <></>}  {/* 큰제목 */}
+                if (el.type === "애니메이션") {
+                  return(
+                    // <li key={idx}>hey</li>
+                    <>
+                      {(idx+1)%4==0 && <h1 className={`ani-title${(idx+1)/4 - 4}`}>{el.subtitle}</h1>}  {/* 큰 제목 */}
                       <li key={idx} data-id={el.id} onClick={onAnimeModalFn}>
                         <div className="top">
                           <img src={`/images/itemData/${el.img}`} alt={el.img} />  {/* 이미지 */}
@@ -69,9 +68,9 @@ const AnimeIndex = () => {
                           <h3>{el.title}</h3> {/* 작품명 */}
                         </div>
                       </li>
-                  </>
-                )
-              }
+                    </>
+                  )
+                }
               })}
             </ul>
           </div>

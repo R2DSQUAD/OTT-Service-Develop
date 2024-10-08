@@ -1,0 +1,30 @@
+.member {
+  width: 100%;
+}
+
+.member .member-con {
+  width: 100%;
+  height: calc(100vh - 80px - 80px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.member .member-con .member-wrap {
+  flex: 0 1 1000px;
+  border: 1px solid #fff;
+
+  padding: 1vw;
+  box-sizing: border-box;
+}
+
+.member .member-con .user-data {
+  border: 1px solid #fff;
+  box-sizing: border-box;
+}
+
+.member .member-con .member-wrap .member-btn button {
+  
+}

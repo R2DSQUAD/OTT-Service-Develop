@@ -3,7 +3,7 @@
 .anime {
   width: 100%;
 
-  padding: 5vw;
+  padding: 2vw 1vw;
   box-sizing: border-box;
 }
 
@@ -82,11 +82,14 @@
   display: flex;
   flex-direction: column;
 
-  border-radius: 20px; 
-  
-  overflow: hidden;
-  
+  gap: 1vw;
   box-sizing: border-box;
+
+  cursor: pointer;
+}
+
+.anime .anime-con .bottom-content > ul > li:hover > .top {
+  transform: scale(1.2);
 }
 
 /* .anime .anime-con .bottom-content > ul > li h1{
@@ -99,6 +102,8 @@
   border-radius: 20px;
   box-sizing: border-box;
   overflow: hidden;
+
+  transition: all 0.3s;
 }
 
 .anime .anime-con .bottom-content > ul > li .top img {
