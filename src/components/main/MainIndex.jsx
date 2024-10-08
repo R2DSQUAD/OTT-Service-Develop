@@ -1,10 +1,10 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import MainModal from "./MainModal";
-const movieListData = {
-  id: 0,
-  main_num: 0,
+const mainListData = {
+  id: "",
+  main_num: "",
   genre: "",
   title: "",
   comment: "",
@@ -13,13 +13,25 @@ const movieListData = {
 };
 const webtoonBanner = [];
 const movieBanner = [];
+const animeBanner =[];
+const dramaBanner =[];
+const mainBanner =[];
 
 const MainIndex = () => {
+ 
+  
+ 
+  
+
   const [movieList, setMovieList] = useState([]);
   const [webtoonList, setWebtoonList] = useState([]);
+  const [animeList, setAnimeList] = useState([]);
+  const [dramaList, setDramaList] = useState([]);
+  const [mainList, setMainList] = useState([]);
+
 
   const [mainModal, setMainModal] = useState(false);
-  const [modalitem, setModalitem] = useState(movieListData);
+  const [modalitem, setModalitem] = useState(mainListData);
   const onMainModalFn = (e) => {
     const litag = e.target.parentElement;
     const imgSrc = litag.children[0].getAttribute("src");
@@ -28,18 +40,29 @@ const MainIndex = () => {
     const price = e.currentTarget.getAttribute("data-price");
     const genre = e.currentTarget.getAttribute("data-genre");
     const comment = e.currentTarget.getAttribute("data-comment");
-
+    const age = e.currentTarget.getAttribute("data-age");
+    const year = e.currentTarget.getAttribute("data-year");
+    const time = e.currentTarget.getAttribute("data-time");
     setModalitem({
       id: parseInt(eId),
       genre: genre,
       title: title,
       img: imgSrc,
-
       price: price,
       comment: comment,
+      age:age,
+      year:year,
+      time:time
     });
     setMainModal(true);
   };
+ 
+  
+// 함수 표현식
+
+
+// 함수를 3000 후에 실행 1000-> 1초
+
   useEffect(() => {
     const axiosFn = async () => {
       try {
@@ -47,6 +70,10 @@ const MainIndex = () => {
         console.log(res.data);
         setWebtoonList(res.data);
         setMovieList(res.data);
+        setAnimeList(res.data);
+        setDramaList(res.data);
+        setMainList(res.data);
+       
       } catch (err) {
         alert(err);
       }
@@ -54,6 +81,15 @@ const MainIndex = () => {
     axiosFn();
   }, []);
 
+  while (
+    mainBanner.length < 7 &&
+    mainBanner.length < mainList.length
+  ) {
+    const random = Math.floor(Math.random() * mainList.length);
+    if (!mainBanner.includes(mainList[random])) {
+      mainBanner.push(mainList[random]);
+    }
+  }
   if (webtoonList && webtoonList.length > 0) {
     const webtoonItemsOnly = webtoonList.filter((el) => el.type === "웹툰");
 
@@ -81,14 +117,33 @@ const MainIndex = () => {
       }
     }
   }
-  if (movieList.length > 0) {
-    while (movieBanner.length < 5 && movieBanner.length < movieList.length) {
-      const random = Math.floor(Math.random() * movieList.length);
-      if (!movieBanner.includes(movieList[random])) {
-        movieBanner.push(movieList[random]);
+  if (animeList && animeList.length > 0) {
+    const animeListItemsOnly = animeList.filter((el) => el.type === "애니메이션");
+
+    while (
+      animeBanner.length < 5 &&
+      animeBanner.length < animeListItemsOnly.length
+    ) {
+      const random = Math.floor(Math.random() * animeListItemsOnly.length);
+      if (!animeBanner.includes(animeListItemsOnly[random])) {
+        animeBanner.push(animeListItemsOnly[random]);
       }
     }
   }
+  if (dramaList && dramaList.length > 0) {
+    const dramaListItemsOnly = dramaList.filter((el) => el.type === "드라마");
+
+    while (
+      dramaBanner.length < 5 &&
+      dramaBanner.length < dramaListItemsOnly.length
+    ) {
+      const random = Math.floor(Math.random() * dramaListItemsOnly.length);
+      if (!dramaBanner.includes(dramaListItemsOnly[random])) {
+        dramaBanner.push(dramaListItemsOnly[random]);
+      }
+    }
+  }
+  
 
   return (
     <>
@@ -98,22 +153,39 @@ const MainIndex = () => {
       {/* 모달창 정리 */}
       <div className="main">
         <div className="main-con">
-          <div className="best">
-            <div className="best-con">
+          <div className="maintop">
+            <div className="maintop-con">
+              <div className="gallery">
+                <ul>
+                {mainBanner &&
+                    mainBanner.map((el, index) => {
+                       {
+                        return (
+                          <li key={index}>
+                            <div className="image">
+                              <img
+                                src={`/images/itemData/${el.img}`}
+                                alt={el.img}
+                                onClick={onMainModalFn}
+                                key={index}
+                                data-id={el.id}
+                                data-comment={el.comment}
+                                data-title={el.title}
+                                data-price={el.price}
+                                data-age={el.age}
+                                data-year={el.year}
+                                data-time={el.time}
+                              />
+                            </div>
+                          </li>
+                        );
+                      }
+                    })}
+                </ul>
+              </div>
               <div className="bCon">
                 <span className="spanLeft">왼쪽</span>
                 <span className="spanRight">오른쪽</span>
-              </div>
-
-              <div className="gallery">
-                <ul>
-                  <li>사진1</li>
-                  <li>사진2</li>
-                  <li>사진3</li>
-                  <li>사진4</li>
-                  <li>사진5</li>
-                  <li>사진6</li>
-                </ul>
               </div>
             </div>
           </div>
@@ -123,7 +195,7 @@ const MainIndex = () => {
                 <ul>
                   <li>영화</li>
                   <li>
-                    <Link to={"/movie"}>더보기</Link>
+                    <Link to={"movie"}>더보기</Link>
                   </li>
                 </ul>
               </div>
@@ -144,6 +216,9 @@ const MainIndex = () => {
                                 data-comment={el.comment}
                                 data-title={el.title}
                                 data-price={el.price}
+                                data-age={el.age}
+                                data-year={el.year}
+                                data-time={el.time}
                               />
                             </div>
                           </li>
@@ -159,15 +234,36 @@ const MainIndex = () => {
               <div className="top">
                 <ul>
                   <li>드라마</li>
-                  <li>더보기</li>
+                 <li><Link to={"drama"}>더보기</Link></li> 
                 </ul>
               </div>
               <div className="bottom">
                 <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
+                {dramaBanner &&
+                    dramaBanner.map((el, index) => {
+                      {
+                        if (el.type === "드라마")
+                          return (
+                            <li key={index}>
+                              <div className="image">
+                                <img
+                                  src={`/images/itemData/${el.img}`}
+                                  alt={el.img}
+                                  onClick={onMainModalFn}
+                                  key={index}
+                                  data-id={el.id}
+                                  data-title={el.title}
+                                  data-comment={el.comment}
+                                  data-price={el.price}
+                                  data-age={el.age}
+                                  data-year={el.year}
+                                  data-time={el.time}
+                                />
+                              </div>
+                            </li>
+                          );
+                      }
+                    })}
                 </ul>
               </div>
             </div>
@@ -177,15 +273,37 @@ const MainIndex = () => {
               <div className="top">
                 <ul>
                   <li>애니메이션</li>
-                  <li>더보기</li>
+                  <li>
+                    <Link to={"anime"}>더보기</Link></li>
                 </ul>
               </div>
               <div className="bottom">
                 <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
+                {animeBanner &&
+                    animeBanner.map((el, index) => {
+                      {
+                        if (el.type === "애니메이션")
+                          return (
+                            <li key={index}>
+                              <div className="image">
+                                <img
+                                  src={`/images/itemData/${el.img}`}
+                                  alt={el.img}
+                                  onClick={onMainModalFn}
+                                  key={index}
+                                  data-id={el.id}
+                                  data-title={el.title}
+                                  data-comment={el.comment}
+                                  data-price={el.price}
+                                  data-age={el.age}
+                                  data-year={el.year}
+                                  data-time={el.time}
+                                />
+                              </div>
+                            </li>
+                          );
+                      }
+                    })}
                 </ul>
               </div>
             </div>
@@ -218,6 +336,9 @@ const MainIndex = () => {
                                   data-title={el.title}
                                   data-comment={el.comment}
                                   data-price={el.price}
+                                  data-age={el.age}
+                                  data-year={el.year}
+                                  data-time={el.time}
                                 />
                               </div>
                             </li>

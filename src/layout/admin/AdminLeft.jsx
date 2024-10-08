@@ -6,7 +6,7 @@ const AdminLeft = () => {
     <div className="admin-left">
     <div className="admin-left-con">
       <h1 className="admin-logo">
-        <Link to={"/"}><img src="/images/common/logo.svg" alt="logo" /></Link>
+        <Link to={"/admin"}><img src="/images/common/logo.svg" alt="logo" /></Link>
       </h1>
       <div className="admin-gnb">
         <ul>
@@ -14,7 +14,7 @@ const AdminLeft = () => {
             <Link to={"/"}>멤버</Link>
           </li>
           <li>
-            <Link to={"/"}>장바구니</Link>
+            <Link to={"/admin/cart"}>장바구니</Link>
           </li>
           <li>
             <Link to={"/"}>결제</Link>
@@ -23,7 +23,7 @@ const AdminLeft = () => {
             <Link to={"/admin/product"}>제품 리스트</Link>
           </li>
           <li>
-            <Link to={"/"}>제품 추가</Link>
+            <Link to={"/admin/addproduct"}>제품 추가</Link>
           </li>
         </ul>
       </div>

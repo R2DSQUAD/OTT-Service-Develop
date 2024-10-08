@@ -1,15 +1,22 @@
-import axios from 'axios'
+import axios, { all } from 'axios'
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import AdminProductDetail from './AdminProductDetail'
+
+// const productData={
+//   type:""
+// }
 
 const AdminProduct = () => {
 
+  const [type,setType]=useState('all')
   const[itemList,setItemList]=useState([])
+
 
   useEffect(()=>{
     const axiosFn=async()=>{
       try{
         const res = await axios.get('http://localhost:3001/allItems')
-        console.log(res.data)
       setItemList(res.data)
     }catch(err){
       alert(err)
@@ -17,7 +24,33 @@ const AdminProduct = () => {
   }
   axiosFn()
 },[])
-    
+    const navigate = useNavigate()
+
+
+    const productDetailFn = (elId) => {
+      // const eId = e.currentTarget.getAttribute('data-id')
+       //여기 부분에 값 안들어감           
+      navigate(`/admin/product/detail/${elId}`)
+      
+    }
+    const onTypeChangeFn= (e) =>{
+      // setType(e.target.value)
+
+      const axiosFn=async()=>{
+        try{
+          if(e.target.value==='all' ){
+            const res = await axios.get(`http://localhost:3001/allItems`)
+            setItemList(res.data)
+          }else{
+            const res = await axios.get(`http://localhost:3001/allItems?type=${e.target.value}`)
+            setItemList(res.data)
+          }
+        }catch(err){
+          alert(err)
+        }
+      }
+      axiosFn()
+  }
   
   return (
     <>
@@ -27,25 +60,47 @@ const AdminProduct = () => {
           <div className="product">
             <div className="title">
               <span>번호</span>
-              <span>제목</span>
               <span>장르</span>
+              <span>사진</span>
+              <span>제목</span>
               <span>가격</span>
-              <span>보기</span>
+              <span>보기</span>          
+            </div>
+            <div className="option">
+            <li>
+          <select name="type" id="type" value={type.type}
+             onChange={onTypeChangeFn}>
+            <option value='all'>전체</option>
+            <option value='영화'>영화</option>
+            <option value="드라마">드라마</option>
+            <option value="애니메이션">애니메이션</option>
+            <option value="웹툰">웹툰</option>
+          </select>
+        </li>
             </div>
             <div className="allItem-list">
             <ul>
-              {itemList && itemList.map((el, idx) => {
-                return (
-                  <li key={idx}>
-                    <span>{el.id}</span>
-                    <span>{el.title}</span>
-                    <span>{el.genre}</span>
-                    <span>{el.price}</span>
-                    <span>{el.address}</span>
-                    <span>보기</span>
-                  </li>
-                )
-              })}
+              {itemList && itemList.map((el, idx) => {   
+                    // if(el.type === type.type) {
+                            return (
+                              <li key={idx} >
+                                <span>{el.id}</span>
+                                <span>{el.genre}</span>
+                                <span> <img src={`/images/itemData/${el.img}`}/></span>                  
+                                <span>{el.title}</span>
+                                <span>{el.price}</span>
+                                <span onClick={()=>{
+                                  productDetailFn(el.id)
+                                }} >보기</span>
+                              </li>
+                            )
+                            
+            // }  
+  
+  
+
+
+})}
             </ul>
             </div>
           </div>
