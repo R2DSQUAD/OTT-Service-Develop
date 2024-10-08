@@ -10,6 +10,10 @@ const movieListData = {
   comment: "",
   price: "",
   img: "",
+  age:"",
+  year:"",
+  time:""
+
 };
 const MovieIndex = () => {
   const [movieList, setMovieList] = useState([]);
@@ -24,6 +28,11 @@ const MovieIndex = () => {
     const comment = e.currentTarget.getAttribute("data-comment");
     const price = e.currentTarget.getAttribute("data-price");
     const genre = e.currentTarget.getAttribute("data-genre");
+    const age = e.currentTarget.getAttribute("data-age");
+    const year = e.currentTarget.getAttribute("data-year");
+    const time = e.currentTarget.getAttribute("data-time");
+
+
 
     setModalitem({
       id: parseInt(eId),
@@ -32,6 +41,9 @@ const MovieIndex = () => {
       img: imgSrc,
       comment: comment,
       price: price,
+      age:age,
+      year:year,
+      time:time
     });
     setMovieModal(true);
   };
@@ -77,6 +89,10 @@ const MovieIndex = () => {
                             data-title={el.title}
                             data-comment={el.comment}
                             data-price={el.price}
+                            data-age={el.age}
+                            data-year={el.year}
+                            data-time={el.time}
+                            
                           />
                         </div>
                       </li>
@@ -104,6 +120,9 @@ const MovieIndex = () => {
                             data-title={el.title}
                             data-comment={el.comment}
                             data-price={el.price}
+                            data-age={el.age}
+                            data-year={el.year}
+                            data-time={el.time}
                           />
                         </div>
                       </li>
@@ -131,6 +150,9 @@ const MovieIndex = () => {
                             data-title={el.title}
                             data-comment={el.comment}
                             data-price={el.price}
+                            data-age={el.age}
+                            data-year={el.year}
+                            data-time={el.time}
                           />
                         </div>
                       </li>
@@ -158,6 +180,9 @@ const MovieIndex = () => {
                             data-title={el.title}
                             data-comment={el.comment}
                             data-price={el.price}
+                            data-age={el.age}
+                            data-year={el.year}
+                            data-time={el.time}
                           />
                         </div>
                       </li>

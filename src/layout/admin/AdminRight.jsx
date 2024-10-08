@@ -1,17 +1,28 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { signOutFn } from '../../slice/authSlice'
 
 const AdminRight = () => {
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const isSignIn = useSelector(state => state.auth.isSignIn)
+  const signInUser = useSelector(state => state.auth.signInUser)
   return (
     <div className="admin-rigth">
     <div className="admin-right-con">
       <div className="admin-gnb">
         <ul>
           <li>
-            <Link to={"/"}>로그아웃</Link>
+            <Link onClick={(e) => {
+                e.preventDefault()
+                alert('로그아웃 되었습니다. ')
+                dispatch(signOutFn())
+                navigate('/')
+              }}>로그아웃</Link>
           </li>
           <li>
-            <Link to={"/"}>님</Link>
+          <Link to={"/member"}>{signInUser[0].userEmail}님</Link>
           </li>
         </ul>
       </div>

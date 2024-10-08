@@ -42,43 +42,66 @@
 }
 .mainModal .mainModal-con .top img{
     width: 100%;
-display: block;
-height: auto;
+    display: block;
+    height: auto;
 }
 .mainModal .mainModal-con .bottom{
     width: 100%;
-    height: 250px;
+    height: 50px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    align-items:baseline;
+    justify-content: flex-start;
     gap: 10px;
 }
 .mainModal .mainModal-con .bottom span:nth-child(1){
  font-size: 32px;
 }
-.mainModal .mainModal-con .bottom span:nth-last-child(1){
+.price span { 
     display: flex;
     justify-content: flex-end;
     align-items:end;
 
 }
-.mainModal .mainModal-con .bottom span:nth-last-child(1) li{
-    display: flex;
-    justify-content: center;
-width: 70px;
-background-color: rgb(170, 1, 119);
+
+.price span li{
+background-color: rgb(255, 0, 85, 1);
 border-radius: 5px 5px 5px 5px;
 padding: 3px;
 }
-.bottom .payment{
+
+.main-payment{
+    width: 100%;
     display: flex;
+    justify-content: flex-start;
     gap: 10px;
 }
-.bottom .payment li{
-    background-color: rgb(170, 1, 119);
+.main-payment li{
+    background-color: rgb(255, 0, 85, 1);
     border-radius: 5px 5px 5px 5px;
     cursor: pointer;
     padding: 3px;
 }
 
+.main-price{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.main-price span li{
+    background-color: rgb(255, 0, 85, 1);
+    border-radius: 5px 5px 5px 5px;
+    padding: 3px;
+}
+.main-comment{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+.mainCount button{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(255, 0, 85, 1);
+    color: #ffffff;
+    border-radius: 5px 5px 5px 5px;
+}
 
