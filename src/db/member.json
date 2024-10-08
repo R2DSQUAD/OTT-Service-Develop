@@ -23,6 +23,14 @@
       "userPw": "7777",
       "phoneNumber": "01000000000",
       "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "5080",
+      "userName": "asd",
+      "userEmail": "asd",
+      "userPw": "sad",
+      "phoneNumber": "asd",
+      "role": "ROLE_ADMIN"
     }
   ]
 }

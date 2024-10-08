@@ -1,12 +1,11 @@
 .dramaModal{
   width: 100%;
   height: 100vh;
-
+  background-color: rgba(172, 172, 172, 0.377);
   position: fixed;
   left: 0;
   top: 0;
   z-index: 999;
-  background-color: rgba(172, 172, 172, 0.377);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,7 +20,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.dramaModal .dramaModal-con span.close{
+.dramaModal .dramaModal-con .item span.close{
   color: white;
   padding: 5px;
   position: absolute;
@@ -30,8 +29,6 @@
 }
 .dramaModal .dramaModal-con .item{
   width: 100%;
-  height: calc(350px - 31px);
-  overflow: hidden;
 }
 .dramaModal .dramaModal-con .item img{
   width: 100%;

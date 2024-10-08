@@ -6,8 +6,8 @@ const initState={
 }
 
 
-const dramaSlice = createSlice({
-  name: 'dramaItem',
+const itemSlice = createSlice({
+  name: 'item',
   initialState: initState,
   reducers: {
     addItem: (state,action)=>{
@@ -30,18 +30,18 @@ const dramaSlice = createSlice({
     }
   },
   extraReducers: (builder)=>{
-      builder.addCase(dramaThunk.fulfilled,(state,action)=>{
+      builder.addCase(itemThunk.fulfilled,(state,action)=>{
         state.items=action.payload
         state.status= 'success'
       })
     }
   }
 )
-export const dramaThunk=createAsyncThunk('dramaItem/dramaThunk',
-  async ()=>{
-    const res=await axios.get('http://localhost:3001/allItems')
+export const itemThunk=createAsyncThunk('item/itemThunk',
+  async (type)=>{
+    const res=await axios.get(`http://localhost:3001/allItems?type=${type}`)
     const data=res.data
     return data
   })
-export const {addItem,deleteItem} =dramaSlice.actions
-export default dramaSlice
+export const {addItem,deleteItem} =itemSlice.actions
+export default itemSlice
