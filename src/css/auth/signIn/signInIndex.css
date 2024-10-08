@@ -3,5 +3,77 @@
 }
 .signIn-con {
   width: 100%;
-  height: calc(100vh - 160px - 80px);
+  height: calc(100vh - 162px - 80px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
+}
+
+.signIn-form {
+  flex: 0 1 600px;
+  
+  display: flex;
+  flex-direction: column;
+  background-color: #222;
+
+  border-radius: 20px;
+
+  padding: 60px;
+  box-sizing: border-box;
+}
+
+.signIn-form > ul {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1vw;
+}
+
+.signIn-form > ul > li {
+  display: flex;
+}
+
+.signIn-form > ul > li.main-list {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.signIn-form > ul > li.main-list > input {
+  flex: 1;
+  border: 0;
+
+  text-indent: 10%;
+  font-size: 16px;
+  font-weight: bold;
+
+
+  padding: 1vw 0;
+  box-sizing: border-box;
+}
+
+
+.signIn-form > ul > li button {
+  flex: 1;
+  border: 0;
+
+  padding: 1.5vw 0;
+  box-sizing: border-box;
+
+  border-radius: 2vw;
+
+  background-color: rgba(255, 0, 0, 54%);
+  color: #fff;
+}
+
+.signIn-form > ul > li:last-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
