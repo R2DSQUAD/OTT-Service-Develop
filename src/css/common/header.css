@@ -13,9 +13,6 @@
   justify-content: flex-end
 }
 
-.header .header-con>.gnb {
-}
-
 .header .header-con>.gnb>ul {
   display: flex;
   gap: 50px;

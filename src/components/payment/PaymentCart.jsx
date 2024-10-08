@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { allItemThunk } from "../../slice/allItemSlice";
 import PaymentModal from "./PaymentModal";
 
-const PaymentIndex = () => {
+const PaymentCart = () => {
   const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart.items);
   const [paymentMethod, setPaymentMethod] = useState(0);
   const [selectBranch, setSelectBranch] = useState(0);
   const [isVertical, setIsVertical] = useState(true);
   const [itemPrice, setItemPrice] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isPaymentModal, setIsPaymentModal] = useState(false)
-  const payment = useSelector((state) => state.payment.items);
 
   const paymentMethodHandler = (e) => {
     setPaymentMethod(Number(e.target.value));
@@ -43,7 +43,7 @@ const PaymentIndex = () => {
 
   useEffect(() => {
     let total = 0;
-    const price = payment.map((item) => {
+    const price = cart.map((item) => {
       total += item.price * item.count;
       return {
         price: item.price * item.count,
@@ -54,15 +54,7 @@ const PaymentIndex = () => {
   
     setTotalPrice(total);
     setItemPrice(price);
-  }, [payment]);
-
-  // useEffect(() => {
-  //   console.log("Payment Method:", paymentMethod);
-  // }, [paymentMethod]);
-
-  // useEffect(() => {
-  //   console.log("Selected Branch:", selectBranch);
-  // }, [selectBranch]);
+  }, [cart]);
 
   const paymentModalFn = (e) => {
     setIsPaymentModal(true);
@@ -78,8 +70,8 @@ const PaymentIndex = () => {
             <hr />
           </div>
           <div className="paymentItemList">
-            {payment &&
-              payment.map((el, idx) => {
+            {cart &&
+              cart.map((el, idx) => {
                 return (
                   <>
                     <div className="contentTop">
@@ -234,7 +226,7 @@ const PaymentIndex = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default PaymentIndex;
+export default PaymentCart
