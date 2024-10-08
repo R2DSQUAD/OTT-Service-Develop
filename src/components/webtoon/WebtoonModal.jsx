@@ -2,25 +2,28 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addCart } from "../../slice/cartslice";
+import { addPayment } from "../../slice/paymentSlice";
+import {useNavigate } from "react-router-dom";
 
 const WebtoonModal = ({ modalItem, setIsWebtoonModal }) => {
   const [modalItemCount, setModalItemCount] = useState(1);
-  const [modalItems, setModalItems] = useState([]);
+  const [modalItems, setModalItems] = useState([])
+  const navigate = useNavigate()
 
   const closeFn = (e) => {
     setIsWebtoonModal(false);
   };
 
   const incrementFn = () => {
-    setModalItemCount(modalItemCount+1);
-  }
+    setModalItemCount(modalItemCount + 1);
+  };
 
   const decrementFn = () => {
     setModalItemCount(modalItemCount - 1);
-    modalItemCount <= 1 ? setModalItemCount(1) : setModalItemCount(modalItemCount - 1);
+    modalItemCount <= 1
+      ? setModalItemCount(1)
+      : setModalItemCount(modalItemCount - 1);
   };
-
-  
 
   useEffect(() => {
     const axiosFn = async () => {
@@ -36,19 +39,31 @@ const WebtoonModal = ({ modalItem, setIsWebtoonModal }) => {
     axiosFn();
   }, []);
 
-  const dispatch=useDispatch()
-  const addCartFn=()=>{
-    const webtoonCart={
-      id:modalItems.id,
-      price:modalItems.price,
-      title:modalItems.title,
-      img: `/images/itemData/${modalItems.img}`,
-      type: modalItems.type,
-      count: modalItemCount
-    }
-    dispatch(addCart(webtoonCart))
-    alert('장바구니에 추가되었습니다')
-  }
+  const webtoonCart = {
+    id: modalItems.id,
+    type: modalItems.type,
+    title: modalItems.title,
+    price: modalItems.price,
+    img: `/images/itemData/${modalItems.img}`,
+    genre: modalItems.genre,
+    age: modalItems.age,
+    year: modalItems.year,
+    time: modalItems.time,
+    count: modalItemCount,
+    coment: modalItems.coment,
+  };
+
+  const dispatch = useDispatch();
+  const addCartFn = () => { 
+    dispatch(addCart(webtoonCart));
+    alert("장바구니에 추가되었습니다");
+  };
+
+  const addPayementFn = () => {
+    dispatch(addPayment(webtoonCart));
+    alert("구매페이지로 이동합니다.");
+    navigate("/paymentIndex");
+  };
 
   return (
     <>
@@ -76,7 +91,7 @@ const WebtoonModal = ({ modalItem, setIsWebtoonModal }) => {
                 </ul>
               </div>
               <div className="cartBtn">
-                <button>📼 구매하기</button>
+                <button onClick={addPayementFn}>📼 구매하기</button>
                 <button onClick={addCartFn}>🛒 장바구니</button>
                 <div className="itemCount">
                   <button onClick={decrementFn}>-</button>
@@ -89,7 +104,7 @@ const WebtoonModal = ({ modalItem, setIsWebtoonModal }) => {
               </div>
               <div className="price">
                 <span>{modalItems.price}원</span>
-                <span>총 금액: {modalItems.price * modalItemCount }원</span>
+                <span>총 금액: {modalItems.price * modalItemCount}원</span>
               </div>
             </div>
           </div>

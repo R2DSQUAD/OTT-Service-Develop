@@ -16,7 +16,7 @@ const Drama = () => {
   const [modalItem,setModalItem]=useState(item)
   // const [dramaList,setDramaList]=useState([])
   const dispatch=useDispatch()
-  const items=useSelector(state=>state.drama.items)
+  const items=useSelector(state=>state.allItem.items)
   useEffect(()=>{
 
     dispatch(dramaThunk())

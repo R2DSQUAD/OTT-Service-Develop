@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../../slice/cartslice'
+import { addPayment } from '../../slice/paymentSlice'
+import { useNavigate } from 'react-router-dom'
 
 const movietData ={
     id:0,
@@ -14,7 +16,7 @@ const movietData ={
 const MovieModal = ({modalitem,setMovieModal}) => {
 
     
-
+  const navigate = useNavigate();
     const closeFn =() =>{
         setMovieModal(false)
     }
@@ -31,19 +33,34 @@ const MovieModal = ({modalitem,setMovieModal}) => {
     //     }
     //     axiosFn1()
     //   },[])
+
+    const movieCart={
+      id: modalitem.id,
+  type: modalitem.type,
+  title: modalitem.title,
+  price: modalitem.price,
+  img: `/images/itemData/${modalitem.img}`,
+  genre: modalitem.genre,
+  age: modalitem.age,
+  year: modalitem.year,
+  time: modalitem.time,
+  count: modalitem,
+  coment: modalitem.coment, 
+    //count 개수 데이터 추가
+    }
+
     const dispatch=useDispatch()
     const addCartFn=()=>{
-      const movieCart={
-        id : modalitem.id,
-      price: modalitem.price,
-      title: modalitem.title,
-      img: modalitem.img,
-      type: modalitem.type
-      //count 개수 데이터 추가
-      }
+      
       dispatch(addCart(movieCart))
       alert('장바구니에 추가되었습니다')
     }
+
+    const addPayementFn = () => {
+      dispatch(addPayment(movieCart));
+      alert("구매페이지로 이동합니다.");
+      navigate("/paymentIndex");
+    };
   return (
   <>
     <div className="movieModal">
@@ -58,7 +75,7 @@ const MovieModal = ({modalitem,setMovieModal}) => {
             <div className="bottom">
             <span>{modalitem.title}</span>
             <div className="payment">
-                <li className='payment'>결제하기</li>
+                <li className='payment' onClick={addPayementFn}>결제하기</li>
                 <li className='cart' onClick={addCartFn}>장바구니</li>
             </div>
             <span>{modalitem.comment}</span>

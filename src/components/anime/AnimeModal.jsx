@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addCart } from "../../slice/cartslice";
 import { useNavigate } from "react-router-dom";
+import { addPayment } from "../../slice/paymentSlice";
 
 const AnimeModal = ({ itemId, setIsAnimeModal }) => {
 
@@ -38,18 +39,30 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
 
   const [itemCount, setItemCount] = useState(1)
   
-  const addCartFn = () => {
-    const animeCart={
-      id : modalData.id,
-      price: modalData.price,
-      title: modalData.title,
-      img: `/images/itemData/${modalData.img}`,
-      type: modalData.type,
-      count: itemCount
-    }
+  const animeCart={
+    id: modalData.id,
+    type: modalData.type,
+    title: modalData.title,
+    price: modalData.price,
+    img: `/images/itemData/${modalData.img}`,
+    genre: modalData.genre,
+    age: modalData.age,
+    year: modalData.year,
+    time: modalData.time,
+    count: itemCount,
+    coment: modalData.coment, 
+  }
+  
+  const addCartFn=()=>{
     dispatch(addCart(animeCart))
     alert('장바구니에 추가되었습니다')
   }
+
+  const addPayementFn = () => {
+    dispatch(addPayment(animeCart));
+    alert("구매페이지로 이동합니다.");
+    navigate("/paymentIndex");
+  };
 
   const plusFn = () => {
     setItemCount(itemCount + 1)
@@ -83,7 +96,7 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
             </div>
             <div className="bottom-line2">
               <button onClick={addCartFn}>장바구니 추가</button>
-              <button>구매하기</button>
+              <button onClick={addPayementFn}>구매하기</button>
               <button onClick={minusFn}>-</button>
               <span>{itemCount}</span>
               <button onClick={plusFn}>+</button>

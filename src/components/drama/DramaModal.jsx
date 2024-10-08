@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../../slice/cartslice'
 import { useNavigate } from 'react-router-dom'
+import { addPayment } from '../../slice/paymentSlice'
 
 const item={
   id: 0,
@@ -39,21 +40,35 @@ const DramaModal = ({modalItem,setDramaModal}) => {
     }
     axFn()
   },[])
+
+  const dramaCart={
+    id: modalList.id,
+    type: modalList.type,
+    title: modalList.title,
+    price: modalList.price,
+    img: `/images/itemData/${modalList.img}`,
+    genre: modalList.genre,
+    age: modalList.age,
+    year: modalList.year,
+    time: modalList.time,
+    count: count,
+    coment: modalList.coment, 
+  }
   
   const dispatch=useDispatch()
   const addCartFn=()=>{
-    const dramaCart={
-      id : modalList.id,
-      price: modalList.price,
-      title: modalList.title,
-      img: `/images/itemData/${modalList.img}`,
-      type: modalList.type,
-      count: count      
-    }
+    
     dispatch(addCart(dramaCart))
     alert('장바구니에 추가되었습니다')
-    
+
   }
+
+  const addPayementFn = () => {
+    dispatch(addPayment(dramaCart));
+    alert("구매페이지로 이동합니다.");
+    navigate("/paymentIndex");
+  };
+
   const navigate=useNavigate()
   const addCart2Fn=()=>{
     navigate('/cart')
@@ -83,7 +98,7 @@ const DramaModal = ({modalItem,setDramaModal}) => {
             <button onClick={decreFn}>-</button>
             <button onClick={addCartFn}>장바구니</button>
             <button onClick={addCart2Fn}>장바구니이동</button>
-            <button>구매</button>
+            <button onClick={addPayementFn}>구매</button>
           </div>
         </div>
       </div>
