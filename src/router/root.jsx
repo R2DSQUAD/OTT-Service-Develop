@@ -18,7 +18,7 @@ const MemberLayout = lazy(() => import("../layout/auth/MemberLayout"));
 const MemberUpdateLayout = lazy(() =>
   import("../layout/auth/MemberUpdateLayout")
 );
-const Drama = lazy(() => import("../components/drama/Drama"));
+const DramaPage = lazy(() => import("../pages/drama/DramaPage"));
 const PaymentPage = lazy(() => import("../pages/payment/PaymentIndexPage"));
 const PaymentCartPage = lazy(() => import("../pages/payment/PaymentCartPage"));
 
@@ -51,7 +51,7 @@ const root = createBrowserRouter([
         path: "drama",
         element: (
           <Suspense fallback={Loading}>
-            <Drama />
+            <DramaPage />
           </Suspense>
         ),
       },

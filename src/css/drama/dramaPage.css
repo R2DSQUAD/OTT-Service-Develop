@@ -1,73 +1,65 @@
 @import url(dramaModal.css);
 .drama{
   width: 100%;
-  height: calc(100vh - 80px);
-  display: flex;
-  justify-content: center;
-  padding: 2vw;
+}
+.drama .drama-con{
+  padding: 30px;
   box-sizing: border-box;
-}
-.drama-con{
-  width: 100%;
-}
-.drama-con h1{
-  height: 90px;
-  border-bottom: 2px solid gray;
-  box-sizing: border-box;
-}
-.drama-list {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 30px;
 }
-.drama-list ul{
+.drama .drama-con .topContent{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.drama .drama-con h1{
+  font-size: 40px;
+}
+.drama .drama-con .drama-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.drama .drama-con .drama-list .dramaList{
+  display: flex;
+  flex-direction: column;
+  gap: 1vw 0;
+  box-sizing: border-box;
+}
+.drama .drama-con .drama-list .dramaList .drama-head{
+  display: flex;
+  padding: 1vw 0;
+  gap: 1vw;
+  box-sizing: border-box;
+}
+.drama .drama-con .drama-list .dramaList .drama-head h3{
+  width: 100px;
+  display: flex;
+  justify-content: center;
+}
+.drama .drama-con .drama-list .dramaList ul{
   flex: 1;
   display: grid;
-  grid-template-columns: repeat(4,330px);
-  grid-template-rows: repeat(1,240px);
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(1,auto);
   grid-auto-rows: 200px;
   gap: 2vw;
 }
-.drama-list ul li{
+.drama .drama-con .drama-list .dramaList ul li{
   display: flex;
   flex-direction: column;
   gap: 0.5vw;
   transition: all 0.2s;
 }
-.drama-list ul li:hover{
+.drama .drama-con .drama-list .dramaList ul li:hover{
   cursor: pointer;
   filter: grayscale(100%);
   transform: scale(1.05);
 }
-.drama-list ul li img{
+.drama .drama-con .drama-list .dramaList ul li img{
+  width: 100%;
   display: block;
-}
-.popularList{
-  display: flex;
-  flex-direction: column;
-  gap: 1vw 0;
-  box-sizing: border-box;
-}
-.actionList{
-  display: flex;
-  flex-direction: column;
-  gap: 1vw 0;
-  box-sizing: border-box;
-}
-.horrorList{
-  display: flex;
-  flex-direction: column;
-  gap: 1vw 0;
-  box-sizing: border-box;
-}
-.fantasyList{
-  display: flex;
-  flex-direction: column;
-  gap: 1vw 0;
-  box-sizing: border-box;
-}
-.romanceList{
-  display: flex;
-  flex-direction: column;
-  gap: 1vw 0;
-  box-sizing: border-box;
 }

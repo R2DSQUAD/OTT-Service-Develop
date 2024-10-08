@@ -15,26 +15,16 @@ const item={
 
 const DramaModal = ({modalItem,setDramaModal}) => {
 
-  // console.log(modalItem)
   const closeFn = () => {
     setDramaModal(false)
-  }
-  
+  }  
   const [modalList,setModalList]=useState(item)
   const [count,setCount]=useState(1)
   useEffect(()=>{
     const axFn= async()=>{
       try{
         const res=await axios.get(`http://localhost:3001/allItems?id=${modalItem.id}`)
-        // console.log(typeof(res.data))
-        // console.log(typeof(res.data[0]))
-        // console.log(res.data)
-        // console.log(res.data[0])
-        // console.log(modalItem.id)
-        
-        setModalList(res.data[0])
-        // console.log(setModalList)
-        
+        setModalList(res.data[0])       
       }
       catch(err){alert(err)}
     }
@@ -72,7 +62,6 @@ const DramaModal = ({modalItem,setDramaModal}) => {
   const navigate=useNavigate()
   const addCart2Fn=()=>{
     navigate('/cart')
-
   }
   const increFn=()=>{
     setCount(count+1)
@@ -85,8 +74,8 @@ const DramaModal = ({modalItem,setDramaModal}) => {
     <>
       <div className="dramaModal">
         <div className="dramaModal-con">
-          <span className='close' onClick={closeFn}>X</span>
           <div className="item">
+            <span className='close' onClick={closeFn}>X</span>
             <div className="modal-list">
                <img src={`/images/itemData/${modalList.img}`} alt={modalList.img} />
                <span>제목:{modalList.title}</span>

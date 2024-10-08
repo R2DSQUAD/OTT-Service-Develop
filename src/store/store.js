@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
 import cartslice from '../slice/cartslice'
-import dramaSlice from '../slice/dramaSlice'
+import itemSlice from '../slice/itemSlice'
 import authSlice from '../slice/authSlice'
 import paymentSlice from '../slice/paymentSlice'
 import allItemSlice from '../slice/allItemSlice'
@@ -9,7 +9,7 @@ const store = configureStore({
   reducer:{
     payment: paymentSlice.reducer,
     cart: cartslice.reducer,
-    drama: dramaSlice.reducer,
+    item: itemSlice.reducer,
     auth: authSlice.reducer,
     allItem: allItemSlice.reducer
   }
