@@ -28,6 +28,9 @@ const cartslice = createSlice({
         state.items.splice(num1,1)
       }
     },
+    deleteCartAll: (state,action)=>{
+      state.items=initstate.items
+    },
     increCount: (state,action)=>{
       const num=state.items.findIndex(el=>{
         return el.id===action.payload
@@ -50,5 +53,5 @@ const cartslice = createSlice({
 
 
 
-export const {addCart,deleteCart,increCount,decreCount}=cartslice.actions
+export const {addCart,deleteCart,increCount,decreCount,deleteCartAll}=cartslice.actions
 export default cartslice

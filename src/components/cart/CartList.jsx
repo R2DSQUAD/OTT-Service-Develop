@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { decreCount, deleteCart, increCount } from '../../slice/cartslice'
+import { decreCount, deleteCart, deleteCartAll, increCount } from '../../slice/cartslice'
 
 const CartList = () => {
 
@@ -18,18 +18,37 @@ const CartList = () => {
   const payFn=(e)=>{
     navigate('/paymentCart')
   }
+  const selectAll=(e)=>{
+    const checkboxes=document.querySelectorAll('.cbox')
+    const checkedCnt=document.querySelectorAll('.cbox:checked').length
+    const allCheck=e.target.checked
+    const totalChk=checkboxes.length
+    console.log(allCheck)
+    console.log(totalChk)
+    checkboxes.forEach((el)=>{
+      el.checked=allCheck
+    })
+    // if(totalChk===checkedCnt){
+    //   allCheck=true
+    // }else{
+    //   allCheck=false
+    // }
+  }
+  
 
   return (
     <>
       <div className="cartIndex">
         <div className="cart-con">
           <h2 className="title">상품 목록</h2>
+          <input type="checkbox" name='All' id='All' value='All' onClick={selectAll}/>
           <div className="item-list">
             {cartItems && cartItems.map(
               (el,idx)=>{
                 return(
                   <div className="cart-items" key={idx}>
                     <div className="top">
+                      <input type="checkbox" className='cbox' name='cbox' value={el.id} />
                       <img src={el.img} alt={el.img} />
                     </div>
                     <div className="bottom">
@@ -60,6 +79,9 @@ const CartList = () => {
                 <li><span>총 금액:{totalPrice}</span></li>
               </ul>
               <button className='paybtn' onClick={payFn}>결제하기</button>
+              <button className='paybtn' onClick={()=>{
+                dispatch(deleteCartAll(cartItems))
+              }}>제거</button>
             </div>
           </div> : <></>}
       </div>

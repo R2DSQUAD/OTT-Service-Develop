@@ -31,7 +31,7 @@ const MovieIndex = () => {
     const age = e.currentTarget.getAttribute("data-age");
     const year = e.currentTarget.getAttribute("data-year");
     const time = e.currentTarget.getAttribute("data-time");
-
+    console.log(modalitem)
 
 
     setModalitem({
