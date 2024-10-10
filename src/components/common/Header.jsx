@@ -35,9 +35,11 @@ const Header = () => {
               <Link to={"/signIn"}>로그인</Link>
               }
             </li>
+            {!isSignIn && 
             <li>
               <Link to={"/signUp"}>회원가입</Link>
             </li>
+            }
             {isSignIn ? 
             <li>
               <Link to={"/member"}>{signInUser[0].userEmail}님</Link>

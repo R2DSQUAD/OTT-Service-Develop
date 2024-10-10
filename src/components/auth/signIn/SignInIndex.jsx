@@ -54,13 +54,15 @@ const SignInIndex = () => {
       if (num !== -1) {
         alert('로그인 성공!')
         dispatch(signInUserFn(userDataGet))
+
+        navigate('/')
   
-        if (userDataGet.role === "ROLE_ADMIN") {
-          alert('관리자 페이지로 이동합니다.')
-          navigate('/admin')
-        } else {
-          navigate('/')
-        }
+        // if (userDataGet.role === "ROLE_ADMIN") {
+        //   alert('관리자 페이지로 이동합니다.')
+        //   navigate('/admin')
+        // } else {
+        //   navigate('/')
+        // }
   
       } else {
         alert('로그인 실패 다시 입력해주세요')

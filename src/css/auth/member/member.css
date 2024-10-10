@@ -18,6 +18,11 @@
 
   padding: 1vw;
   box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5vw;
 }
 
 .member .member-con .user-data {
@@ -25,6 +30,29 @@
   box-sizing: border-box;
 }
 
+.member .member-con .member-wrap .member-payment {
+  height: 450px;
+
+  border: 1px solid #fff;
+  box-sizing: border-box;
+}
+
+.member .member-con .member-wrap .member-btn {
+  display: flex;
+  gap: 0.2vw;
+}
+
 .member .member-con .member-wrap .member-btn button {
+  flex: 1;
   
+  padding: 0.5vw 0;
+  border: 0;
+
+  font-weight: bold;
+
+  transition: all 0.3s;
+}
+
+.member .member-con .member-wrap .member-btn button:hover {
+ opacity: 0.9;
 }

@@ -144,10 +144,11 @@ const MemberUpdate = () => {
             <li><input onChange={onUpdateChangeFn} type="text" name="userName" id="userName" placeholder='이름' value={update.userName}/></li>
             <li><input onChange={onUpdateChangeFn} type="text" name="userEmail" id="userEmail" placeholder='이메일' value={update.userEmail}/></li>
             <li><input onChange={onUpdateChangeFn} type="text" name="userPw" id="userPw" placeholder='비밀번호' value={update.userPw}/></li>           
-            <li><input onChange={onUpdateChangeFn} type="text" name="phoneNumber" id="phoneNumber" placeholder='전화번호' value={update.phoneNumber}/></li>
+            <li><input onChange={onUpdateChangeFn} type="text" name="userPw" id="userPw" placeholder='비밀번호' value={update.userPw}/></li>           
+            <li><input onChange={onUpdateChangeFn} type="text" name="address" id="address" placeholder='주소' value={update.address}/></li>
             <div className="check-tag">
-             <input onChange={onRoleChangeFn2} type="radio" name="role" id="role"/><label htmlFor='role'>일반회원</label> <br />
-             <input onChange={onRoleChangeFn} type="radio" name="role" id="role"/><label htmlFor='role'>관리자</label>  
+             <input onChange={onRoleChangeFn2} type="radio" name="role" id="role1"/><label htmlFor='role1'>일반회원</label> <br />
+             <input onChange={onRoleChangeFn} type="radio" name="role" id="role2"/><label htmlFor='role2'>관리자</label>  
 
               {/* 권한에 따라 체크박스 띄우는 것 미해결 : 회원삭제시 에러 : 객체가 없으므로*/}
               {/* 

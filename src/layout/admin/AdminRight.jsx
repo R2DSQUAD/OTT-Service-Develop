@@ -21,9 +21,11 @@ const AdminRight = () => {
                 navigate('/')
               }}>로그아웃</Link>
           </li>
+          {isSignIn && 
           <li>
-          <Link to={"/member"}>{signInUser[0].userEmail}님</Link>
+            <Link to={"/member"}>{signInUser[0].userEmail}님</Link>
           </li>
+          }
         </ul>
       </div>
     </div>

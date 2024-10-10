@@ -31,6 +31,112 @@
       "userPw": "sad",
       "phoneNumber": "asd",
       "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "2999",
+      "userName": "bbb",
+      "userEmail": "111",
+      "userPw": "111",
+      "phoneNumber": "111",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "d67c",
+      "userName": "bb",
+      "userEmail": "1",
+      "userPw": "1",
+      "phoneNumber": "1",
+      "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "b74d",
+      "userName": "김우물",
+      "userEmail": "t1@email.com",
+      "userPw": "1111",
+      "phoneNumber": "01011111111",
+      "address": "한국",
+      "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "a896",
+      "userName": "123435",
+      "userEmail": "45435",
+      "userPw": "34234",
+      "phoneNumber": "14124124",
+      "address": "1414",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "bfbc",
+      "userName": "24154235",
+      "userEmail": "1235125",
+      "userPw": "32512514543",
+      "phoneNumber": "1451345",
+      "address": "4151451",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "a1d9",
+      "userName": "23525654",
+      "userEmail": "6565464",
+      "userPw": "65464",
+      "phoneNumber": "6564564564",
+      "address": "6546",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "397c",
+      "userName": "김네모",
+      "userEmail": "2@email.com",
+      "userPw": "1111",
+      "phoneNumber": "111",
+      "address": "111",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "ce20",
+      "userName": "1214214214235",
+      "userEmail": "232524354235",
+      "userPw": "3435432523623",
+      "phoneNumber": "554645645664",
+      "address": "42656235656",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "63f2",
+      "userName": "dsgsg4g",
+      "userEmail": "gf3r23",
+      "userPw": "2r423r",
+      "phoneNumber": "23r23",
+      "address": "23r23r",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "38fd",
+      "userName": "124143214",
+      "userEmail": "523525",
+      "userPw": "34324",
+      "phoneNumber": "234",
+      "address": "324243",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "92a5",
+      "userName": "124143",
+      "userEmail": "343",
+      "userPw": "4f2e",
+      "phoneNumber": "3f2",
+      "address": "12f",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "0f50",
+      "userName": "김하늘",
+      "userEmail": "q1@email.com",
+      "userPw": "1111",
+      "phoneNumber": "01011111111",
+      "address": "부산",
+      "role": "ROLE_MEMBER"
     }
   ]
 }

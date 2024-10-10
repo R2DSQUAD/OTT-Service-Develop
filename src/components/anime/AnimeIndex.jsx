@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import AnimeModal from './AnimeModal'
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import { dbDataFn } from '../../slice/animeSlice'
 
 
 
 const AnimeIndex = () => {
 
-  // DB 데이터 담을 state
-  const [animeList, setAnimeList] = useState([]) 
+
+  const dispatch = useDispatch()
+
+  // db데이터 (전역처리)
+  const dbData = useSelector(state => state.anime.dbData)
+
+  // const [dbList, setDbList] = useState([])
 
   // DB에서 가져오기 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const items = await axios.get(`http://localhost:3001/allItems/`)
-        setAnimeList(items.data) 
-        
-      } catch(err) {
-        alert(err)
-      }
-    }
-    getData()
+    dispatch(dbDataFn()) // db데이터 넣기
+    // setDbList(dbData)
   },[])
   
+  // console.log(dbData)
+  // console.log(dbList)
 
   // 모달창 
 
@@ -54,7 +54,7 @@ const AnimeIndex = () => {
           </div>
           <div className="bottom-content">
             <ul>
-              {animeList.map((el, idx) => {
+              {dbData && dbData.map((el, idx) => {
                 if (el.type === "애니메이션") {
                   return(
                     // <li key={idx}>hey</li>
