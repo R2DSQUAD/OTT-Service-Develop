@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { addCart } from '../../slice/cartslice'
 import { useNavigate } from 'react-router-dom'
 import { addPayment } from '../../slice/paymentSlice'
+import CartModal from '../modal/CartModal'
 
 const item={
   id: 0,
@@ -14,7 +15,7 @@ const item={
 }
 
 const DramaModal = ({modalItem,setDramaModal}) => {
-
+  const [isCartModal,setIsCartModal]=useState(false)
   const closeFn = () => {
     setDramaModal(false)
   }  
@@ -42,15 +43,13 @@ const DramaModal = ({modalItem,setDramaModal}) => {
     year: modalList.year,
     time: modalList.time,
     count: count,
-    coment: modalList.coment, 
+    comment: modalList.comment, 
   }
   
   const dispatch=useDispatch()
   const addCartFn=()=>{
-    
     dispatch(addCart(dramaCart))
-    alert('장바구니에 추가되었습니다')
-
+    setIsCartModal(true)
   }
 
   const addPayementFn = () => {
@@ -72,10 +71,11 @@ const DramaModal = ({modalItem,setDramaModal}) => {
 
   return (
     <>
+      {isCartModal ?<CartModal setIsCartModal={setIsCartModal} setDramaModal={setDramaModal}/>:<></>}
       <div className="dramaModal">
         <div className="dramaModal-con">
-          <div className="item">
             <span className='close' onClick={closeFn}>X</span>
+          <div className="item">
             <div className="modal-list">
                <img src={`/images/itemData/${modalList.img}`} alt={modalList.img} />
                <span>제목:{modalList.title}</span>

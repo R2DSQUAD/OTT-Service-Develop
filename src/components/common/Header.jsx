@@ -9,6 +9,7 @@ const Header = () => {
   const dispatch = useDispatch()
   const isSignIn = useSelector(state => state.auth.isSignIn)
   const signInUser = useSelector(state => state.auth.signInUser)
+  const isCart=useSelector(state=>state.cart.items)
 
   console.log(isSignIn)
   console.log(signInUser, "유저정보")
@@ -22,7 +23,10 @@ const Header = () => {
         <div className="gnb">
           <ul>
             <li>
-              <Link to={"/cart"}>장바구니</Link>
+              {isCart.length>0?
+              <Link to={"/cart"}>장바구니</Link>:
+              <></>
+              }
             </li>
             <li>
               {isSignIn ?

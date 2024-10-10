@@ -20,7 +20,7 @@
   justify-content: space-between;
   align-items: center;
 }
-.dramaModal .dramaModal-con .item span.close{
+.dramaModal .dramaModal-con span.close{
   color: white;
   padding: 5px;
   position: absolute;
@@ -35,7 +35,7 @@
   height: auto;
   display: block;
 }
-.dramaModal .dramaModal-con span{
+.dramaModal .dramaModal-con .item span{
   color: black;
 }
 .dramaModal .dramaModal-con .item .modal-list{
