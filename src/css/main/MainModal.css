@@ -33,7 +33,7 @@
 }
 .mainModal .mainModal-con .top{
     width: 480px;
-    height: 380px;
+    height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,6 +76,9 @@ padding: 3px;
     gap: 10px;
 }
 .main-payment li{
+    width: 80px;
+    display: flex;
+    justify-content: center;
     background-color: rgb(255, 0, 85, 1);
     border-radius: 5px 5px 5px 5px;
     cursor: pointer;
@@ -105,3 +108,40 @@ padding: 3px;
     border-radius: 5px 5px 5px 5px;
 }
 
+.mainmodal1{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 1099;
+    left: 0;
+    top: 0;
+}
+.mainmodal1 .mainmodal1-con{
+    padding: 20px;
+   width: 250px;
+   height: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px solid;
+    box-sizing: border-box;
+    font-size: large;
+    font-weight: 700;
+    
+}
+.mainmodal1 .mainmodal1-con .button{
+    display: flex;
+    justify-content: flex-end;
+}
+.mainmodal1 .mainmodal1-con .button button{
+    width: 40px;
+    display: flex;
+    justify-content: center;
+}

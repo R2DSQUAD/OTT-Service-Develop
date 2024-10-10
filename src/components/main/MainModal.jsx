@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../../slice/cartslice'
+import MainModal1 from './MainModal1'
+
 const movietData ={
     id:'',
     title:'',
@@ -10,6 +12,10 @@ const movietData ={
   }
 const MainModal = ({modalitem,setMainModal}) => {
   const [modalmainCount, setModalmainCount] = useState(1);
+  const [mainmodal1, setMainModal1] = useState(false);
+  const mainModal1Fn = () => {
+    setMainModal1(true);
+  }
     const closeFn =() =>{
         setMainModal(false)
     }
@@ -25,7 +31,7 @@ const MainModal = ({modalitem,setMainModal}) => {
       //count 개수 데이터 추가
       }
       dispatch(addCart(movieCart))
-      alert('장바구니에 추가되었습니다')
+      mainModal1Fn()
     }
     const incrementFn = () => {
       setModalmainCount(modalmainCount+1);
@@ -41,6 +47,7 @@ const MainModal = ({modalitem,setMainModal}) => {
 
   return (
   <>
+  {mainmodal1 ? (<MainModal1 setMainModal1={setMainModal1}/>):(<></>)}
     <div className="mainModal">
         <div className="mainModal-con">
             <span className='close'

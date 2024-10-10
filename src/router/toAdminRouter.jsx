@@ -5,7 +5,9 @@ const AdminIndexPage = lazy(() => import('../pages/admin/AdminIndexPage'))
 const AdminProductPage = lazy(() => import('../pages/admin/AdminProductPage'))
 const AdminAddProductPage = lazy(() => import('../pages/admin/AdminAddProductPage'))
 const AdminProductDetail = lazy(() => import('../pages/admin/AdminProductDetailPage'))
-const Cart = lazy(()=> import('../components/cart/CartList'));
+const AdminMember = lazy(()=> import('../pages/admin/AdminMemberPage'));
+const AdminMemberDetail = lazy(() => import('../pages/admin/AdminMemberDetailPage'))
+const Kakao = lazy(()=> import('../pages/admin/KakaoPage'));
 
 
 const toAdminRouter = () => {
@@ -26,16 +28,26 @@ const toAdminRouter = () => {
         {
           path: 'addproduct',
           element: <Suspense fallback={Loading}><AdminAddProductPage/></Suspense>
-      },
-      {
-        path: 'product/detail/:id', // set/1 -> id가 1인 상세정보를 보여라~
-        element: <Suspense fallback={Loading}><AdminProductDetail /></Suspense>
-      },{
-        path: 'cart',
-        element: <Suspense fallback = {Loading}><Cart/></Suspense>
-      }
-    ]
-  )
+        },
+        {
+          path: 'adminmember',
+          element: <Suspense fallback={Loading}><AdminMember/></Suspense>
+        },
+        {
+          path: 'kakao',
+          element: <Suspense fallback={Loading}><Kakao/></Suspense>
+        },
+        {
+          path: 'product/detail/:id', // set/1 -> id가 1인 상세정보를 보여라~
+          element: <Suspense fallback={Loading}><AdminProductDetail /></Suspense>
+        },
+        {
+          path: 'adminmember/detail/:id',
+          element: <Suspense fallback={Loading}><AdminMemberDetail/></Suspense>
+        },
+        
+        ]
+      )
 }
 
 export default toAdminRouter

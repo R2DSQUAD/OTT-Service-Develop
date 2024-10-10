@@ -53,14 +53,14 @@ height: auto;
 .movieModal .movieModal-con .bottom span:nth-child(1){
  font-size: 32px;
 }
-.price span { 
-    display: flex;
-    justify-content: flex-end;
-    align-items:end;
+.movie-price span { 
+ display: flex;
+justify-content: flex-end;
+ align-items:end;
 
 }
 
-.price span li{
+.movieprice span li{
 background-color: rgb(255, 0, 85, 1);
 border-radius: 5px 5px 5px 5px;
 padding: 3px;
@@ -74,6 +74,9 @@ padding: 3px;
     gap: 10px;
 }
 .movie-payment li{
+    width: 80px;
+    display: flex;
+    justify-content: center;
     background-color: rgb(255, 0, 85, 1);
     border-radius: 5px 5px 5px 5px;
     cursor: pointer;
@@ -101,4 +104,41 @@ padding: 3px;
     background-color: rgb(255, 0, 85, 1);
     color: #ffffff;
     border-radius: 5px 5px 5px 5px;
+}
+.moviemodal1{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0);
+    z-index: 1099;
+    left: 0;
+    top: 0;
+}
+.moviemodal1 .moviemodal1-con{
+    padding: 20px;
+   width: 250px;
+   height: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 1px solid;
+    box-sizing: border-box;
+    font-size: large;
+    font-weight: 700;
+    
+}
+.moviemodal1 .moviemodal1-con .button{
+    display: flex;
+    justify-content: flex-end;
+}
+.moviemodal1 .moviemodal1-con .button button{
+    width: 40px;
+    display: flex;
+    justify-content: center;
 }

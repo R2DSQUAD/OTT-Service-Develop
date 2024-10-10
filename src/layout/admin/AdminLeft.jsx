@@ -11,10 +11,10 @@ const AdminLeft = () => {
       <div className="admin-gnb">
         <ul>
           <li>
-            <Link to={"/"}>멤버</Link>
+            <Link to={"/admin/adminmember"}>멤버</Link>
           </li>
           <li>
-            <Link to={"/admin/cart"}>장바구니</Link>
+            <Link to={"/"}>장바구니</Link>
           </li>
           <li>
             <Link to={"/"}>결제</Link>
@@ -24,6 +24,9 @@ const AdminLeft = () => {
           </li>
           <li>
             <Link to={"/admin/addproduct"}>제품 추가</Link>
+          </li>
+          <li>
+            <Link to={"/"}>주문처</Link>
           </li>
         </ul>
       </div>
