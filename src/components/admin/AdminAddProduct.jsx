@@ -1,6 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import AdminAddModal1 from './AdminAddModal1'
+import AdminAddmodal2 from './AdminAddmodal2'
+import AdminAddModal3 from './AdminAddModal3'
 
 const addProductData ={
     title:"",
@@ -18,11 +21,25 @@ const addProductData ={
 
     const AdminAddProduct = () => {
     const [add,setAdd]=useState(addProductData)
+  const [addmodal1, setAddmodal1] = useState(false);
+  const [addmodal2, setAddmodal2] = useState(false);
+  const [addmodal3, setAddmodal3] = useState(false);
+
+
     const [postImg, setPostImg] = useState('');
     const [previewImg, setPreviewImg] = useState([]);
     const navigate=useNavigate()
 
-
+    const addModal1Fn = () => {
+      setAddmodal1(true);
+    }
+    const addModal2Fn = () => {
+      setAddmodal2(true);
+    }
+    const addModal3Fn = () => {
+      setAddmodal3(true);
+    }
+  
     function uploadFile(e) {
         let fileArr = e.target.file[0];
         setPostImg(fileArr);
@@ -53,12 +70,20 @@ const addProductData ={
         })
 
         if(num != -1){
-            alert("제목을 바꿔주세요")
+            addModal1Fn()
+            // alert("제목을 바꿔주세요")
             return
+        }else if(add.title===""||add.price===""||add.year===""||add.age===""||add.time===""||add.genre===""||add.comment===""||add.type===""){
+            addModal2Fn()
+            // alert("제목을 입력해주세요")
+
+          return
+        }else{
+            addModal3Fn()
+        // const addOk = await axios.post(`http://localhost:3001/allItems`,add)
+       
+        // alert('상품추가 성공')
         }
-        const addOk = await axios.post(`http://localhost:3001/allItems`,add)
-        navigate(0)
-        alert('상품추가 성공')
     }
     addAxiosFn()
 
@@ -66,6 +91,9 @@ const addProductData ={
 
   return (
     <>
+    {addmodal1 ? (<AdminAddModal1 setAddmodal1={setAddmodal1}/>):(<></>)}
+    {addmodal2 ? (<AdminAddmodal2 setAddmodal2={setAddmodal2}/>):(<></>)}
+    {addmodal3 &&(<AdminAddModal3  add={add} setAddmodal3={setAddmodal3}/>)}
     <div className="add-product">
     <div className="add-product-con">
       <h1>상품추가</h1>
@@ -114,7 +142,8 @@ const addProductData ={
         <li>
           <select name="type" id="type"value={add.type}
              onChange={onAddChangeFn}>
-            <option value='영화'>영화</option>
+            <option >----</option>
+            <option value="영화">영화</option>
             <option value="드라마">드라마</option>
             <option value="애니메이션">애니메이션</option>
             <option value="웹툰">웹툰</option>

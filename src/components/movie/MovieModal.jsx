@@ -1,9 +1,8 @@
 import axios from 'axios'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../../slice/cartslice'
-import { addPayment } from '../../slice/paymentSlice'
-import { useNavigate } from 'react-router-dom'
+import MovieModal1 from './MovieModal1'
 
 const movietData ={
     id:0,
@@ -15,11 +14,23 @@ const movietData ={
   
 const MovieModal = ({modalitem,setMovieModal}) => {
 
-    
-  const navigate = useNavigate();
+  const [modalmovieCount, setModalmovieCount] = useState(1);
+  const [moviemodal1, setMovieModal1] = useState(false);
+  const movieModal1Fn = () => {
+    setMovieModal1(true);
+  }
     const closeFn =() =>{
         setMovieModal(false)
     }
+    const incrementFn = () => {
+      setModalmovieCount(modalmovieCount+1);
+    }
+  
+    const decrementFn = () => {
+      setModalmovieCount(modalmovieCount - 1);
+      modalmovieCount <= 1 ? setModalmovieCount(1) : setModalmovieCount(modalmovieCount - 1);
+    };
+
     // useEffect(()=>{
     //     const axiosFn1=async ()=>{
     //       try{
@@ -33,36 +44,24 @@ const MovieModal = ({modalitem,setMovieModal}) => {
     //     }
     //     axiosFn1()
     //   },[])
-
-    const movieCart={
-      id: modalitem.id,
-  type: modalitem.type,
-  title: modalitem.title,
-  price: modalitem.price,
-  img: `/images/itemData/${modalitem.img}`,
-  genre: modalitem.genre,
-  age: modalitem.age,
-  year: modalitem.year,
-  time: modalitem.time,
-  count: modalitem,
-  coment: modalitem.coment, 
-    //count 개수 데이터 추가
-    }
-
     const dispatch=useDispatch()
     const addCartFn=()=>{
+      const movieCart={
+        id : modalitem.id,
+      price: modalitem.price,
+      title: modalitem.title,
+      img: modalitem.img,
+      type: modalitem.type,
+      count:modalmovieCount
       
+      //count 개수 데이터 추가
+      }
       dispatch(addCart(movieCart))
-      alert('장바구니에 추가되었습니다')
+       movieModal1Fn()
     }
-
-    const addPayementFn = () => {
-      dispatch(addPayment(movieCart));
-      alert("구매페이지로 이동합니다.");
-      navigate("/paymentIndex");
-    };
   return (
   <>
+   {moviemodal1 ? (<MovieModal1 setMovieModal1={setMovieModal1}/>):(<></>)}
     <div className="movieModal">
         <div className="movieModal-con">
             <span className='close'
@@ -74,12 +73,27 @@ const MovieModal = ({modalitem,setMovieModal}) => {
             </div>
             <div className="bottom">
             <span>{modalitem.title}</span>
-            <div className="payment">
-                <li className='payment' onClick={addPayementFn}>결제하기</li>
-                <li className='cart' onClick={addCartFn}>장바구니</li>
+                 <li>{modalitem.age}</li>
+                  <li>{modalitem.year}</li>  
+                  <li>{modalitem.genre}</li>
+                  <li>{modalitem.time}</li>
             </div>
+            <div className="movie-payment">
+                <li className='payment'>결제하기</li>
+                <li className='cart' onClick={addCartFn}>장바구니</li>
+                <div className="movieCount">
+                  <button onClick={decrementFn}>-</button>
+                  <span>{modalmovieCount}</span>
+                  <button onClick={incrementFn}>+</button>
+                </div>
+            </div>
+            <div className="movie-comment">
+
             <span>{modalitem.comment}</span>
-            <span><li>{modalitem.price}원</li></span>
+            </div>
+            <div className="movie-price">
+
+            <span><li>{modalitem.price*modalmovieCount}원</li></span>
             </div>
             </div>
             </div>

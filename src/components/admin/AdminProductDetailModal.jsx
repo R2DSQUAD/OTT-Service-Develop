@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import AdminProductDetailModal2 from './AdminProductDetailModal2';
 const productData={
     id:"",
     title:"",
@@ -14,8 +15,13 @@ const productData={
     }
 const AdminProductDetailModal = ({setProductModal}) => {
     const [update,setUpdate]=useState(productData)
+    const [productModal2, setProductModal2] = useState(false);
     const [postImg, setPostImg] = useState('');
     const [previewImg, setPreviewImg] = useState([]);
+    const onProductModal2Fn = () => {
+      setProductModal2(true);
+     
+      }
     const param = useParams()
     const navigate=useNavigate()
     const ref = useRef(null);
@@ -74,6 +80,9 @@ const AdminProductDetailModal = ({setProductModal}) => {
         },[])
   return (
     <>
+    {productModal2 && (
+        <AdminProductDetailModal2 update={update} setProductModal2={setProductModal2} />
+    )}
     <div className="update-product">
     <div className="update-product-con">
     <span className='close' onClick={closeFn}>x</span>
@@ -130,7 +139,7 @@ const AdminProductDetailModal = ({setProductModal}) => {
           </select>
         </li>
         <li>
-          <button  onClick={UpdateFn} >수정하기</button>        
+          <button  onClick={onProductModal2Fn} >수정하기</button>        
         </li>
       </ul>
     </div>

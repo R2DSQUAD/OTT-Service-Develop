@@ -22,6 +22,7 @@ const DramaPage = lazy(() => import("../pages/drama/DramaPage"));
 const PaymentPage = lazy(() => import("../pages/payment/PaymentIndexPage"));
 const PaymentCartPage = lazy(() => import("../pages/payment/PaymentCartPage"));
 
+
 const root = createBrowserRouter([
   {
     path: "/",

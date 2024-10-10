@@ -10,11 +10,12 @@ const AdminIndex = () => {
         </div>
         <div className="category">
           <ul>
-            <li>멤버</li>
-            <li><Link to={"/admin/cart"}>장바구니</Link></li>
+            <li><Link to={"/admin/adminmember"}>멤버 리스트</Link></li>
+            <li>장바구니</li>
             <li>결제</li>
             <li><Link to={"/admin/product"}>제품 리스트</Link></li>
             <li><Link to={"/admin/addproduct"}>제품 추가</Link></li>
+            <li>주문처</li>
           </ul>
         </div>
       </div>

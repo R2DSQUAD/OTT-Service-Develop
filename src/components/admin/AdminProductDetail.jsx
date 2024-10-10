@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import AdminProductDetailModal from './AdminProductDetailModal'
+import AdminProductDetailModal1 from './AdminProductDetailModal1'
 // const productData={
 // id:"",
 // title:"",
@@ -17,11 +18,16 @@ import AdminProductDetailModal from './AdminProductDetailModal'
 const AdminProductDetail = () => {
     const param=useParams()
     const [productModal, setProductModal] = useState(false);
+    const [productModal1, setProductModal1] = useState(false);
     
     const onProductModalFn = () => {
     setProductModal(true);
     
     }
+    const onProductModal1Fn = () => {
+        setProductModal1(true);
+        
+        }
     console.log(param)
     const [product,setProduct] = useState({})
     const navigate= useNavigate()
@@ -42,23 +48,26 @@ const AdminProductDetail = () => {
     },[])
     
 
-    const DeleteFn = async () => {
-        if (window.confirm("삭제 하시겠습니까??")) {
-            axios.delete(`http://localhost:3001/allItems/${param.id}`); 
-            // setProduct(product.filter((product) => product.id !== id)); 
-            navigate(-1)
-            alert("삭제되었습니다.");
-        } else {
+    // const DeleteFn = async () => {
+    //     if (window.confirm("삭제 하시겠습니까??")) {
+    //         axios.delete(`http://localhost:3001/allItems/${param.id}`); 
+    //         // setProduct(product.filter((product) => product.id !== id)); 
+    //         navigate(-1)
+    //         alert("삭제되었습니다.");
+    //     } else {
 
-            alert("취소합니다.");
-        }
-      };
+    //         alert("취소합니다.");
+    //     }
+    //   };
 
     
   return (
     <>
     {productModal && (
         <AdminProductDetailModal  setProductModal={setProductModal} />
+    )}
+    {productModal1 && (
+        <AdminProductDetailModal1  setProductModal1={setProductModal1} />
     )}
     <div className="product-detail">
         <div className="product-detail-con">
@@ -94,7 +103,7 @@ const AdminProductDetail = () => {
 
                 <li><button onClick={onProductModalFn}>수정하기</button></li>
                 <li>
-                    <button onClick={DeleteFn}>삭제하기</button></li>
+                    <button onClick={onProductModal1Fn}>삭제하기</button></li>
                </div>
 
                 </div>

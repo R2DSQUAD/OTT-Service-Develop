@@ -22,6 +22,10 @@
 @import url(./css/admin/admin-product-detail.css);
 @import url(./css/admin/admin-product-add.css);
 @import url(./css/admin/adminIndex.css);
+@import url(./css/admin/admin-member.css);
+@import url(./css/admin/admin-member-update.css);
+@import url(./css/admin/admin-member-detail.css);
+@import url(./css/admin/admin-addmodal.css);
 
 
 #root {
