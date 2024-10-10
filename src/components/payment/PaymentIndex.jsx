@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { allItemThunk } from "../../slice/allItemSlice";
 import PaymentModal from "./PaymentModal";
 
+
 const PaymentIndex = () => {
   const dispatch = useDispatch();
   const [paymentMethod, setPaymentMethod] = useState(0);
@@ -12,6 +13,8 @@ const PaymentIndex = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [isPaymentModal, setIsPaymentModal] = useState(false)
   const payment = useSelector((state) => state.payment.items);
+
+
 
   const paymentMethodHandler = (e) => {
     setPaymentMethod(Number(e.target.value));
@@ -26,6 +29,8 @@ const PaymentIndex = () => {
   useEffect(() => {
     dispatch(allItemThunk());
   }, []);
+
+
 
   useEffect(() => {
     const img = new Image();

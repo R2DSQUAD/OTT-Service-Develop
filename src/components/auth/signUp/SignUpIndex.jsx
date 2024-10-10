@@ -8,13 +8,14 @@ const signUpData = {
   userEmail: "",
   userPw: "",
   phoneNumber: "",
+  address: "",
   role: "ROLE_MEMBER"
 } 
 
 const agreementData = {
-  agree: "",
+  all: "",
   privacy: "",
-  service: "",
+  service: ""
 }
 
 
@@ -72,7 +73,31 @@ const SignUpIndex = () => {
     console.log(name, isCheck)
   }
 
+  // 약관 동의 전부 선택해주는 함수 
+  const onAgreementAllChangeFn = (e) => {
+    const isAllCheck = e.target.checked // 전체동의 체크박스 checked 값
 
+    const ulTag = e.target.parentElement.parentElement.children // HTMLSellection(5) // li > input 태그 
+    const ulTagArr = Array.from(ulTag) // array(5) // li > input 태그
+
+    const agreementData = {} // setAgreement로 보낼 값 저장할 곳
+
+    ulTagArr.forEach((el, idx) => {
+      if (idx === ulTagArr.length - 1) {
+        return
+      }
+
+      el.children[0].checked = isAllCheck // forEach 전부 전체동의 checked 값으로  
+
+      agreementData[el.children[0].name] = isAllCheck // setAgreement로 보낼 값 넣기
+    })
+
+    setAgreement(agreementData)  
+    
+    console.log(agreement)
+  }
+
+  
   
   // 회원가입 // 회원정보 state값 db에 저장
   const onSignUpFn = (e) => {
@@ -147,13 +172,17 @@ const SignUpIndex = () => {
             <li>
               <input type="password" name="userPw" id="userPw" placeholder='비밀번호' onChange={onSignUpChangeFn} value={signUp.userPw}/>
             </li>
+            {/* 주문처 */}
+            <li>
+              <input type="text" name="address" id="address" placeholder='주소' onChange={onSignUpChangeFn} value={signUp.address}/>
+            </li>
             <li>
               <input type="text" name="phoneNumber" id="phoneNumber" placeholder='전화번호(-없이 숫자만 입력)' onChange={onSignUpChangeFn} value={signUp.phoneNumber}/>
             </li>
             <ul className="check-tag">
               <li>
-                <input type="checkbox" name="agree" id="agree" onChange={onAgreementChangeFn}></input>
-                <label htmlFor="agree">전체 약관에 동의합니다.</label>
+                <input type="checkbox" name="all" id="all" onChange={onAgreementAllChangeFn}></input>
+                <label htmlFor="all">전체 약관에 동의합니다.</label>
               </li>
               <li>
                 <input type="checkbox" name="privacy" id="privacy" onChange={onAgreementChangeFn}></input>

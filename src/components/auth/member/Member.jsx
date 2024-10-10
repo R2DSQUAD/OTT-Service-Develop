@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom/dist'
 
 
+
+
 const Member = () => {
   const navigate = useNavigate()
   const signInUser = useSelector(state => state.auth.signInUser)
@@ -21,8 +23,12 @@ const Member = () => {
                   <li>이메일: {signInUser[0].userEmail}</li>
                   <li>비밀번호: {signInUser[0].userPw}</li>           
                   <li>전화번호: {signInUser[0].phoneNumber}</li>           
+                  <li>주소: {signInUser[0].address}</li>           
                   <li>권한: {signInUser[0].role}</li>           
                 </ul>
+              </div>
+              <div className="member-payment">
+                <h1>결제 내역</h1>
               </div>
               <div className="member-btn">
                 <button onClick={() => {
