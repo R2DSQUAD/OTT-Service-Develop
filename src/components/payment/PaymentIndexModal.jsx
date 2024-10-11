@@ -12,7 +12,7 @@ const PaymentIndexModal = ({ setIsPaymentModal, paymentData }) => {
     const AxiosFn = async (e) => {
       try {
         const res = await axios.post(
-          `http://localhost:3002/payments`,
+          `http://localhost:3001/payments`,
           JSON.stringify(paymentData)
         );
         const resData = res.data;

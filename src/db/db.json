@@ -838,6 +838,163 @@
       "type": "영화"
     }
   ],
-  "cartItems": []
-  
+  "cartItems": [],
+  "members": [
+    {
+      "id": "26c1",
+      "userName": "홍길길동동",
+      "userEmail": "a1@email.com",
+      "userPw": "1111",
+      "phoneNumber": "01011111121",
+      "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "7884",
+      "userName": "홍길동",
+      "userEmail": "a8@email.com",
+      "userPw": "8888",
+      "phoneNumber": "01088888888",
+      "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "3b19",
+      "userName": "만두남",
+      "userEmail": "a14@email.com",
+      "userPw": "7777",
+      "phoneNumber": "01000000000",
+      "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "cf22",
+      "userName": "a",
+      "userEmail": "a",
+      "userPw": "a",
+      "phoneNumber": "a",
+      "address": "a",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "4185",
+      "userName": "a2",
+      "userEmail": "a2",
+      "userPw": "a2",
+      "phoneNumber": "a2",
+      "address": "a2",
+      "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "e1c5",
+      "userName": "이름",
+      "userEmail": "이메일",
+      "userPw": "qlalfqjsgh",
+      "phoneNumber": "01012345678",
+      "address": "주소",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "60d6",
+      "userName": "test",
+      "userEmail": "test",
+      "userPw": "test",
+      "phoneNumber": "test",
+      "address": "test",
+      "role": "ROLE_MEMBER"
+    }
+  ],
+  "payments": [
+    {
+      "id": "927d",
+      "branchType": "노원 본점",
+      "paymentMethod": "네이버 페이",
+      "orderType": "예약 주문",
+      "userEmail": "a",
+      "userName": "a",
+      "address": "a",
+      "phone": "a",
+      "paymentResult": [
+        {
+          "id": "10",
+          "type": "웹툰",
+          "title": "픽미업",
+          "price": "13000",
+          "img": "/images/itemData/pickMeUp.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2022",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/11 13:0:2"
+    },
+    {
+      "id": "61af",
+      "branchType": "노원 본점",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": 5,
+          "price": "19000",
+          "title": "싸움독학",
+          "img": "/images/itemData/viralHit.jpg",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 19000,
+      "time": "2024/10/11 13:6:4"
+    },
+    {
+      "id": "bf58",
+      "branchType": "노원 본점",
+      "paymentMethod": "카드결제",
+      "orderType": "직접 방문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": 60,
+          "price": "10000",
+          "title": "애프터썬 (2022)",
+          "img": "/images/itemData/aftersun.webp",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 10000,
+      "time": "2024/10/11 13:7:8"
+    },
+    {
+      "id": "c1c0",
+      "branchType": "홍대점",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": "7",
+          "type": "웹툰",
+          "title": "전지적 독자 시점",
+          "price": "13000",
+          "img": "/images/itemData/omniscientReaderPoint.jpg",
+          "genre": "액션",
+          "age": "15",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/11 13:8:42"
+    }
+  ]
 }

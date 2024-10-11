@@ -35,7 +35,7 @@ const AdminMemberDetailModal = ({setMemberModal}) => {
     }
     const UpdateFn = async () => {
         if (window.confirm("수정 하시겠습니까??")){
-        axios.put(`http://localhost:3002/members/${param.id}`,update); 
+        axios.put(`http://localhost:3001/members/${param.id}`,update); 
         // setProduct(product.filter((product) => product.id !== id)); 
         navigate(-1)
         alert('수정완료');
@@ -48,7 +48,7 @@ const AdminMemberDetailModal = ({setMemberModal}) => {
         const memberDetailFn = async () =>{
             // const productId = param.param.id
                 try{
-                    const res = await axios.get(`http://localhost:3002/members/${param.id}`)
+                    const res = await axios.get(`http://localhost:3001/members/${param.id}`)
                     console.log(res.data, 'data')
                      setUpdate(res.data)                
                 }catch (err) {

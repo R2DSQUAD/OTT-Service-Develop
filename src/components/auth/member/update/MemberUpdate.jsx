@@ -93,7 +93,7 @@ const MemberUpdate = () => {
     alert('회원정보를 삭제합니다.')
     dispatch(signOutFn())
     const authAxiosFn = async () => {
-      const deleteData = await axios.delete(`http://localhost:3002/members/${signInUser[0].id}`)
+      const deleteData = await axios.delete(`http://localhost:3001/members/${signInUser[0].id}`)
     }
     authAxiosFn()
 
@@ -122,7 +122,7 @@ const MemberUpdate = () => {
     dispatch(replaceUserFn(update))
     
     const authAxiosFn = async () => {
-      const updateData = await axios.patch(`http://localhost:3002/members/${signInUser[0].id}`, update)
+      const updateData = await axios.patch(`http://localhost:3001/members/${signInUser[0].id}`, update)
     }
     authAxiosFn()
     
