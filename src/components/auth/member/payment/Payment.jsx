@@ -7,10 +7,13 @@ const Payment = () => {
   const [paymentData, setPaymentData] = useState([]);
   const signInUser = useSelector((state) => state.auth.signInUser);
 
+  const userEmail = signInUser[0].userEmail;
+  const paymentDataFilter = paymentData.filter((el) => el.userEmail === userEmail);
+
   useEffect(() => {
     const AxiosFn = async (e) => {
       try {
-        const res = await axios.get("http://localhost:3002/payments");
+        const res = await axios.get("http://localhost:3001/payments");
         const resData = res.data;
         setPaymentData(resData);
       } catch (err) {
@@ -25,8 +28,8 @@ const Payment = () => {
       <div className="payment">
         <div className="payment-con">
           <ul>
-            {paymentData &&
-              paymentData.map((el, idx) => {
+            {paymentDataFilter &&
+              paymentDataFilter.map((el, idx) => {
                 return (
                   <>
                     <li key={idx}>{el.branchType}</li>

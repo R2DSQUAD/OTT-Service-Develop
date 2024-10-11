@@ -131,7 +131,7 @@ const SignUpIndex = () => {
     // 약관동의 미입력시 알림창
     
     const SignUpAxiosFn = async () => {
-      const res = await axios.get('http://localhost:3002/members')
+      const res = await axios.get('http://localhost:3001/members')
       console.log(res.data)
       console.log(signUp, "회원정보")
       
@@ -145,7 +145,7 @@ const SignUpIndex = () => {
         return
       }
 
-      const signUpSuccess = await axios.post('http://localhost:3002/members', signUp)
+      const signUpSuccess = await axios.post('http://localhost:3001/members', signUp)
       alert("가입 성공 ")
       navigate('/signIn')
 

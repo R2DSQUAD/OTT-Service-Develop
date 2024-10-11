@@ -1,29 +1,54 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom/dist";
 import { signOutFn } from "../../slice/authSlice";
+import axios from "axios";
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSignIn = useSelector((state) => state.auth.isSignIn);
   const signInUser = useSelector((state) => state.auth.signInUser);
   const isCart = useSelector((state) => state.cart.items);
+  const [paymentData, setPaymentData] = useState([]);
+  const userEmail = signInUser.length > 0 ? signInUser[0].userEmail : null; //데이터가 없을 경우 예외처리
+  const paymentDataFilter = userEmail ? paymentData.filter( //데이터가 없을 경우 예외처리
+    (el) => el.userEmail === userEmail
+  ) : [];
 
-  console.log(isSignIn);
-  console.log(signInUser, "유저정보");
+  useEffect(() => {
+    const AxiosFn = async (e) => {
+      try {
+        const res = await axios.get("http://localhost:3001/payments");
+        const resData = res.data;
+        setPaymentData(resData);
+      } catch (err) {
+        alert(err);
+      }
+    };
+    AxiosFn();
+  }, []);
 
+  console.log(signInUser,' siUser' )
+  console.log(paymentDataFilter,' paymentDataFilter' )
   return (
     <div className="header">
       <div className="header-con">
         <div className="gnb">
           <ul>
-            <li>
-              <Link to={"/payment"}>결제 내역</Link>
-            </li>
-            <li>
-              {isCart.length > 0 ? <Link to={"/cart"}>장바구니</Link> : <></>}
-            </li>
+            {isSignIn && paymentDataFilter>0 &&
+                <li>
+                  <Link to={"/payment"}>결제 내역</Link>
+                </li>
+           }
+           
+            {isCart.length > 0 ? (
+              <li>
+                <Link to={"/cart"}>장바구니</Link>
+              </li>
+            ) : (
+              <></>
+            )}
             <li>
               {isSignIn ? (
                 <Link

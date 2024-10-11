@@ -11,7 +11,7 @@ const AdminMemberDetailModal2 = ({update,setMemberModal2}) => {
       }
       const UpdateFn = async () => {
        
-        axios.put(`http://localhost:3002/members/${param.id}`,update); 
+        axios.put(`http://localhost:3001/members/${param.id}`,update); 
          
         navigate(-1)
       };

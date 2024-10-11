@@ -45,7 +45,7 @@ const SignInIndex = () => {
     // 미입력시 알림창
 
     const SignInAxiosFn = async () => {
-      const res = await axios.get('http://localhost:3002/members')
+      const res = await axios.get('http://localhost:3001/members')
       const num = res.data.findIndex(el => {
         return el.userEmail === signIn.userEmail && el.userPw === signIn.userPw
       })

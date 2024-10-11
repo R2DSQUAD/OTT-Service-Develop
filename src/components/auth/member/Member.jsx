@@ -13,7 +13,7 @@ const Member = () => {
   useEffect(()=> {
     const AxiosFn = async (e) => {
       try {
-        const res=await axios.get('http://localhost:3002/payments')
+        const res=await axios.get('http://localhost:3001/payments')
         const resData = res.data;
         setPaymentData(resData)
       } catch (err) {
