@@ -19,9 +19,9 @@ const MemberUpdateLayout = lazy(() =>
   import("../layout/auth/MemberUpdateLayout")
 );
 const DramaPage = lazy(() => import("../pages/drama/DramaPage"));
-const PaymentPage = lazy(() => import("../pages/payment/PaymentIndexPage"));
+const PaymentIndexPage = lazy(() => import("../pages/payment/PaymentIndexPage"));
 const PaymentCartPage = lazy(() => import("../pages/payment/PaymentCartPage"));
-
+const PaymentPage = lazy(() => import("../pages/auth/payment/PaymentPage"));
 
 const root = createBrowserRouter([
   {
@@ -85,7 +85,7 @@ const root = createBrowserRouter([
         path: "paymentIndex",
         element: (
           <Suspense fallback={Loading}>
-            <PaymentPage />
+            <PaymentIndexPage />
           </Suspense>
         ),
       },
@@ -94,6 +94,14 @@ const root = createBrowserRouter([
         element: (
           <Suspense fallback={Loading}>
             <PaymentCartPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/payment",
+        element: (
+          <Suspense fallback={Loading}>
+            <PaymentPage />
           </Suspense>
         ),
       },

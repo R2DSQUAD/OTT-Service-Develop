@@ -23,6 +23,139 @@
       "userPw": "7777",
       "phoneNumber": "01000000000",
       "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "cf22",
+      "userName": "a",
+      "userEmail": "a",
+      "userPw": "a",
+      "phoneNumber": "a",
+      "address": "a",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "4185",
+      "userName": "a2",
+      "userEmail": "a2",
+      "userPw": "a2",
+      "phoneNumber": "a2",
+      "address": "a2",
+      "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "e1c5",
+      "userName": "이름",
+      "userEmail": "이메일",
+      "userPw": "qlalfqjsgh",
+      "phoneNumber": "01012345678",
+      "address": "주소",
+      "role": "ROLE_MEMBER"
+    }
+  ],
+  "payments": [
+    {
+      "id": "c19e",
+      "branchType": "홍대점",
+      "paymentMethod": "네이버 페이",
+      "orderType": "직접 방문",
+      "userEmail": "a",
+      "userName": "a",
+      "address": "a",
+      "phone": "a",
+      "paymentResult": [
+        {
+          "id": "9",
+          "type": "웹툰",
+          "title": "기기괴괴2",
+          "price": "13000",
+          "img": "/images/itemData/talesOfTheUnusual2.jpg",
+          "genre": "공포",
+          "age": "15",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/10 18:9:32"
+    },
+    {
+      "id": "0f3d",
+      "branchType": "홍대점",
+      "paymentMethod": "네이버 페이",
+      "orderType": "예약 주문",
+      "userEmail": "a",
+      "userName": "a",
+      "address": "a",
+      "phone": "a",
+      "paymentResult": [
+        {
+          "id": "4",
+          "type": "웹툰",
+          "title": "입학용병",
+          "price": "15000",
+          "img": "/images/itemData/teenageMercenary.jpg",
+          "genre": "액션",
+          "age": "12",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 15000,
+      "time": "2024/10/11 9:37:23"
+    },
+    {
+      "id": "9c00",
+      "branchType": "노원 본점",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "a",
+      "userName": "a",
+      "address": "a",
+      "phone": "a",
+      "paymentResult": [
+        {
+          "id": "10",
+          "type": "웹툰",
+          "title": "픽미업",
+          "price": "13000",
+          "img": "/images/itemData/pickMeUp.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2022",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/11 9:38:35"
+    },
+    {
+      "id": "4ce3",
+      "branchType": "홍대점",
+      "paymentMethod": "네이버 페이",
+      "orderType": "택배 배송",
+      "userEmail": "이메일",
+      "userName": "이름",
+      "address": "주소",
+      "phone": "01012345678",
+      "paymentResult": [
+        {
+          "id": "9",
+          "type": "웹툰",
+          "title": "기기괴괴2",
+          "price": "13000",
+          "img": "/images/itemData/talesOfTheUnusual2.jpg",
+          "genre": "공포",
+          "age": "15",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/11 11:31:37"
     }
   ]
 }

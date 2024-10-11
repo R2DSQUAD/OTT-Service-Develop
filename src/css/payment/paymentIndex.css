@@ -173,7 +173,35 @@ align-items: center;
 }
 
 
-.payment .payment-con .paymentMethod .paymentType .input {
+.payment .payment-con .select .paymentType .input {
+  background-color: #2d2d2d;
+}
+
+.payment .payment-con .selectOrder{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #585858;
+  border-radius: 8px;
+  padding: 20px 30px;
+  gap: 10px;
+}
+
+.payment .payment-con .selectOrder > span {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.payment .payment-con .selectOrder .orderType {
+  display: flex;
+  gap: 10px;
+}
+
+.payment .payment-con .selectOrder .orderType label {
+  font-size: 20px;
+}
+
+
+.payment .payment-con .selectOrder .orderType .input {
   background-color: #2d2d2d;
 }
 
@@ -208,12 +236,38 @@ align-items: center;
   font-size: 20px;
 }
 
-.payment .payment-con .paymentBtn {
+.payment .payment-con .bottomCon {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
-.payment .payment-con .paymentBtn > button {
+.payment .payment-con .bottomCon .userInfo{
+  border: 1px solid #585858;
+  border-radius: 8px;
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+}
+
+.payment .payment-con .bottomCon .userInfo > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.payment .payment-con .bottomCon .userInfo > span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.payment .payment-con .bottomCon .paymentBtn {
+  display: flex;
+  align-items:flex-end;
+}
+
+.payment .payment-con .bottomCon .paymentBtn > button {
+  height: 40px;
   background-color: #FF0055;
   color: #ffffff;
   outline: none;

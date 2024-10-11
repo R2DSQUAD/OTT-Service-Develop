@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom/dist'
@@ -6,8 +7,28 @@ import { useNavigate } from 'react-router-dom/dist'
 
 
 const Member = () => {
+
+  const [paymentData, setPaymentData] = useState([]);
+
+  useEffect(()=> {
+    const AxiosFn = async (e) => {
+      try {
+        const res=await axios.get('http://localhost:3002/payments')
+        const resData = res.data;
+        setPaymentData(resData)
+      } catch (err) {
+        alert(err);
+      }
+    };
+    AxiosFn();
+  },[])
+
+
+  
+
   const navigate = useNavigate()
   const signInUser = useSelector(state => state.auth.signInUser)
+
 
   return (
     <>

@@ -1,36 +1,87 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allItemThunk } from "../../slice/allItemSlice";
-import PaymentModal from "./PaymentModal";
+import { useNavigate } from "react-router-dom";
+import PaymentIndexModal from "./PaymentIndexModal";
 
+const loginRef = {
+  id: "",
+  userName: "",
+  userEmail: "",
+  userPw: "",
+  phoneNumber: "",
+  role: "ROLE_MEMBER",
+  address: "",
+};
 
 const PaymentIndex = () => {
+  const today = new Date();
+  const formattedDate = `${today.getFullYear()}/${
+    today.getMonth() + 1
+  }/${today.getDate()} ${today.getHours()}:${today.getMinutes()}:${today.getSeconds()}`;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [paymentMethod, setPaymentMethod] = useState(0);
   const [selectBranch, setSelectBranch] = useState(0);
+  const [orderType, setOrderType] = useState(0);
   const [isVertical, setIsVertical] = useState(true);
   const [itemPrice, setItemPrice] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [isPaymentModal, setIsPaymentModal] = useState(false)
+  const [isPaymentModal, setIsPaymentModal] = useState(false);
   const payment = useSelector((state) => state.payment.items);
+  const loginInfo = useSelector((state) => state.auth.signInUser); //로그인 데이터
+  const [loginInfoRef, setLoginInfoRef] = useState(loginRef);
+  const isLogin = useSelector((state) => state.auth.isSignIn);
 
+  const paymentData = {
+    branchType: selectBranch, //지점
+    paymentMethod: paymentMethod, //결제 수단
+    orderType: orderType, //주문 방식
+    userEmail: loginInfoRef.userEmail, //결제자 아이디(이메일)
+    userName: loginInfoRef.userName, //결제자
+    address: loginInfoRef.address, //결제자 주소
+    phone: loginInfoRef.phoneNumber, //결제자 핸드폰번호
+    paymentResult: payment, //결제 내역
+    paymentAmount: totalPrice, //결제 금액
+    time: formattedDate, //결제 시간
+  };
 
+  const validation = {
+    paymentMethod: "결제수단",
+    selectBranch: "지점",
+    orderType: "주문방식",
+  };
+
+  const validateOrder = () => {
+    const validate = [];
+    if (paymentMethod === 0) validate.push(validation.paymentMethod);
+    if (selectBranch === 0) validate.push(validation.selectBranch);
+    if (orderType === 0) validate.push(validation.orderType);
+    return validate;
+  };
 
   const paymentMethodHandler = (e) => {
-    setPaymentMethod(Number(e.target.value));
-    console.log(paymentMethod);
+    setPaymentMethod(e.target.value);
   };
 
   const selectBranchHandler = (e) => {
-    setSelectBranch(Number(e.target.value));
-    console.log(selectBranch);
+    setSelectBranch(e.target.value);
+  };
+
+  const orderTypeHandler = (e) => {
+    setOrderType(e.target.value);
   };
 
   useEffect(() => {
+    if (loginInfo.length === 0) {
+      setLoginInfoRef(loginRef);
+      alert("로그인을 해주세요");
+      navigate("/signIn");
+    } else {
+      setLoginInfoRef(loginInfo[0]);
+    }
     dispatch(allItemThunk());
   }, []);
-
-
 
   useEffect(() => {
     const img = new Image();
@@ -53,29 +104,38 @@ const PaymentIndex = () => {
       return {
         price: item.price * item.count,
         title: item.title,
-        type: item.type
+        type: item.type,
       };
     });
-  
+
     setTotalPrice(total);
     setItemPrice(price);
   }, [payment]);
 
-  // useEffect(() => {
-  //   console.log("Payment Method:", paymentMethod);
-  // }, [paymentMethod]);
-
-  // useEffect(() => {
-  //   console.log("Selected Branch:", selectBranch);
-  // }, [selectBranch]);
-
   const paymentModalFn = (e) => {
-    setIsPaymentModal(true);
-  }
+    const validates = validateOrder();
+    if (validates.length > 0) {
+      alert(`${validates.join(", ")}을(를) 선택해주세요`);
+    } else {
+      if (!isLogin) {
+        alert("로그인을 해주세요");
+        navigate("/signIn");
+      } else {
+        setIsPaymentModal(true);
+      }
+    }
+  };
 
   return (
     <>
-      {isPaymentModal ? (<PaymentModal setIsPaymentModal={setIsPaymentModal}/>) : (<></>)}
+      {isPaymentModal ? (
+        <PaymentIndexModal
+          setIsPaymentModal={setIsPaymentModal}
+          paymentData={paymentData}
+        />
+      ) : (
+        <></>
+      )}
       <div className="payment">
         <div className="payment-con">
           <div className="top">
@@ -99,18 +159,20 @@ const PaymentIndex = () => {
                       </div>
                       <div className="contentType">
                         <ul className="contentInfo">
-                          <li>{el.type}</li>
-                          <li>{el.age}</li>
-                          <li>{el.year}</li>
-                          <li>{el.time}</li>
-                          <li>{el.genre}</li>
+                          {el.type && <li>{el.type}</li>}
+                          {el.age && <li>{el.age}</li>}
+                          {el.year && <li>{el.year}</li>}
+                          {el.time && <li>{el.time}</li>}
+                          {el.genre && <li>{el.genre}</li>}
                         </ul>
                         <ul className="paymentInfo">
                           <li>
-                            <span>{el.count}편 / {el.price}원</span>
+                            <span>
+                              {el.count}편 / {el.price}원
+                            </span>
                           </li>
                           <li>
-                            <span>총 금액 {el.price  * el.count}원</span>
+                            <span>총 금액 {el.price * el.count}원</span>
                           </li>
                           <li>
                             <span>
@@ -137,14 +199,14 @@ const PaymentIndex = () => {
               })}
           </div>
           <div className="paymentMethod">
-            <span>결제 방법</span>
+            <span>결제 수단</span>
             <div className="paymentType">
               <input
-                type="radio"
                 id="creditCard"
-                value={0}
+                type="radio"
+                value="카드결제"
                 onChange={paymentMethodHandler}
-                checked={paymentMethod === 0}
+                checked={paymentMethod === "카드결제"}
               />
               <label htmlFor="creditCard">카드결제 💳</label>
             </div>
@@ -152,9 +214,9 @@ const PaymentIndex = () => {
               <input
                 type="radio"
                 id="kakaoPay"
-                value={1}
+                value="카카오 페이"
                 onChange={paymentMethodHandler}
-                checked={paymentMethod === 1}
+                checked={paymentMethod === "카카오 페이"}
               />
               <label htmlFor="kakaoPay">
                 카카오페이
@@ -165,9 +227,9 @@ const PaymentIndex = () => {
               <input
                 type="radio"
                 id="naverPay"
-                value={2}
+                value="네이버 페이"
                 onChange={paymentMethodHandler}
-                checked={paymentMethod === 2}
+                checked={paymentMethod === "네이버 페이"}
               />
               <label htmlFor="naverPay">
                 네이버페이
@@ -181,9 +243,9 @@ const PaymentIndex = () => {
               <input
                 type="radio"
                 id="nowon"
-                value={0}
+                value="노원 본점"
                 onChange={selectBranchHandler}
-                checked={selectBranch === 0}
+                checked={selectBranch === "노원 본점"}
               />
               <label htmlFor="nowon">노원 본점</label>
             </div>
@@ -191,21 +253,54 @@ const PaymentIndex = () => {
               <input
                 type="radio"
                 id="hongdae"
-                value={1}
+                value="홍대점"
                 onChange={selectBranchHandler}
-                checked={selectBranch === 1}
+                checked={selectBranch === "홍대점"}
               />
-              <label htmlFor="hongdae">홍대</label>
+              <label htmlFor="hongdae">홍대점</label>
             </div>
             <div className="branchType">
               <input
                 type="radio"
                 id="gangnam"
-                value={2}
+                value={"강남점"}
                 onChange={selectBranchHandler}
-                checked={selectBranch === 2}
+                checked={selectBranch === "강남점"}
               />
-              <label htmlFor="gangnam">강남</label>
+              <label htmlFor="gangnam">강남점</label>
+            </div>
+          </div>
+          <div className="selectOrder">
+            <span>주문 방식</span>
+            <div className="orderType">
+              <input
+                type="radio"
+                id="reservation"
+                value="예약 주문"
+                onChange={orderTypeHandler}
+                checked={orderType === "예약 주문"}
+              />
+              <label htmlFor="reservation">예약 주문</label>
+            </div>
+            <div className="orderType">
+              <input
+                type="radio"
+                id="directly"
+                value="직접 방문"
+                onChange={orderTypeHandler}
+                checked={orderType === "직접 방문"}
+              />
+              <label htmlFor="directly">직접 방문</label>
+            </div>
+            <div className="orderType">
+              <input
+                type="radio"
+                id="parcel"
+                value="택배 배송"
+                onChange={orderTypeHandler}
+                checked={orderType === "택배 배송"}
+              />
+              <label htmlFor="parcel">택배 배송</label>
             </div>
           </div>
           <div className="totalAmount">
@@ -214,7 +309,9 @@ const PaymentIndex = () => {
                 return (
                   <>
                     <div className="contentPrice">
-                      <span>[{el.type}] <b>{el.title}</b> 금액</span>
+                      <span>
+                        [{el.type}] <b>{el.title}</b> 금액
+                      </span>
                       <span>{el.price}원</span>
                     </div>
                   </>
@@ -228,13 +325,34 @@ const PaymentIndex = () => {
               <span>쿠폰</span>
               <span>0원</span>
             </div>
-            <div className="contetTotalAmonut">
+            <div className="contentTotalAmonut">
               <span>총 금액</span>
               <span>{totalPrice}원</span>
             </div>
           </div>
-          <div className="paymentBtn">
-            <button onClick={paymentModalFn}>결제하기</button>
+          <div className="bottomCon">
+            <div className="userInfo">
+              <span>주문자 정보</span>
+              <div className="userEmail">
+                <span>이메일</span>
+                <span>{loginInfoRef.userEmail}</span>
+              </div>
+              <div className="userName">
+                <span>이름</span>
+                <span>{loginInfoRef.userName}</span>
+              </div>
+              <div className="userPhone">
+                <span>전화번호</span>
+                <span>{loginInfoRef.phoneNumber}</span>
+              </div>
+              <div className="userAddress">
+                <span>주소</span>
+                <span>{loginInfoRef.address}</span>
+              </div>
+            </div>
+            <div className="paymentBtn">
+              <button onClick={paymentModalFn}>결제하기</button>
+            </div>
           </div>
         </div>
       </div>
