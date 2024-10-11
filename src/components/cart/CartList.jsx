@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { decreCount, deleteCart, deleteCartAll, increCount } from '../../slice/cartslice'
+import { decreCount, deleteCart, allDeleteCart, increCount } from '../../slice/cartslice'
 
 const CartList = () => {
 
@@ -80,7 +80,7 @@ const CartList = () => {
               </ul>
               <button className='paybtn' onClick={payFn}>결제하기</button>
               <button className='paybtn' onClick={()=>{
-                dispatch(deleteCartAll(cartItems))
+                dispatch(allDeleteCart(cartItems))
               }}>제거</button>
             </div>
           </div> : <></>}

@@ -1,0 +1,23 @@
+.payment-con > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid white;
+}
+
+ul > li {
+  display: flex;
+  flex-direction: column;
+}
+
+ul > li > ul {
+  display: flex;
+}
+
+ ul > li > ul > li > img {
+  display: block;
+  width: 100px;
+  height: auto;
+}
+

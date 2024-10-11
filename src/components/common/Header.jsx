@@ -3,19 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom/dist";
 import { signOutFn } from "../../slice/authSlice";
-
 const Header = () => {
-  const navigate = useNavigate()
-  const dispatch = useDispatch()
-  const isSignIn = useSelector(state => state.auth.isSignIn)
-  const signInUser = useSelector(state => state.auth.signInUser)
-  const isCart=useSelector(state=>state.cart.items)
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isSignIn = useSelector((state) => state.auth.isSignIn);
+  const signInUser = useSelector((state) => state.auth.signInUser);
+  const isCart = useSelector((state) => state.cart.items);
 
-  console.log(isSignIn)
-  console.log(signInUser, "유저정보")
-  
-
-
+  console.log(isSignIn);
+  console.log(signInUser, "유저정보");
 
   return (
     <div className="header">
@@ -23,51 +19,61 @@ const Header = () => {
         <div className="gnb">
           <ul>
             <li>
-              {isCart.length>0?
-              <Link to={"/cart"}>장바구니</Link>:
-              <></>
-              }
+              <Link to={"/payment"}>결제 내역</Link>
             </li>
             <li>
-              {isSignIn ?
-              <Link onClick={(e) => {
-                e.preventDefault()
-                alert('로그아웃 되었습니다. ')
-                dispatch(signOutFn())
-                navigate('/')
-              }}>로그아웃</Link>:
-              <Link to={"/signIn"}>로그인</Link>
-              }
+              {isCart.length > 0 ? <Link to={"/cart"}>장바구니</Link> : <></>}
             </li>
-            {!isSignIn && 
             <li>
-              <Link to={"/signUp"}>회원가입</Link>
+              {isSignIn ? (
+                <Link
+                  onClick={(e) => {
+                    e.preventDefault();
+                    alert("로그아웃 되었습니다. ");
+                    dispatch(signOutFn());
+                    navigate("/");
+                  }}
+                >
+                  로그아웃
+                </Link>
+              ) : (
+                <Link to={"/signIn"}>로그인</Link>
+              )}
             </li>
-            }
-            {isSignIn ? 
-            <li>
-              <Link to={"/member"}>{signInUser[0].userEmail}님</Link>
-            </li>:
-            <></>
-            }
-            {isSignIn ? 
-            (signInUser[0].role === "ROLE_ADMIN" ?
+            {!isSignIn && (
               <li>
-                <Link onClick={(e) => {
-                  e.preventDefault()
-                  navigate('/admin/index')
-                }}>관리자 페이지</Link>
-              </li> : <></>
-            ) :
-            <></>
-            }
-            
-
+                <Link to={"/signUp"}>회원가입</Link>
+              </li>
+            )}
+            {isSignIn ? (
+              <li>
+                <Link to={"/member"}>{signInUser[0].userEmail}님</Link>
+              </li>
+            ) : (
+              <></>
+            )}
+            {isSignIn ? (
+              signInUser[0].role === "ROLE_ADMIN" ? (
+                <li>
+                  <Link
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigate("/admin/index");
+                    }}
+                  >
+                    관리자 페이지
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )
+            ) : (
+              <></>
+            )}
           </ul>
         </div>
       </div>
     </div>
   );
 };
-
 export default Header;
