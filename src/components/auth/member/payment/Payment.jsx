@@ -1,14 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom/dist";
 
 const Payment = () => {
+  const navigate = useNavigate();
   const [paymentData, setPaymentData] = useState([]);
   const signInUser = useSelector((state) => state.auth.signInUser);
 
   const userEmail = signInUser[0].userEmail;
-  const paymentDataFilter = paymentData.filter((el) => el.userEmail === userEmail);
+  const paymentDataFilter = paymentData.filter(
+    (el) => el.userEmail === userEmail
+  );
 
   useEffect(() => {
     const AxiosFn = async (e) => {
@@ -23,48 +26,51 @@ const Payment = () => {
     AxiosFn();
   }, []);
 
+  const detailFn = (eId) => {
+    navigate(`/paymentDetail/${eId}`);
+  };
+
   return (
     <>
       <div className="payment">
         <div className="payment-con">
-          <ul>
+          <div className="top">
+            <h1>결제 내역</h1>
+            <hr />
+          </div>
+          <div className="content">
+            <ul>
+              <li>연번</li>
+              <li>결제일자</li>
+              <li>지점</li>
+              <li>결제수단</li>
+              <li>주문방식</li>
+              <li>금액</li>
+              <li>상세내역</li>
+            </ul>
             {paymentDataFilter &&
               paymentDataFilter.map((el, idx) => {
                 return (
                   <>
-                    <li key={idx}>{el.branchType}</li>
-                    <li>{el.userEmail}</li>
-                    <li>{el.userName}</li>
-                    <li>{el.address}</li>
-                    <li>{el.phone}</li>
-                    <li>{el.paymentMethod}</li>
-                    <li>{el.orderType}</li>
-                    <li>{el.paymentAmout}</li>
-                    <li>{el.time}</li>
-                    <li>
-                      <ul>
-                        {el.paymentResult &&
-                          el.paymentResult.map((el, idx) => {
-                            return (
-                              <>
-                                <li key={idx}>{el.type}</li>
-                                <li>{el.title}</li>
-                                <li>{el.price}</li>
-                                <li>
-                                  <img src={el.img} alt={el.img} />
-                                </li>
-                                <li>{el.year}</li>
-                                <li>{el.time}</li>
-                                <li>주문 개수: {el.count}</li>
-                              </>
-                            );
-                          })}
-                      </ul>
-                    </li>
+                    <ul className="dataList">
+                      <li>{idx + 1}</li>
+                      <li key={idx}>{el.time}</li>
+                      <li>{el.branchType}</li>
+                      <li>{el.paymentMethod}</li>
+                      <li>{el.orderType}</li>
+                      <li>{el.paymentAmount}</li>
+                      <li
+                        onClick={() => {
+                          detailFn(el.id);
+                        }}
+                      >
+                        상세내역 보기
+                      </li>
+                    </ul>
                   </>
                 );
               })}
-          </ul>
+          </div>
         </div>
       </div>
     </>

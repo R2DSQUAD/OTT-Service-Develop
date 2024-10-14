@@ -22,6 +22,7 @@ const DramaPage = lazy(() => import("../pages/drama/DramaPage"));
 const PaymentIndexPage = lazy(() => import("../pages/payment/PaymentIndexPage"));
 const PaymentCartPage = lazy(() => import("../pages/payment/PaymentCartPage"));
 const PaymentPage = lazy(() => import("../pages/auth/payment/PaymentPage"));
+const PaymentDetailPage = lazy(() => import("../pages/auth/payment/PaymentDetailPage"));
 
 const root = createBrowserRouter([
   {
@@ -102,6 +103,14 @@ const root = createBrowserRouter([
         element: (
           <Suspense fallback={Loading}>
             <PaymentPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/paymentDetail/:id",
+        element: (
+          <Suspense fallback={Loading}>
+            <PaymentDetailPage />
           </Suspense>
         ),
       },

@@ -64,12 +64,12 @@ align-items: center;
 
 .payment .payment-con .paymentItemList .contentTop .contentImg > img.verticalImg{
   width: auto;
-  height: 200px;
+  height: 100px;
 }
 
 .payment .payment-con .paymentItemList .contentTop .contentImg > img.horizontalImg{
-  width: 200px;
-  height: 300px;
+  width: 100px;
+  height: 200px;
 }
 
 

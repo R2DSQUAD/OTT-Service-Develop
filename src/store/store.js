@@ -13,7 +13,7 @@ const store = configureStore({
     item: itemSlice.reducer,
     auth: authSlice.reducer,
     allItem: allItemSlice.reducer,
-    anime: animeSlice.reducer
+    anime: animeSlice.reducer,
   }
 })
 
