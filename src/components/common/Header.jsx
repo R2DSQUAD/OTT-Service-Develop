@@ -1,53 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom/dist";
+import { Link, useNavigate } from "react-router-dom";
 import { signOutFn } from "../../slice/authSlice";
-import axios from "axios";
+import { clearPayment, paymentListThunk } from "../../slice/paymentSlice";
+
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSignIn = useSelector((state) => state.auth.isSignIn);
   const signInUser = useSelector((state) => state.auth.signInUser);
   const isCart = useSelector((state) => state.cart.items);
-  const [paymentData, setPaymentData] = useState([]);
-  const userEmail = signInUser.length > 0 ? signInUser[0].userEmail : null; //데이터가 없을 경우 예외처리
-  const paymentDataFilter = userEmail ? paymentData.filter( //데이터가 없을 경우 예외처리
-    (el) => el.userEmail === userEmail
-  ) : [];
+  const paymentList = useSelector((state) => state.payment.items);
 
   useEffect(() => {
-    const AxiosFn = async (e) => {
-      try {
-        const res = await axios.get("http://localhost:3001/payments");
-        const resData = res.data;
-        setPaymentData(resData);
-      } catch (err) {
-        alert(err);
-      }
-    };
-    AxiosFn();
-  }, []);
+    if (signInUser.length > 0) {
+      dispatch(paymentListThunk());
+    }
+  }, [dispatch, signInUser]);
 
-  console.log(signInUser,' siUser' )
-  console.log(paymentDataFilter,' paymentDataFilter' )
   return (
     <div className="header">
       <div className="header-con">
         <div className="gnb">
           <ul>
-            {isSignIn && paymentDataFilter>0 &&
-                <li>
-                  <Link to={"/payment"}>결제 내역</Link>
-                </li>
-           }
-           
-            {isCart.length > 0 ? (
+            {paymentList.length > 0 && (
+              <li>
+                <Link to={"/payment"}>결제내역</Link>
+              </li>
+            )}
+
+            {isCart.length > 0 && (
               <li>
                 <Link to={"/cart"}>장바구니</Link>
               </li>
-            ) : (
-              <></>
             )}
             <li>
               {isSignIn ? (
@@ -56,6 +41,7 @@ const Header = () => {
                     e.preventDefault();
                     alert("로그아웃 되었습니다. ");
                     dispatch(signOutFn());
+                    dispatch(clearPayment());
                     navigate("/");
                   }}
                 >
@@ -70,12 +56,10 @@ const Header = () => {
                 <Link to={"/signUp"}>회원가입</Link>
               </li>
             )}
-            {isSignIn ? (
+            {isSignIn && (
               <li>
                 <Link to={"/member"}>{signInUser[0].userEmail}님</Link>
               </li>
-            ) : (
-              <></>
             )}
             {isSignIn ? (
               signInUser[0].role === "ROLE_ADMIN" ? (

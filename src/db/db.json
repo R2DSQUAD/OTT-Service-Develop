@@ -899,102 +899,157 @@
       "phoneNumber": "test",
       "address": "test",
       "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "13ef",
+      "userName": "a22",
+      "userEmail": "a22",
+      "userPw": "a22",
+      "phoneNumber": "a22",
+      "address": "a22",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "a1b6",
+      "userName": "aaaa",
+      "userEmail": "aaaa",
+      "userPw": "aaaa",
+      "phoneNumber": "aaaa",
+      "address": "aaaa",
+      "role": "ROLE_ADMIN"
+    },
+    {
+      "id": "40cf",
+      "userName": "1234",
+      "userEmail": "1234",
+      "userPw": "1234",
+      "phoneNumber": "1234",
+      "address": "1234",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "7dfe",
+      "userName": "123",
+      "userEmail": "123",
+      "userPw": "123",
+      "phoneNumber": "123",
+      "address": "123",
+      "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "0c15",
+      "userName": "11111",
+      "userEmail": "11111",
+      "userPw": "11111",
+      "phoneNumber": "11111",
+      "address": "11111",
+      "role": "ROLE_MEMBER"
     }
   ],
   "payments": [
     {
-      "id": "927d",
-      "branchType": "노원 본점",
-      "paymentMethod": "네이버 페이",
+      "id": "2af9",
+      "branchType": "홍대점",
+      "paymentMethod": "카카오 페이",
       "orderType": "예약 주문",
+      "userEmail": "11111",
+      "userName": "11111",
+      "address": "11111",
+      "phone": "11111",
+      "paymentResult": [
+        {
+          "id": "36",
+          "type": "드라마",
+          "title": "사냥개들",
+          "price": 10000,
+          "img": "/images/itemData/사냥개들.png",
+          "genre": "액션",
+          "age": "19",
+          "year": "2023",
+          "count": 1,
+          "comment": "두 청년 복서가 선한 대부업자와 한뜻으로 뭉친다. 돈 때문에 절박한 약자들을 먹잇감 삼는 악랄한 사채업자에 대적하기 위해"
+        }
+      ],
+      "paymentAmount": 10000,
+      "time": "2024/10/14 12:24:8"
+    },
+    {
+      "id": "bfbc",
+      "branchType": "노원 본점",
+      "paymentMethod": "카드결제",
+      "orderType": "예약 주문",
+      "userEmail": "1234",
+      "userName": "1234",
+      "address": "1234",
+      "phone": "1234",
+      "paymentResult": [
+        {
+          "id": "14",
+          "type": "웹툰",
+          "title": "똑닮은 딸",
+          "price": "13000",
+          "img": "/images/itemData/likeMotherLikeDaughter.jpg",
+          "genre": "스릴러",
+          "age": "15",
+          "year": "2021",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/14 12:28:36"
+    },
+    {
+      "id": "d3b6",
+      "branchType": "노원 본점",
+      "paymentMethod": "카드결제",
+      "orderType": "직접 방문",
       "userEmail": "a",
       "userName": "a",
       "address": "a",
       "phone": "a",
       "paymentResult": [
         {
-          "id": "10",
+          "id": "15",
           "type": "웹툰",
-          "title": "픽미업",
+          "title": "좋아? 죽어!",
           "price": "13000",
-          "img": "/images/itemData/pickMeUp.jpg",
-          "genre": "판타지",
-          "age": "ALL",
-          "year": "2022",
+          "img": "/images/itemData/LoveYouTillDeath.jpg",
+          "genre": "스릴러",
+          "age": "18",
+          "year": "2024",
           "time": "",
           "count": 1
         }
       ],
       "paymentAmount": 13000,
-      "time": "2024/10/11 13:0:2"
+      "time": "2024/10/14 12:32:50"
     },
     {
-      "id": "61af",
-      "branchType": "노원 본점",
-      "paymentMethod": "카카오 페이",
-      "orderType": "직접 방문",
-      "userEmail": "test",
-      "userName": "test",
-      "address": "test",
-      "phone": "test",
-      "paymentResult": [
-        {
-          "id": 5,
-          "price": "19000",
-          "title": "싸움독학",
-          "img": "/images/itemData/viralHit.jpg",
-          "count": 1
-        }
-      ],
-      "paymentAmount": 19000,
-      "time": "2024/10/11 13:6:4"
-    },
-    {
-      "id": "bf58",
+      "id": "8552",
       "branchType": "노원 본점",
       "paymentMethod": "카드결제",
-      "orderType": "직접 방문",
-      "userEmail": "test",
-      "userName": "test",
-      "address": "test",
-      "phone": "test",
+      "orderType": "예약 주문",
+      "userEmail": "123",
+      "userName": "123",
+      "address": "123",
+      "phone": "123",
       "paymentResult": [
         {
-          "id": 60,
-          "price": "10000",
-          "title": "애프터썬 (2022)",
-          "img": "/images/itemData/aftersun.webp",
-          "count": 1
-        }
-      ],
-      "paymentAmount": 10000,
-      "time": "2024/10/11 13:7:8"
-    },
-    {
-      "id": "c1c0",
-      "branchType": "홍대점",
-      "paymentMethod": "카카오 페이",
-      "orderType": "직접 방문",
-      "userEmail": "test",
-      "userName": "test",
-      "address": "test",
-      "phone": "test",
-      "paymentResult": [
-        {
-          "id": "7",
+          "id": "12",
           "type": "웹툰",
-          "title": "전지적 독자 시점",
+          "title": "던전리셋",
           "price": "13000",
-          "img": "/images/itemData/omniscientReaderPoint.jpg",
-          "genre": "액션",
-          "age": "15",
+          "img": "/images/itemData/dungeonReset.jpg",
+          "genre": "판타지",
+          "age": "ALL",
           "year": "2020",
           "time": "",
           "count": 1
         }
       ],
       "paymentAmount": 13000,
-      "time": "2024/10/11 13:8:42"
+      "time": "2024/10/14 12:44:24"
     }
   ]
 }

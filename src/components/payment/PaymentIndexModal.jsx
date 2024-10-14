@@ -32,7 +32,6 @@ const PaymentIndexModal = ({ setIsPaymentModal, paymentData }) => {
     navigate(-1);
   };
 
-  console.log(paymentData, "modal_test");
   return (
     <>
       <div className="paymentModal">
