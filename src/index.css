@@ -36,66 +36,49 @@
   color: white;
 }
 
-.layout {
+.layout, .admin {
   width: 100%;
   height: 100vh;
   display: flex;
   justify-content: space-between;
 }
 
-.layout > .left {
-  flex: 0 0 260px;
-  position: sticky;
-  top: 0;
-
-}
-
-.layout > .right {
-  flex: 1;
-  position: sticky;
-  top: 0;
-}
-
-.admin {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: space-between;
-}
-
-.admin > .admin-left {
+.layout > .left, .admin > .admin-left {
   flex: 0 0 260px;
   position: sticky;
   top: 0;
   height: 100vh;
 }
 
-.admin > .admin-right {
+.layout > .right, .admin > .admin-right {
   flex: 1;
   position: sticky;
   top: 0;
   height: 100vh;
-}
-
-@media (min-width: 769px) {
-  .layout2, .admin2 {
-    display: none;
-  }
 }
 
 @media (max-width: 768px) {
-  .layout, .admin{
-    display: none;
-  }
 
-  .layout2 , .admin2 {
+  .layout , .admin {
     width: 100%;
     height: 100vh;
     display: flex;
     justify-content: space-between;
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 
+  .layout .left, .admin .admin-left {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .layout .right, .admin .admin-right {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 

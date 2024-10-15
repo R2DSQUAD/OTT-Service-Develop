@@ -25,22 +25,6 @@ const paymentSlice = createSlice({
         state.items[num].count += action.payload.count;
       }
     },
-    increCount: (state, action) => {
-      const num = state.items.findIndex((el) => {
-        return el.id === action.payload;
-      });
-      state.items[num].count += 1;
-    },
-    decreCount: (state, action) => {
-      const num = state.items.findIndex((el) => {
-        return el.id === action.payload;
-      });
-      if (state.items[num].count <= 1) {
-        state.items[num].count = 1;
-      } else {
-        state.items[num].count -= 1;
-      }
-    },
     clearPayment: (state, action) => {
       state.items = initstate.items
       state.status = initstate.status
@@ -64,5 +48,5 @@ async (_, {getState})=>{
   return data
 });
 
-export const { addPayment, increCount, decreCount, clearPayment} = paymentSlice.actions
+export const { addPayment, clearPayment } = paymentSlice.actions
 export default paymentSlice;
