@@ -944,6 +944,15 @@
       "phoneNumber": "11111",
       "address": "11111",
       "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "1ca2",
+      "userName": "test2",
+      "userEmail": "test2",
+      "userPw": "test2",
+      "phoneNumber": "test2",
+      "address": "test2",
+      "role": "ROLE_ADMIN"
     }
   ],
   "payments": [
@@ -1050,6 +1059,58 @@
       ],
       "paymentAmount": 13000,
       "time": "2024/10/14 12:44:24"
+    },
+    {
+      "id": "6004",
+      "branchType": "홍대점",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "1234",
+      "userName": "1234",
+      "address": "1234",
+      "phone": "1234",
+      "paymentResult": [
+        {
+          "id": "9",
+          "type": "웹툰",
+          "title": "기기괴괴2",
+          "price": "13000",
+          "img": "/images/itemData/talesOfTheUnusual2.jpg",
+          "genre": "공포",
+          "age": "15",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/14 17:41:45"
+    },
+    {
+      "id": "0a5d",
+      "branchType": "홍대점",
+      "paymentMethod": "카드결제",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "7",
+          "type": "웹툰",
+          "title": "전지적 독자 시점",
+          "price": "13000",
+          "img": "/images/itemData/omniscientReaderPoint.jpg",
+          "genre": "액션",
+          "age": "15",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/15 10:39:31"
     }
   ]
 }

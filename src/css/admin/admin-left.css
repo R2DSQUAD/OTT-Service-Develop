@@ -29,7 +29,6 @@
 .admin-left .admin-left-con .admin-gnb {
   padding: 0px 70px;
   
-  
 }
 
 .admin-left .admin-left-con .admin-gnb > ul {
@@ -38,9 +37,57 @@
   gap: 20px;
 }
 
-.admin-left .admin-left-con .admin-gnb > ul > li {
-}
-
 .admin-left .admin-left-con .admin-gnb > ul > li > a {
   color: inherit;
+}
+
+@media (max-width: 768px) {
+
+  .admin-left{
+    width: 100%;
+    height:auto;
+    display: flex;
+  }
+
+  .admin-left .admin-left-con{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+  }
+
+  .admin-left .admin-left-con h1{
+    display: none;
+  }
+
+  .admin-left .admin-left-con .admin-gnb {
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .admin-left .admin-left-con .admin-gnb > ul {
+    flex-direction: row;
+    gap: 30px;
+    padding: 10px;
+  }
+
+  .admin-left .admin-left-con .admin-gnb > ul > li {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .admin-left .admin-left-con .admin-gnb > ul {
+    gap: 20px;
+    padding: 10px;
+  }
+
+  .admin-left .admin-left-con .admin-gnb > ul > li {
+    font-size: 12px;
+  }
 }

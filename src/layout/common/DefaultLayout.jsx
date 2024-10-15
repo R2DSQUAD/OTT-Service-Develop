@@ -17,6 +17,17 @@ const DefaultLayout = () => {
           </div>
         </div>
       </div>
+      <div className="layout2">
+        <div className="top">
+          <Header />
+        </div>
+        <div className="content">
+          <Outlet />
+        </div>
+        <div className="bottom">
+          <HeaderNav />
+        </div>
+      </div>
     </>
   );
 };
