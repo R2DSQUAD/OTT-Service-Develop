@@ -1111,6 +1111,32 @@
       ],
       "paymentAmount": 13000,
       "time": "2024/10/15 10:39:31"
+    },
+    {
+      "id": "bf55",
+      "branchType": "노원 본점",
+      "paymentMethod": "카카오 페이",
+      "orderType": "예약 주문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "16",
+          "type": "웹툰",
+          "title": "욕망일기Deep",
+          "price": "13000",
+          "img": "/images/itemData/TalesOfGreedDeep.jpg",
+          "genre": "스릴러",
+          "age": "15",
+          "year": "2023",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/15 14:13:31"
     }
   ]
 }
