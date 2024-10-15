@@ -1,35 +1,45 @@
-import React, { useEffect } from 'react'
-import AdminLeft from './AdminLeft'
-import { Outlet, useNavigate } from 'react-router-dom'
-import AdminRight from './AdminRight'
-import { useSelector } from 'react-redux'
+import React, { useEffect } from "react";
+import AdminLeft from "./AdminLeft";
+import { Outlet, useNavigate } from "react-router-dom";
+import AdminRight from "./AdminRight";
+import { useSelector } from "react-redux";
 
 const AdminLayout = () => {
   const isLogin = useSelector((state) => state.auth.isSignIn);
   const navigate = useNavigate();
-  
+
   useEffect(() => {
-    if (isLogin === false){
+    if (isLogin === false) {
       navigate("/signIn");
     }
-  })
+  });
 
   return (
     <>
-    <div className="admin">
+      <div className="admin">
         <div className="admin-left">
-        <AdminLeft />
+          <AdminLeft />
         </div>
         <div className="admin-right">
-        <AdminRight />
+          <AdminRight />
+          <div className="admin-content">
+            <Outlet />
+          </div>
+        </div>
+      </div>
+      <div className="admin2">
+      <div className="admin-right">
+          <AdminRight />
+        </div>
         <div className="admin-content">
-          <Outlet/>
+          <Outlet />
         </div>
-        </div>
-      
-    </div>
-  </>
-  )
-}
+        <div className="admin-left">
+          <AdminLeft />
+        </div>  
+      </div>
+    </>
+  );
+};
 
-export default AdminLayout
+export default AdminLayout;

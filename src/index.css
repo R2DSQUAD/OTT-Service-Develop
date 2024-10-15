@@ -30,6 +30,7 @@
 @import url(./css/auth/member/payment/paymentDetail.css);
 
 
+
 #root {
   background-color: black;
   color: white;
@@ -39,39 +40,62 @@
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
-.layout .left {
+.layout > .left {
   flex: 0 0 260px;
   position: sticky;
   top: 0;
-  height: 100vh;
+
 }
 
-.layout .right {
+.layout > .right {
   flex: 1;
   position: sticky;
   top: 0;
-  height: 100vh;
 }
+
 .admin {
   width: 100%;
   height: 100vh;
   display: flex;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
-.admin .admin-left {
+.admin > .admin-left {
   flex: 0 0 260px;
   position: sticky;
   top: 0;
   height: 100vh;
 }
 
-.admin .admin-right {
+.admin > .admin-right {
   flex: 1;
   position: sticky;
   top: 0;
   height: 100vh;
 }
+
+@media (min-width: 769px) {
+  .layout2, .admin2 {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .layout, .admin{
+    display: none;
+  }
+
+  .layout2 , .admin2 {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+}
+
+

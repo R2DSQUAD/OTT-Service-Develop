@@ -21,12 +21,17 @@ const MemberHeader = () => {
   return (
     <div className="member-header">
       <div className="member-header-con">
-        <h1 className="logo">
-          <Link to={"/"}>
-            <img src="/images/common/logo.svg" alt="logo" />
-          </Link>
-        </h1>
         <div className="gnb">
+          <h1 className="logo">
+            <Link to={"/"}>
+              <img src="/images/common/logo.svg" alt="logo" />
+            </Link>
+          </h1>
+          <h1 className="logo-mini">
+            <Link to={"/"}>
+              <img src="/images/common/logo.png" alt="logo" />
+            </Link>
+          </h1>
           <ul>
             {paymentList.length > 0 && (
               <li>
