@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 
-const CartModal = ({setIsCartModal,setDramaModal}) => {
+const CartModal = ({setIsCartModal,setDramaModal,content}) => {
+  const ref=useRef()
   const btFn=(e)=>{
     setIsCartModal(false)
-    setDramaModal(false)
   }
+  useEffect(()=>{
+    console.log(content)
+    console.log(ref.current)
+    ref.current.innerText=content
+  },[])
   return (
     <>
+    {content==='장바구니'&&
     <div className="cartModal">
       <div className="cartModal-con">
-        <span>장바구니에 추가되었습니다.</span>
+        <span ref={ref}></span>
         <div className="cartBtn">
           <button onClick={btFn}>확인</button>
         </div>
       </div>
     </div>
+    }
     </>
   )
 }

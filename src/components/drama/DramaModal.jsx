@@ -45,11 +45,13 @@ const DramaModal = ({modalItem,setDramaModal}) => {
     count: count,
     comment: modalList.comment, 
   }
-  
+  const [content,setContent]=useState('')
   const dispatch=useDispatch()
-  const addCartFn=()=>{
+  const addCartFn=(e)=>{
+    const text=e.currentTarget.innerText
     dispatch(addCart(dramaCart))
     setIsCartModal(true)
+    setContent(text)
   }
 
   const addPayementFn = () => {
@@ -71,7 +73,7 @@ const DramaModal = ({modalItem,setDramaModal}) => {
 
   return (
     <>
-      {isCartModal ?<CartModal setIsCartModal={setIsCartModal} setDramaModal={setDramaModal}/>:<></>}
+      {isCartModal ?<CartModal setIsCartModal={setIsCartModal} setDramaModal={setDramaModal} content={content}/>:<></>}
       <div className="dramaModal">
         <div className="dramaModal-con">
             <span className='close' onClick={closeFn}>X</span>

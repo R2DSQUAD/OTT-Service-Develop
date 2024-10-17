@@ -23,6 +23,7 @@ const PaymentIndexPage = lazy(() => import("../pages/payment/PaymentIndexPage"))
 const PaymentCartPage = lazy(() => import("../pages/payment/PaymentCartPage"));
 const PaymentPage = lazy(() => import("../pages/auth/payment/PaymentPage"));
 const PaymentDetailPage = lazy(() => import("../pages/auth/payment/PaymentDetailPage"));
+const KakaoPage=lazy(()=> import('../api/KakaoAPI'))
 
 const root = createBrowserRouter([
   {
@@ -33,6 +34,14 @@ const root = createBrowserRouter([
       </Suspense>
     ),
     children: [
+      {
+        path: "kakaopage",
+        element: (
+          <Suspense fallback={Loading}>
+            <KakaoPage />
+          </Suspense>
+        )
+      },
       {
         path: "",
         element: (

@@ -44,6 +44,16 @@ const DramaIndex = () => {
     h3.innerText=`${age}`
     age>0?setArr(items.filter(el=> el.age===age).slice(0,4)):setArr(items.slice(0,4))
   }
+  const overFn=(e)=>{
+    const divTag=e.target.parentElement
+    const id=e.currentTarget.getAttribute('data-id')
+    const selItem=items.filter(el=>el.id===id)
+    divTag.children[1].innerText=selItem[0].title
+  }
+  const leaveFn=(e)=>{
+    const divTag=e.target.parentElement    
+    divTag.children[1].innerText=``
+  }
 
   return (
     <>
@@ -58,7 +68,7 @@ const DramaIndex = () => {
         <div className="drama-list">
           <div className="dramaList">
             <div className="drama-head">
-            <h3>전체작품</h3>
+            <h2>전체작품</h2>
             <select name="age" id="age" onChange={ageChangeFn} defaultValue={true}>
                 <option value="all">전체</option>
                 <option value="15">15</option>
@@ -81,19 +91,21 @@ const DramaIndex = () => {
             </ul>
           </div>
           <div className="dramaList">
-            <h3>판타지</h3>
+            <h2>판타지</h2>
             <ul>
               {items &&items.filter(el => el.genre==="판타지").map((el,idx)=>{
                 return(
-                  <li key={idx} data-id={el.id} onClick={dramaModalFn}>                
-                    <img src={`/images/itemData/${el.img}`} alt={el.img} />
+                  <li key={idx} data-id={el.id} onClick={dramaModalFn} onMouseEnter={overFn} onMouseLeave={leaveFn}>
+                    <div className="item-img">
+                      <img src={`/images/itemData/${el.img}`} alt={el.img} /><span></span>
+                    </div>                
                 </li>
                 )
               })}
             </ul>
           </div>
           <div className="dramaList">
-            <h3>액션</h3>
+            <h2>액션</h2>
             <ul>
               {items &&items.filter(el => el.genre==="액션").map((el,idx)=>{
                 return(
@@ -105,7 +117,7 @@ const DramaIndex = () => {
             </ul>
           </div>
           <div className="dramaList">
-            <h3>호러</h3>
+            <h2>호러</h2>
             <ul>
               {items &&items.filter(el => el.genre==="스릴러").map((el,idx)=>{
                 return(
@@ -117,7 +129,7 @@ const DramaIndex = () => {
             </ul>
           </div>
           <div className="dramaList">
-            <h3>로맨스</h3>
+            <h2>로맨스</h2>
             <ul>
               {items &&items.filter(el => el.genre==="로맨스").map((el,idx)=>{
                 return(
