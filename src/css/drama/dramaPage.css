@@ -63,3 +63,25 @@
   width: 100%;
   display: block;
 }
+.drama .drama-con .drama-list .dramaList ul li .item-img{
+  position: relative;
+}
+.drama .drama-con .drama-list .dramaList ul li .item-img span{
+  position: absolute;
+  z-index: 1;
+  top: 80%;
+  left: 50%;
+  transform: translate( -50%, -50% );
+  color:white;
+  font-size: 20px;
+  font-weight: bolder;
+}
+@media (max-width: 1024px){
+  .drama .drama-con .drama-list .dramaList ul{
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(1,auto);
+  }
+  /* .drama .drama-con .drama-list .dramaList ul li:nth-child(4){
+    display: none;
+  } */
+}
