@@ -18,8 +18,7 @@ const AdminMember = () => {
     },[])
     
     const memberDetailFn = (elId) => {
-        // const eId = e.currentTarget.getAttribute('data-id')
-         //여기 부분에 값 안들어감           
+               
         navigate(`/admin/adminmember/detail/${elId}`)
         
       }
@@ -28,7 +27,7 @@ const AdminMember = () => {
     <>
     <div className="admin-member">
       <div className="admin-member-con">
-        <h1>ADMIN-MEMBERS</h1>
+        <h1>사용자 정보 목록</h1>
         <div className="admember">
           <div className="title">
             <span>번호</span>
@@ -37,7 +36,7 @@ const AdminMember = () => {
             <span>비밀번호</span>
             <span>전화번호</span>
             <span>회원등급</span>
-            <span>보기</span>          
+            <span>정보 수정</span>          
           </div>
           <div className="admin-member-list">
           <ul>
@@ -47,14 +46,14 @@ const AdminMember = () => {
                             <li key={idx} >
                               <span>{el.id}</span>
                               <span>{el.userName}</span>
-                              <span>{el.userEmail}</span>
+                              <span><div className="eicon"></div>{el.userEmail}</span>
 
-                              <span> {el.userPw}</span>                  
+                              <span> <div className="pwicon"></div>{el.userPw}</span>                  
                               <span>{el.phoneNumber}</span>
                               <span>{el.role}</span>
                               <span onClick={()=>{
                                 memberDetailFn(el.id)
-                              }} >보기</span>
+                              }} >정보 수정</span>
                             </li>
                           )
 })}

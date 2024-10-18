@@ -33,17 +33,7 @@ const AdminMemberDetailModal = ({setMemberModal}) => {
     const closeFn =() =>{
         setMemberModal(false)
     }
-    const UpdateFn = async () => {
-        if (window.confirm("수정 하시겠습니까??")){
-        axios.put(`http://localhost:3001/members/${param.id}`,update); 
-        // setProduct(product.filter((product) => product.id !== id)); 
-        navigate(-1)
-        alert('수정완료');
-        }else {
-
-            alert("취소합니다.");
-        }
-      };
+   
       useEffect(()=>{
         const memberDetailFn = async () =>{
             // const productId = param.param.id
@@ -64,7 +54,7 @@ const AdminMemberDetailModal = ({setMemberModal}) => {
     )}
      <div className="update-member">
     <div className="update-member-con">
-    <span className='close' onClick={closeFn}>x</span>
+    <span className='close' onClick={closeFn}>X</span>
       <h1>회원정보 수정</h1>
       <ul>
         <li>

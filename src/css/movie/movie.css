@@ -16,7 +16,7 @@
 
 
 .movie .movie-con .comedy{
-  padding: 50px 0px;
+  /* padding:  30px; */
   width: 100%;
   }
 .movie .movie-con .comedy h1{
@@ -26,15 +26,19 @@
 .movie .movie-con .comedy ul{
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(1,300px);
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(1,1fr);
   grid-auto-rows: auto;
-  gap: 15px;
+  gap: 2vw;
 }
-
+.movie .movie-con .comedy ul li{
+  width: 100%;
+  border-radius: 10px ;
+}
 .movie .movie-con .comedy ul li img{
   transition: all 0.3s;
   width: 100%;
+  border-radius: 10px;
   }
 
 .movie .movie-con .comedy ul li img:hover{
@@ -43,7 +47,7 @@
 
 
 .movie .movie-con .action{
-  padding: 50px 0px;
+  padding: 20px 0px;
   width: 100%;
   }
   .movie .movie-con .action h1{
@@ -55,14 +59,15 @@
   padding: 20px;
   
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(1,300px);
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(1,1fr);
   grid-auto-rows: auto;
   gap: 15px;
 }
 .movie .movie-con .action ul li img{
   transition: all 0.3s;
   width: 100%;
+  border-radius: 10px;
   }
   
   .movie .movie-con .action ul li img:hover{
@@ -73,7 +78,7 @@
 
 
 .movie .movie-con .fantazy{
-  padding: 50px 0px;
+  padding: 20px 0px;
   width: 100%;
   }
   .movie .movie-con .fantazy h1{
@@ -85,14 +90,15 @@
   padding: 20px;
   
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(1,300px);
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(1,1fr);
   grid-auto-rows: auto;
   gap: 15px;
 }
 .movie .movie-con .fantazy ul li img{
   transition: all 0.3s;
   width: 100%;
+  border-radius: 10px;
   }
   
   .movie .movie-con .fantazy ul li img:hover{
@@ -102,7 +108,7 @@
 
 
 .movie .movie-con .thriller{
-  padding: 50px 0px;
+  padding: 20px 0px;
   width: 100%;
   }
   .movie .movie-con .thriller h1{
@@ -111,20 +117,45 @@
   }
  
 .movie .movie-con .thriller ul{
+  /* padding: 20px; */
   padding: 20px;
-  
   display: grid;
-  grid-template-columns: repeat(3,1fr);
-  grid-template-rows: repeat(1,300px);
-  grid-auto-rows: auto;
-  gap: 15px;
+  grid-template-columns: repeat(4,1fr);
+  grid-template-rows: repeat(1,auto);
+  grid-auto-rows: 200px;
+  gap: 2vw;
 }
 .movie .movie-con .thriller ul li img{
   transition: all 0.3s;
   width: 100%;
+  height: 100%;
+  border-radius: 10px;
   }
   
   .movie .movie-con .thriller ul li img:hover{
     transform: translateY(-5%);
   }
-  
+  @media (max-width: 769px){
+
+    .movie .movie-con .comedy ul{
+      
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      grid-template-rows: repeat(1,110px);
+      grid-auto-rows: 110px;
+      gap: 2vw;
+    }
+    .movie .movie-con .action{
+      padding: 0px;
+      width: 100%;
+      }
+      .movie .movie-con .thriller{
+        padding: 0px;
+        width: 100%;
+        }
+        .movie .movie-con .fantazy{
+          padding: 0px;
+          width: 100%;
+          }
+    
+  }

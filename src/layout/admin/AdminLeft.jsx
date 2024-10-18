@@ -14,10 +14,10 @@ const AdminLeft = () => {
             <Link to={"/admin/adminmember"}>멤버</Link>
           </li>
           <li>
-            <Link to={"/"}>장바구니</Link>
+            <Link to={"/admin/admincart"}>장바구니</Link>
           </li>
           <li>
-            <Link to={"/"}>결제</Link>
+            <Link to={"/admin/adminpayment"}>결제</Link>
           </li>
           <li>
             <Link to={"/admin/product"}>제품 리스트</Link>
@@ -26,7 +26,10 @@ const AdminLeft = () => {
             <Link to={"/admin/addproduct"}>제품 추가</Link>
           </li>
           <li>
-            <Link to={"/"}>주문처</Link>
+            <Link to={"/admin/adminplace"}>주문처</Link>
+          </li>
+          <li>
+            <Link to={"/"}>HOME</Link>
           </li>
         </ul>
       </div>

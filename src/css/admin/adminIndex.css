@@ -51,5 +51,41 @@ font-size: 50px;
 
 .adminIndex .adminIndex-con .category ul li:hover{
     background:linear-gradient( rgb(138, 0, 0),rgb(170, 1, 119));
-    transform: scale(1.03);
+    /* transform: scale(1.03); */
 }
+
+@media (max-width: 769px) {
+    
+    .adminIndex{
+        width: 100%;
+        
+        height: calc(100vh - 80px - 80px - 6px);
+       
+    }
+    .adminIndex .adminIndex-con{
+        
+            width: 100%;
+            height: 100%;
+           
+            padding: 3px 0px;
+           display: flex;
+           flex-direction: column;
+           gap: 3px;
+            
+        
+    }
+    .adminIndex .adminIndex-con .category ul{
+        width: 100%;
+        display: grid;
+        padding: 20px;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(3,1fr);
+        grid-auto-rows: auto;
+        gap: 20px;  
+        
+    }
+    .adminIndex .adminIndex-con .category ul li:hover{
+        background:linear-gradient( rgb(138, 0, 0),rgb(170, 1, 119));
+        
+    }
+  }
