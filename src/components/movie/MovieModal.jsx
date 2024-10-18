@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../../slice/cartslice'
-import MovieModal1 from './MovieModal1'
+import MovieModal1 from './MovieModal'
 
 const movietData ={
     id:0,
@@ -61,7 +61,7 @@ const MovieModal = ({modalitem,setMovieModal}) => {
     }
   return (
   <>
-   {moviemodal1 ? (<MovieModal1 setMovieModal1={setMovieModal1}/>):(<></>)}
+   {moviemodal1 ? (<MovieModal setMovieModal1={setMovieModal1}/>):(<></>)}
     <div className="movieModal">
         <div className="movieModal-con">
             <span className='close'

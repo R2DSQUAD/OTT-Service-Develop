@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import AlertModal from '../AlertModal';
 
 
 const signUpData = {
@@ -107,11 +108,12 @@ const SignUpIndex = () => {
     Object.values(signUp).forEach(el => {
       if (el === null || el === "") {
         escapeReturn = true
-        return
+        // return
+        handlerFn('failInput')
       }
     })
     if (escapeReturn) {
-      alert('정보를 입력해주세요') // 이중 탈출
+      // alert('정보를 입력해주세요') // 이중 탈출
       return
     }
     // 회원정보 미입력시 알림창
@@ -121,11 +123,12 @@ const SignUpIndex = () => {
     Object.values(agreement).forEach(el => {
       if (el === null || el === false || el === "") {
         escapeReturn = true
-        return
+        // return
+        handlerFn('failAgree')
       }
     })
     if (escapeReturn) {
-      alert('약관에 동의해주세요')
+      // alert('약관에 동의해주세요')
       return
     }
     // 약관동의 미입력시 알림창
@@ -141,13 +144,15 @@ const SignUpIndex = () => {
       })
 
       if (num !== -1) {
-        alert("중복 다시 입력")
+        // alert("중복 다시 입력")
+        handlerFn('failUnique')
         return
       }
 
       const signUpSuccess = await axios.post('http://localhost:3001/members', signUp)
-      alert("가입 성공 ")
-      navigate('/signIn')
+      // alert("가입 성공 ")
+      handlerFn('successSignIn')
+      // navigate('/signIn')
 
       console.log(num)
 
@@ -156,54 +161,74 @@ const SignUpIndex = () => {
     SignUpAxiosFn()
   }
 
+  ////// 공용 모달 코드
+  //
+  // 공용 모달창 on/off state 
+  const [isAlertModal, setIsAlertModal] = useState(false)
+  // 공용 모달창 내용 state
+  const [contents, setContents] = useState("")
+  //
+  // 공용 모달창 전용 함수
+  //
+  // 1. 내용 2. 모달창 on
+  const handlerFn = (contents) => {
+   
+    setContents(contents)
+    setIsAlertModal(true)
+  }
+  //////
+
 
   return (
-    <div className="signUp">
-      <div className="signUp-con">
-        <div className="signUp-form">
-          <ul>
-            <h1>회원가입</h1>
-            <li>
-              <input type="text" name="userName" id="userName" placeholder='이름' onChange={onSignUpChangeFn} value={signUp.userName}/>
-            </li>
-            <li>
-              <input type="text" name="userEmail" id="userEmail" placeholder='이메일' onChange={onSignUpChangeFn} value={signUp.userEmail}/>
-            </li>
-            <li>
-              <input type="password" name="userPw" id="userPw" placeholder='비밀번호' onChange={onSignUpChangeFn} value={signUp.userPw}/>
-            </li>
-            {/* 주문처 */}
-            <li>
-              <input type="text" name="address" id="address" placeholder='주소' onChange={onSignUpChangeFn} value={signUp.address}/>
-            </li>
-            <li>
-              <input type="text" name="phoneNumber" id="phoneNumber" placeholder='전화번호(-없이 숫자만 입력)' onChange={onSignUpChangeFn} value={signUp.phoneNumber}/>
-            </li>
-            <ul className="check-tag">
+    <>
+      {isAlertModal && <AlertModal contents={contents} setIsAlertModal={setIsAlertModal} />}
+      <div className="signUp">
+        <div className="signUp-con">
+          <div className="signUp-form">
+            <ul>
+              <h1>회원가입</h1>
               <li>
-                <input type="checkbox" name="all" id="all" onChange={onAgreementAllChangeFn}></input>
-                <label htmlFor="all">전체 약관에 동의합니다.</label>
+                <input type="text" name="userName" id="userName" placeholder='이름' onChange={onSignUpChangeFn} value={signUp.userName}/>
               </li>
               <li>
-                <input type="checkbox" name="privacy" id="privacy" onChange={onAgreementChangeFn}></input>
-                <label htmlFor="privacy">개인정보 수집.</label>
+                <input type="text" name="userEmail" id="userEmail" placeholder='이메일' onChange={onSignUpChangeFn} value={signUp.userEmail}/>
               </li>
               <li>
-                <input type="checkbox" name="service" id="service" onChange={onAgreementChangeFn}></input>
-                <label htmlFor="service">서비스 이용 약관.</label>
+                <input type="password" name="userPw" id="userPw" placeholder='비밀번호' onChange={onSignUpChangeFn} value={signUp.userPw}/>
+              </li>
+              {/* 주문처 */}
+              <li>
+                <input type="text" name="address" id="address" placeholder='주소' onChange={onSignUpChangeFn} value={signUp.address}/>
               </li>
               <li>
-                <input type="checkbox" name="role" id="role" onChange={onRoleChangeFn}></input>
-                <label htmlFor="role">관리자로 가입</label>
+                <input type="text" name="phoneNumber" id="phoneNumber" placeholder='전화번호(-없이 숫자만 입력)' onChange={onSignUpChangeFn} value={signUp.phoneNumber}/>
+              </li>
+              <ul className="check-tag">
+                <li>
+                  <input type="checkbox" name="all" id="all" onChange={onAgreementAllChangeFn}></input>
+                  <label htmlFor="all">전체 약관에 동의합니다.</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="privacy" id="privacy" onChange={onAgreementChangeFn}></input>
+                  <label htmlFor="privacy">개인정보 수집.</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="service" id="service" onChange={onAgreementChangeFn}></input>
+                  <label htmlFor="service">서비스 이용 약관.</label>
+                </li>
+                <li>
+                  <input type="checkbox" name="role" id="role" onChange={onRoleChangeFn}></input>
+                  <label htmlFor="role">관리자로 가입</label>
+                </li>
+              </ul>
+              <li>
+                <button onClick={onSignUpFn}>가입하기</button>
               </li>
             </ul>
-            <li>
-              <button onClick={onSignUpFn}>가입하기</button>
-            </li>
-          </ul>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
