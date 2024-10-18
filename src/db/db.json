@@ -1137,137 +1137,571 @@
       ],
       "paymentAmount": 13000,
       "time": "2024/10/15 14:13:31"
+    },
+    {
+      "id": "f5f2",
+      "branchType": "노원 본점",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "bf55",
+          "branchType": "노원 본점",
+          "paymentMethod": "카카오 페이",
+          "orderType": "예약 주문",
+          "userEmail": "test2",
+          "userName": "test2",
+          "address": "test2",
+          "phone": "test2",
+          "paymentResult": [
+            {
+              "id": "16",
+              "type": "웹툰",
+              "title": "욕망일기Deep",
+              "price": "13000",
+              "img": "/images/itemData/TalesOfGreedDeep.jpg",
+              "genre": "스릴러",
+              "age": "15",
+              "year": "2023",
+              "time": "",
+              "count": 1
+            }
+          ],
+          "paymentAmount": 13000,
+          "time": "2024/10/15 14:13:31"
+        },
+        {
+          "id": "13",
+          "type": "웹툰",
+          "title": "무한의 마법사",
+          "price": "13000",
+          "img": "/images/itemData/wizardOfInfinity.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2022",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": null,
+      "time": "2024/10/17 12:38:26"
+    },
+    {
+      "id": "248a",
+      "branchType": "노원 본점",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "6",
+          "type": "웹툰",
+          "title": "내 여자친구는",
+          "price": "13000",
+          "img": "/images/itemData/myGirlFriend.jpg",
+          "genre": "",
+          "age": "15",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/17 13:4:32"
+    },
+    {
+      "id": "4145",
+      "branchType": "메가박스 창동",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "16",
+          "type": "웹툰",
+          "title": "욕망일기Deep",
+          "price": "13000",
+          "img": "/images/itemData/TalesOfGreedDeep.jpg",
+          "genre": "스릴러",
+          "age": "15",
+          "year": "2023",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 10:50:14"
+    },
+    {
+      "id": "2241",
+      "branchType": "CGV 중계",
+      "paymentMethod": "네이버 페이",
+      "orderType": "예약 주문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "11",
+          "type": "웹툰",
+          "title": "템빨",
+          "price": "13000",
+          "img": "/images/itemData/overGeared.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 12:26:38"
+    },
+    {
+      "id": "78b9",
+      "branchType": "메가박스 창동",
+      "paymentMethod": "카드결제",
+      "orderType": "예약 주문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "11",
+          "type": "웹툰",
+          "title": "템빨",
+          "price": "13000",
+          "img": "/images/itemData/overGeared.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 10000,
+      "time": "2024/10/18 12:26:57"
+    },
+    {
+      "id": "4404",
+      "branchType": "메가박스 창동",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "11",
+          "type": "웹툰",
+          "title": "템빨",
+          "price": "13000",
+          "img": "/images/itemData/overGeared.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 60000,
+      "time": "2024/10/18 12:28:2"
+    },
+    {
+      "id": "ef7f",
+      "branchType": "CGV 중계",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "11",
+          "type": "웹툰",
+          "title": "템빨",
+          "price": "13000",
+          "img": "/images/itemData/overGeared.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 60000,
+      "time": "2024/10/18 12:31:44"
+    },
+    {
+      "id": "d2a6",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "카드결제",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "8",
+          "type": "웹툰",
+          "title": "두번 사는 랭커",
+          "price": "13000",
+          "img": "/images/itemData/rankersThatLiveTwice.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2019",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 12:32:1"
+    },
+    {
+      "id": "9af1",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "14",
+          "type": "웹툰",
+          "title": "똑닮은 딸",
+          "price": "13000",
+          "img": "/images/itemData/likeMotherLikeDaughter.jpg",
+          "genre": "스릴러",
+          "age": "15",
+          "year": "2021",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 15000,
+      "time": "2024/10/18 12:34:37"
+    },
+    {
+      "id": "be2f",
+      "branchType": "CGV 하계",
+      "paymentMethod": "카카오 페이",
+      "orderType": "예약 주문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "14",
+          "type": "웹툰",
+          "title": "똑닮은 딸",
+          "price": "13000",
+          "img": "/images/itemData/likeMotherLikeDaughter.jpg",
+          "genre": "스릴러",
+          "age": "15",
+          "year": "2021",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 15000,
+      "time": "2024/10/18 12:39:14"
+    },
+    {
+      "id": "0017",
+      "branchType": "메가박스 창동",
+      "paymentMethod": "카드결제",
+      "orderType": "예약 주문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "15",
+          "type": "웹툰",
+          "title": "좋아? 죽어!",
+          "price": "13000",
+          "img": "/images/itemData/LoveYouTillDeath.jpg",
+          "genre": "스릴러",
+          "age": "18",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 13:1:51"
+    },
+    {
+      "id": "cde0",
+      "branchType": "CGV 중계",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "15",
+          "type": "웹툰",
+          "title": "좋아? 죽어!",
+          "price": "13000",
+          "img": "/images/itemData/LoveYouTillDeath.jpg",
+          "genre": "스릴러",
+          "age": "18",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 13:2:8"
+    },
+    {
+      "id": "716d",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "4",
+          "type": "웹툰",
+          "title": "입학용병",
+          "price": "15000",
+          "img": "/images/itemData/teenageMercenary.jpg",
+          "genre": "액션",
+          "age": "12",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 13:48:17"
+    },
+    {
+      "id": "1f5b",
+      "branchType": "메가박스 창동",
+      "paymentMethod": "카드결제",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "8",
+          "type": "웹툰",
+          "title": "두번 사는 랭커",
+          "price": "13000",
+          "img": "/images/itemData/rankersThatLiveTwice.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2019",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 13:48:42"
+    },
+    {
+      "id": "ad41",
+      "branchType": "CGV 하계",
+      "paymentMethod": "네이버 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": "5",
+          "type": "웹툰",
+          "title": "싸움독학",
+          "price": "19000",
+          "img": "/images/itemData/viralHit.jpg",
+          "genre": "액션",
+          "age": "15",
+          "year": "2019",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 13:49:4"
+    },
+    {
+      "id": "1f11",
+      "branchType": "CGV 중계",
+      "paymentMethod": "카카오 페이",
+      "orderType": "예약 주문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": 60,
+          "price": "10000",
+          "title": "애프터썬 (2022)",
+          "img": "/images/itemData/aftersun.webp",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 10000,
+      "time": "2024/10/18 13:59:20"
+    },
+    {
+      "id": "f347",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "네이버 페이",
+      "orderType": "예약 주문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": 60,
+          "price": "10000",
+          "title": "애프터썬 (2022)",
+          "img": "/images/itemData/aftersun.webp",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 10000,
+      "time": "2024/10/18 13:59:52"
+    },
+    {
+      "id": "54e9",
+      "branchType": "CGV 중계",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test2",
+      "userName": "test2",
+      "address": "test2",
+      "phone": "test2",
+      "paymentResult": [
+        {
+          "id": 42,
+          "price": "16000",
+          "title": "괴물",
+          "img": "/images/itemData/괴물.png",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 20000,
+      "time": "2024/10/18 14:11:33"
     }
   ],
   "shopList": [
     {
-      "0": {
-        "address_name": "서울 노원구 상계동 713",
-        "category_group_code": "CT1",
-        "category_group_name": "문화시설",
-        "category_name": "문화,예술 > 영화,영상 > 영화관 > 롯데시네마",
-        "distance": "",
-        "id": "22105322",
-        "phone": "1544-8855",
-        "place_name": "롯데시네마 노원",
-        "place_url": "http://place.map.kakao.com/22105322",
-        "road_address_name": "서울 노원구 동일로 1414",
-        "x": "127.06112486570564",
-        "y": "37.655019837734514"
-      },
-      "1": {
-        "address_name": "서울 노원구 상계동 1132-35",
-        "category_group_code": "CT1",
-        "category_group_name": "문화시설",
-        "category_name": "문화,예술 > 영화,영상 > 영화관 > 롯데시네마",
-        "distance": "",
-        "id": "27264207",
-        "phone": "1544-8855",
-        "place_name": "롯데시네마 수락산",
-        "place_url": "http://place.map.kakao.com/27264207",
-        "road_address_name": "서울 노원구 동일로 1660",
-        "x": "127.055631125045",
-        "y": "37.6765767164281"
-      },
-      "2": {
-        "address_name": "서울 노원구 상계동 727-1",
-        "category_group_code": "CT1",
-        "category_group_name": "문화시설",
-        "category_name": "문화,예술 > 영화,영상 > 영화관",
-        "distance": "",
-        "id": "1480852440",
-        "phone": "02-951-0206",
-        "place_name": "더숲아트시네마",
-        "place_url": "http://place.map.kakao.com/1480852440",
-        "road_address_name": "서울 노원구 노해로 480",
-        "x": "127.061439199647",
-        "y": "37.6541610382725"
-      },
-      "3": {
-        "address_name": "서울 도봉구 방학동 707-14",
-        "category_group_code": "CT1",
-        "category_group_name": "문화시설",
-        "category_name": "문화,예술 > 영화,영상 > 영화관 > CGV",
-        "distance": "",
-        "id": "1653886254",
-        "phone": "1544-1122",
-        "place_name": "CGV 방학",
-        "place_url": "http://place.map.kakao.com/1653886254",
-        "road_address_name": "서울 도봉구 도봉로 684",
-        "x": "127.043635927027",
-        "y": "37.6653861881832"
-      },
-      "4": {
-        "address_name": "서울 도봉구 창동 715-14",
-        "category_group_code": "CT1",
-        "category_group_name": "문화시설",
-        "category_name": "문화,예술 > 영화,영상 > 영화관 > 메가박스",
-        "distance": "",
-        "id": "1479579006",
-        "phone": "1544-0070",
-        "place_name": "메가박스 창동",
-        "place_url": "http://place.map.kakao.com/1479579006",
-        "road_address_name": "서울 도봉구 도봉로 558",
-        "x": "127.0387192877969",
-        "y": "37.6545770264401"
-      },
-      "5": {
-        "address_name": "서울 노원구 중계동 509-2",
-        "category_group_code": "CT1",
-        "category_group_name": "문화시설",
-        "category_name": "문화,예술 > 영화,영상 > 영화관 > CGV",
-        "distance": "",
-        "id": "19537620",
-        "phone": "1544-1122",
-        "place_name": "CGV 중계",
-        "place_url": "http://place.map.kakao.com/19537620",
-        "road_address_name": "서울 노원구 동일로204가길 12",
-        "x": "127.068773695534",
-        "y": "37.6396655720199"
-      },
-      "6": {
-        "address_name": "서울 노원구 중계동 506-1",
-        "category_group_code": "CT1",
-        "category_group_name": "문화시설",
-        "category_name": "문화,예술 > 영화,영상 > 영화관 > CGV",
-        "distance": "",
-        "id": "20912534",
-        "phone": "1544-1122",
-        "place_name": "CGV 하계",
-        "place_url": "http://place.map.kakao.com/20912534",
-        "road_address_name": "서울 노원구 섬밭로 258",
-        "x": "127.06458080994",
-        "y": "37.6387993923945"
-      },
-      "7": {
-        "address_name": "서울 도봉구 창동 303",
-        "category_group_code": "CT1",
-        "category_group_name": "문화시설",
-        "category_name": "문화,예술 > 영화,영상 > 영화관",
-        "distance": "",
-        "id": "2027200863",
-        "phone": "",
-        "place_name": "그때 그 시절 청춘극장",
-        "place_url": "http://place.map.kakao.com/2027200863",
-        "road_address_name": "서울 도봉구 도봉로 552",
-        "x": "127.038439150421",
-        "y": "37.65413473567"
-      },
-      "8": {
-        "address_name": "서울 노원구 중계동 154-17",
-        "category_group_code": "",
-        "category_group_name": "",
-        "category_name": "가정,생활 > 여가시설 > 비디오방,DVD감상실",
-        "distance": "",
-        "id": "17004217",
-        "phone": "",
-        "place_name": "맥스DVD영화관",
-        "place_url": "http://place.map.kakao.com/17004217",
-        "road_address_name": "서울 노원구 덕릉로83길 20-5",
-        "x": "127.07428257434",
-        "y": "37.6603307817518"
-      },
-      "id": "1994"
+      "id": "22105322",
+      "address_name": "서울 노원구 상계동 713",
+      "category_group_code": "CT1",
+      "category_group_name": "문화시설",
+      "category_name": "문화,예술 > 영화,영상 > 영화관 > 롯데시네마",
+      "distance": "",
+      "phone": "1544-8855",
+      "place_name": "롯데시네마 노원",
+      "place_url": "http://place.map.kakao.com/22105322",
+      "road_address_name": "서울 노원구 동일로 1414",
+      "x": "127.06112486570564",
+      "y": "37.655019837734514"
+    },
+    {
+      "id": "1479579006",
+      "address_name": "서울 도봉구 창동 715-14",
+      "category_group_code": "CT1",
+      "category_group_name": "문화시설",
+      "category_name": "문화,예술 > 영화,영상 > 영화관 > 메가박스",
+      "distance": "",
+      "phone": "1544-0070",
+      "place_name": "메가박스 창동",
+      "place_url": "http://place.map.kakao.com/1479579006",
+      "road_address_name": "서울 도봉구 도봉로 558",
+      "x": "127.0387192877969",
+      "y": "37.6545770264401"
+    },
+    {
+      "id": "19537620",
+      "address_name": "서울 노원구 중계동 509-2",
+      "category_group_code": "CT1",
+      "category_group_name": "문화시설",
+      "category_name": "문화,예술 > 영화,영상 > 영화관 > CGV",
+      "distance": "",
+      "phone": "1544-1122",
+      "place_name": "CGV 중계",
+      "place_url": "http://place.map.kakao.com/19537620",
+      "road_address_name": "서울 노원구 동일로204가길 12",
+      "x": "127.068773695534",
+      "y": "37.6396655720199"
+    },
+    {
+      "id": "20912534",
+      "address_name": "서울 노원구 중계동 506-1",
+      "category_group_code": "CT1",
+      "category_group_name": "문화시설",
+      "category_name": "문화,예술 > 영화,영상 > 영화관 > CGV",
+      "distance": "",
+      "phone": "1544-1122",
+      "place_name": "CGV 하계",
+      "place_url": "http://place.map.kakao.com/20912534",
+      "road_address_name": "서울 노원구 섬밭로 258",
+      "x": "127.06458080994",
+      "y": "37.6387993923945"
+    },
+    {
+      "id": "27264207",
+      "address_name": "서울 노원구 상계동 1132-35",
+      "category_group_code": "CT1",
+      "category_group_name": "문화시설",
+      "category_name": "문화,예술 > 영화,영상 > 영화관 > 롯데시네마",
+      "distance": "",
+      "phone": "1544-8855",
+      "place_name": "롯데시네마 수락산",
+      "place_url": "http://place.map.kakao.com/27264207",
+      "road_address_name": "서울 노원구 동일로 1660",
+      "x": "127.055631125045",
+      "y": "37.6765767164281"
+    },
+    {
+      "id": "1653886254",
+      "address_name": "서울 도봉구 방학동 707-14",
+      "category_group_code": "CT1",
+      "category_group_name": "문화시설",
+      "category_name": "문화,예술 > 영화,영상 > 영화관 > CGV",
+      "distance": "",
+      "phone": "1544-1122",
+      "place_name": "CGV 방학",
+      "place_url": "http://place.map.kakao.com/1653886254",
+      "road_address_name": "서울 도봉구 도봉로 684",
+      "x": "127.043635927027",
+      "y": "37.6653861881832"
     }
   ]
 }

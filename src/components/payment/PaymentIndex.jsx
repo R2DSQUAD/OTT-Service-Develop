@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { allItemThunk } from "../../slice/allItemSlice";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import PaymentIndexModal from "./PaymentIndexModal";
+import axios from "axios";
+import MapDetailModal from "../../api/MapDetailModal ";
 
 const loginRef = {
   id: "",
@@ -29,22 +31,14 @@ const PaymentIndex = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [isPaymentModal, setIsPaymentModal] = useState(false);
   const payment = useSelector((state) => state.payment.items);
+  const cart = useSelector((state) => state.cart.items);
   const loginInfo = useSelector((state) => state.auth.signInUser); //로그인 데이터
   const [loginInfoRef, setLoginInfoRef] = useState(loginRef);
   const isLogin = useSelector((state) => state.auth.isSignIn);
-
-  const paymentData = {
-    branchType: selectBranch, //지점
-    paymentMethod: paymentMethod, //결제 수단
-    orderType: orderType, //주문 방식
-    userEmail: loginInfoRef.userEmail, //결제자 아이디(이메일)
-    userName: loginInfoRef.userName, //결제자
-    address: loginInfoRef.address, //결제자 주소
-    phone: loginInfoRef.phoneNumber, //결제자 핸드폰번호
-    paymentResult: payment, //결제 내역
-    paymentAmount: totalPrice, //결제 금액
-    time: formattedDate, //결제 시간
-  };
+  const [shopList, setShopList] = useState([]);
+  const [isMapDetailModal, setIsMapDetailModal] = useState(false);
+  const [detailmodalItem, setDetailmodalItem] = useState({});
+  let [query] = useSearchParams();
 
   const validation = {
     paymentMethod: "결제수단",
@@ -60,6 +54,19 @@ const PaymentIndex = () => {
     return validate;
   };
 
+  const paymentData = {
+    branchType: selectBranch, //지점
+    paymentMethod: paymentMethod, //결제 수단
+    orderType: orderType, //주문 방식
+    userEmail: loginInfoRef.userEmail, //결제자 아이디(이메일)
+    userName: loginInfoRef.userName, //결제자
+    address: loginInfoRef.address, //결제자 주소
+    phone: loginInfoRef.phoneNumber, //결제자 핸드폰번호
+    paymentResult: query.get("type") === "buy" ? payment : query.get("type") === "cart" ? cart : [], //결제내역
+    paymentAmount: totalPrice, //결제 금액
+    time: formattedDate, //결제 시간
+  };
+
   const paymentMethodHandler = (e) => {
     setPaymentMethod(e.target.value);
   };
@@ -73,6 +80,8 @@ const PaymentIndex = () => {
   };
 
   useEffect(() => {
+
+
     if (loginInfo.length === 0) {
       setLoginInfoRef(loginRef);
       alert("로그인을 해주세요");
@@ -81,38 +90,48 @@ const PaymentIndex = () => {
       setLoginInfoRef(loginInfo[0]);
     }
     dispatch(allItemThunk());
-  }, []);
 
-  useEffect(() => {
-    const img = new Image();
-    img.onload = function () {
-      const width = img.width;
-      const height = img.height;
+    const calcTotalAndPrice = (items) => {
+      let total = 0;
+      const price = items.map((item) => {
+        total += item.price * item.count;
+        return {
+          price: item.price * item.count,
+          title: item.title,
+          type: item.type,
+        };
+      });
+      return{total, price}
+    };
+    if (query.get("type") === "buy") {
+      const {total, price} = calcTotalAndPrice(payment);
+      setTotalPrice(total);
+      setItemPrice(price);
+    }
+    else if (query.get("type") === "cart") {
+      const {total, price} = calcTotalAndPrice(payment);
+      setTotalPrice(total);
+      setItemPrice(price);
+    }
 
-      if (width > height) {
-        setIsVertical(true);
-      } else {
-        setIsVertical(false);
+    else {
+      alert("잘못된 접속입니다.");
+        navigate(-1);
+    }
+
+    const kaKaoMap = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3001/shopList`);
+        setShopList(res.data);
+      } catch (err) {
+        alert(err);
       }
     };
-  }, []);
-
-  useEffect(() => {
-    let total = 0;
-    const price = payment.map((item) => {
-      total += item.price * item.count;
-      return {
-        price: item.price * item.count,
-        title: item.title,
-        type: item.type,
-      };
-    });
-
-    setTotalPrice(total);
-    setItemPrice(price);
-  }, [payment]);
+    kaKaoMap();
+  }, [payment, cart]);
 
   const paymentModalFn = (e) => {
+    console.log(paymentData,"결제 데이터")
     const validates = validateOrder();
     if (validates.length > 0) {
       alert(`${validates.join(", ")}을(를) 선택해주세요`);
@@ -126,12 +145,35 @@ const PaymentIndex = () => {
     }
   };
 
+  const mapModalFn = (e) => {
+    const eId = e.currentTarget.getAttribute("data-id");
+    const axiosFn = async () => {
+      try {
+        const res = await axios.get(`http://localhost:3001/shopList?id=${eId}`);
+        setDetailmodalItem(res.data[0]);
+      } catch (err) {
+        alert(err);
+      }
+    };
+    axiosFn();
+    setIsMapDetailModal(true);
+  };
+
   return (
     <>
+      {isMapDetailModal ? (
+        <MapDetailModal
+          setIsMapDetailModal={setIsMapDetailModal}
+          detailmodalItem={detailmodalItem}
+        />
+      ) : (
+        <></>
+      )}
       {isPaymentModal ? (
         <PaymentIndexModal
           setIsPaymentModal={setIsPaymentModal}
           paymentData={paymentData}
+          query={query}
         />
       ) : (
         <></>
@@ -143,8 +185,64 @@ const PaymentIndex = () => {
             <hr />
           </div>
           <div className="paymentItemList">
-            {payment &&
+            {query.get("type") === "buy" &&
+              payment &&
               payment.map((el, idx) => {
+                return (
+                  <>
+                    <div className="contentTop">
+                      <div className="contentImg">
+                        <img
+                          className={
+                            isVertical ? "verticalImg" : "horizontalImg"
+                          }
+                          src={el.img}
+                          alt={el.img}
+                        />
+                      </div>
+                      <div className="contentType">
+                        <ul className="contentInfo">
+                          {el.type && <li>{el.type}</li>}
+                          {el.age && <li>{el.age}</li>}
+                          {el.year && <li>{el.year}</li>}
+                          {el.time && <li>{el.time}</li>}
+                          {el.genre && <li>{el.genre}</li>}
+                        </ul>
+                        <ul className="paymentInfo">
+                          <li>
+                            <span>
+                              {el.count}편 / {el.price}원
+                            </span>
+                          </li>
+                          <li>
+                            <span>총 금액 {el.price * el.count}원</span>
+                          </li>
+                          <li>
+                            <span>
+                              ⭐ 이벤트, 쿠폰, 결제 수단에 따라 가격이 달라질 수
+                              있어요.
+                            </span>
+                          </li>
+                        </ul>
+                        <ul className="paymentInfo">
+                          <li>
+                            <span>쿠폰</span>
+                          </li>
+                          <li>
+                            <input
+                              type="text"
+                              placeholder="ABCDE-12345-ABCDE-12345"
+                            />
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </>
+                );
+              })}
+            {query.get("type") === "cart" &&
+              cart &&
+              cart.map((el, idx) => {
                 return (
                   <>
                     <div className="contentTop">
@@ -239,36 +337,27 @@ const PaymentIndex = () => {
           </div>
           <div className="select">
             <span>지점 선택</span>
-            <div className="branchType">
-              <input
-                type="radio"
-                id="nowon"
-                value="노원 본점"
-                onChange={selectBranchHandler}
-                checked={selectBranch === "노원 본점"}
-              />
-              <label htmlFor="nowon">노원 본점</label>
-            </div>
-            <div className="branchType">
-              <input
-                type="radio"
-                id="hongdae"
-                value="홍대점"
-                onChange={selectBranchHandler}
-                checked={selectBranch === "홍대점"}
-              />
-              <label htmlFor="hongdae">홍대점</label>
-            </div>
-            <div className="branchType">
-              <input
-                type="radio"
-                id="gangnam"
-                value={"강남점"}
-                onChange={selectBranchHandler}
-                checked={selectBranch === "강남점"}
-              />
-              <label htmlFor="gangnam">강남점</label>
-            </div>
+            {shopList.map((el, idx) => {
+              return (
+                <div className="branchType" key={idx}>
+                  <input
+                    type="radio"
+                    id={idx}
+                    value={el.place_name}
+                    onChange={selectBranchHandler}
+                    checked={selectBranch === el.place_name}
+                  />
+                  <label htmlFor={idx}>{el.place_name}</label>
+                  <span
+                    className="mapDetail"
+                    onClick={mapModalFn}
+                    data-id={el.id}
+                  >
+                    지도보기
+                  </span>
+                </div>
+              );
+            })}
           </div>
           <div className="selectOrder">
             <span>주문 방식</span>

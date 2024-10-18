@@ -44,9 +44,11 @@ const WebtoonIndex = () => {
 
   return (
     <>
+    
       {isWebtoon ? (
         <WebtoonModal
           modalItem={modalItem}
+          setModalItem={setModalItem}
           setIsWebtoonModal={setIsWebtoonModal}
         />
       ) : (

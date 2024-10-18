@@ -10,16 +10,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 }
 
 .webtoonModal .webtoonModal-con {
-  flex: 0 1 1200px;
-  height: 800px;
+  width: 90%;
+  height: 90%;
   background-color: rgba(22, 22, 22);
   position: relative;
   border-radius: 15px;
   box-sizing: border-box;
-  padding: 80px;
+  padding: 100px;
 }
 
 .webtoonModal .webtoonModal-con .item {
@@ -60,7 +61,7 @@
 
 .webtoonModal .webtoonModal-con .top span.title {
   display: flex;
-  font-size: 80px;
+  font-size: 70px;
   width: calc(100% - 2rem);
   left: 1rem;
   flex-direction: column;
@@ -99,7 +100,7 @@
 }
 
 .webtoonModal .webtoonModal-con .bottom .cartBtn > button {
-  width: 100px;
+  width: auto;
   height: 40px;
   border-radius: 10px;
   box-sizing: border-box;
@@ -144,21 +145,19 @@
 
 }
 
-.webtoonModal .webtoonModal-con .bottom .price {
-  display: flex;
-  justify-content: space-between;
+@media(min-width: 769px) and (max-width: 1024){
 }
 
-.webtoonModal .webtoonModal-con .bottom .price span {
-  width: auto;
-  height: 60px;
-  font-size: 1vw;
-  border-radius: 10px;
-  box-sizing: border-box;
-  background: #F05;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  padding: 30px;
+@media (max-width: 768px) {
+
+  .webtoonModal .webtoonModal-con .top img {
+    width: 175px;
+    height: 250px;
+  }
+
+  .webtoonModal .webtoonModal-con .top span.title {
+    font-size: 30px;
+    width: calc(100% - 0.5rem);
+    left: 0.5rem;
+  }
 }

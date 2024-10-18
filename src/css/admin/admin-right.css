@@ -30,7 +30,11 @@
   color: inherit;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .admin-right .admin-right-con .admin-gnb h1.admin-logo {
+    display: none;
+  }
 
   .admin-right .admin-right-con .admin-gnb {
     width: 100%;
@@ -64,9 +68,16 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 768px) {
   .admin-right .admin-right-con .admin-gnb h1.admin-logo {
     display: none;
+  }
+
+  .admin-right .admin-right-con .admin-gnb {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .admin-right .admin-right-con .admin-gnb h1.admin-logo-mini {

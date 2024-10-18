@@ -27,17 +27,6 @@ const AdminLayout = () => {
           </div>
         </div>
       </div>
-      <div className="admin2">
-      <div className="admin-right">
-          <AdminRight />
-        </div>
-        <div className="admin-content">
-          <Outlet />
-        </div>
-        <div className="admin-left">
-          <AdminLeft />
-        </div>  
-      </div>
     </>
   );
 };

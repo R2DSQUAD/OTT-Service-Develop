@@ -12,11 +12,11 @@ const Header = () => {
   const isCart = useSelector((state) => state.cart.items);
   const paymentList = useSelector((state) => state.payment.items);
 
-  useEffect(() => {
-    if (signInUser.length > 0) {
-      dispatch(paymentListThunk());
-    }
-  }, [dispatch, signInUser]);
+  // useEffect(() => {
+  //   if (signInUser.length > 0) {
+  //     // dispatch(paymentListThunk());
+  //   }
+  // }, [dispatch, signInUser]);
   return (
     <>
       <div className="header">

@@ -15,7 +15,7 @@ const CartList = () => {
     totalCount += item.count
   })
   const payFn=(e)=>{
-    navigate('/paymentCart')
+    navigate('/paymentIndex?type=cart')  
   }
   const selectAll=(e)=>{
     const checkboxes=document.querySelectorAll('.cbox')

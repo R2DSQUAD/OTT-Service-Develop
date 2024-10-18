@@ -41,7 +41,7 @@
   color: inherit;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 769px) and (max-width: 1024px) {
 
   .admin-left{
     width: 100%;
@@ -81,13 +81,41 @@
   }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 768px) {
+  .admin-left{
+    width: 100%;
+    height:auto;
+    display: flex;
+  }
+
+  .admin-left .admin-left-con{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: sticky;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+  }
+
+  .admin-left .admin-left-con h1{
+    display: none;
+  }
+
+  .admin-left .admin-left-con .admin-gnb {
+    padding: 0px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
   .admin-left .admin-left-con .admin-gnb > ul {
-    gap: 20px;
+    flex-direction: row;
+    gap: 30px;
     padding: 10px;
   }
 
   .admin-left .admin-left-con .admin-gnb > ul > li {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
