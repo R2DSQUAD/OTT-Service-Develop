@@ -53,7 +53,12 @@ const AdminMemberDetail = () => {
         <AdminMemberDetailModal1  setMemberModal1={setMemberModal1} />
     )}
     <div className="member-detail">
-        <div className="member-detail-con">      
+        <div className="member-detail-con">  
+            <ul>
+
+                <li>
+                <img src="/images/icon/free-icon-user-159833.png" alt="" width = '300px'   height = '300px'/>
+                </li>    
                 <li>
                   <h1>이름: {member.userName}</h1>
                 </li>
@@ -70,12 +75,13 @@ const AdminMemberDetail = () => {
                     회원등급: {member.role}
                 </li>
                 
-                <div className="button">
+                <div className="member-button">
 
                 <li><button onClick={onMemberModalFn}>수정하기</button></li>
                 <li>
                     <button onClick={onMemberModal1Fn}>삭제하기</button></li>
                </div>
+            </ul>
 
                 </div>
            

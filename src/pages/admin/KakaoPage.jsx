@@ -1,5 +1,5 @@
 import React from 'react'
-import Kakao from '../../components/Kakao'
+import Kakao from '../../components/admin/AdminOrderPlace'
 
 const KakaoPage = () => {
   return (

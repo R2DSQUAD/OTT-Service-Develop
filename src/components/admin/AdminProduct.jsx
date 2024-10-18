@@ -56,7 +56,7 @@ const AdminProduct = () => {
     <>
       <div className="admin-product">
         <div className="admin-product-con">
-          <h1>ADMIN-PRODUCTS</h1>
+          <h1>제품 리스트</h1>
           <div className="product">
             <div className="title">
               <span>번호</span>
@@ -91,7 +91,7 @@ const AdminProduct = () => {
                                 <span>{el.price}</span>
                                 <span onClick={()=>{
                                   productDetailFn(el.id)
-                                }} >보기</span>
+                                }} ><li>보기</li></span>
                               </li>
                             )
                             

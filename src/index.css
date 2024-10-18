@@ -30,7 +30,13 @@
 @import url(./css/auth/member/payment/paymentDetail.css);
 @import url(./css/api/mapModal.css);
 @import url(./css/api/kakaoApi.css);
-
+@import url(./css/admin/admin-payment.css);
+@import url(./css/admin/admin-payment-modal.css);
+@import url(./css/admin/admin-payment-detail.css);
+@import url(./css/admin/admin-cartList.css);
+@import url(./css/admin/admin-orderplace.css);
+@import url(./css/admin/admin-orderplace-detail.css);
+@import url(./css/admin/admin-orderplace-modal3.css);
 
 
 #root {

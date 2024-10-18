@@ -11,7 +11,7 @@ const AdminAddModal3 = ({add,setAddmodal3}) => {
       const onAddFn = (e) =>{
         const addAxiosFn = async (e) =>{
             const addOk = await axios.post(`http://localhost:3001/allItems`,add)
-            navigate(0);
+            navigate(-1);
         }
         addAxiosFn()
     }

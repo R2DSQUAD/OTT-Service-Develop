@@ -3,3 +3,9 @@
   height: calc(100vh - 80px);
   overflow: auto;
 }
+@media (max-width: 768px){
+  .admin-content{
+    width: 100%;
+    height: calc(100vh - 80px - 80px);
+  }
+}

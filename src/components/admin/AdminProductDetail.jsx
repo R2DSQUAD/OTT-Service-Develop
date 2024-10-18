@@ -82,13 +82,13 @@ const AdminProductDetail = () => {
                     분류:{product.type}
                 </li>
                 <li>
-                    가격:{product.price}
+                    가격:{product.price}원
                 </li>
                 <li>
-                    시청연령:{product.age}
+                    시청연령:{product.age}세
                 </li>
                 <li>
-                    출시년도:{product.year}
+                    출시년도:{product.year}년
                 </li>
                 <li>
                     장르:{product.genre}
@@ -97,7 +97,7 @@ const AdminProductDetail = () => {
                     상영시간:{product.time}
                 </li>
                 <li>
-                    내용:{product.comment}
+                    내용: {product.comment}
                 </li>
                 <div className="button">
 
