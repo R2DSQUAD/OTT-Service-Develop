@@ -16,6 +16,7 @@
 
 
 .member-update .member-update-con .member-update-form {
+  
   flex: 0 1 600px;
   border: 1px solid #fff;
   
@@ -105,7 +106,8 @@
   flex: 1;
   border: 0;
 
-  padding: 1.5vw 0;
+  padding: 1vw 0;
+  /* padding: 1.5vw 0; */
   box-sizing: border-box;
 
   border-radius: 2vw;

@@ -16,6 +16,10 @@
 @import url(./member/memberHedaer.css);
 @import url(./member/memberFooter.css);
 
-@import url(./member/memberUpdate.css);
-@import url(./member/memberUpdateFooter.css);
-@import url(./member//memberUpdateHeader.css);
+/* 회원 정보 수정 */
+@import url(./member/update/memberUpdate.css);
+@import url(./member/update/memberUpdateHeader.css);
+@import url(./member/update/memberUpdateFooter.css);
+
+/* alert 모달 */
+@import url(./alertModal.css);

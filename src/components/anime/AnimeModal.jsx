@@ -5,6 +5,13 @@ import { addCart } from "../../slice/cartslice";
 import { useNavigate } from "react-router-dom";
 import { addPayment } from "../../slice/paymentSlice";
 
+
+
+
+
+
+import CommonModal from "./CommonModal";
+
 const AnimeModal = ({ itemId, setIsAnimeModal }) => {
 
   const navigate = useNavigate()
@@ -52,15 +59,19 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
     count: itemCount,
     coment: modalData.coment, 
   }
+
+  
+
+
+
+ 
   
   const addCartFn=()=>{
     dispatch(addCart(animeCart))
-    alert('장바구니에 추가되었습니다')
   }
 
   const addPayementFn = () => {
     dispatch(addPayment(animeCart));
-    alert("구매페이지로 이동합니다.");
     navigate("/paymentIndex?type=buy");
   };
 
@@ -75,37 +86,89 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
     setItemCount(itemCount - 1)
   }
 
-
+  
+  ////// 공용 모달 코드
+  //
+  // 공용 모달창 on/off state 
+  const [isCommonModal, setIsCommonModal] = useState(false)
+  // 공용 모달창 내용 state
+  const [contents, setContents] = useState("")
+  //
+  // 공용 모달창 전용 함수
+  //
+  // 1. 내용 2. 모달창 on
+  const handlerFn = (contents) => {
+   
+    setContents(contents)
+    setIsCommonModal(true)
+  }
+  //////
 
   return (
     <>
+      {isCommonModal && <CommonModal contents={contents} setIsCommonModal={setIsCommonModal} />}
       <div className="animeModal">
         <div className="animeModal-con">
-          <span className="close" onClick={closeBtn}>×</span> {/* x 버튼 */}
-          <div className="top">
-            <img src={`/images/itemData/${modalData.img}`} alt={modalData.img} />
-            <h3>{modalData.title}</h3>
-          </div>
-          <div className="bottom">
-            <div className="bottom-line1">
-              <span className="age">{modalData.age}</span> 
-              <span>·</span>
-              <span>{modalData.time}</span>
-              <span>·</span>
-              <span>{modalData.genre}</span>
+          <div className="animeModal-wrap">
+            <span className="close" onClick={closeBtn}>×</span> {/* x 버튼 */}
+            <div className="top">
+              <img src={`/images/itemData/${modalData.img}`} alt={modalData.img} />
+              <h3>{modalData.title}</h3>
             </div>
-            <div className="bottom-line2">
-              <button onClick={addCartFn}>장바구니 추가</button>
-              <button onClick={addPayementFn}>구매하기</button>
-              <button onClick={minusFn}>-</button>
-              <span>{itemCount}</span>
-              <button onClick={plusFn}>+</button>
-              <button onClick={() => {navigate('/cart')}}>장바구니 이동</button>
+            <div className="bottom">
+              <div className="bottom-line1">
+                <span className="age">{modalData.age}</span> 
+                <span>·</span>
+                <span>{modalData.time}</span>
+                <span>·</span>
+                <span>{modalData.genre}</span>
+                <span>{modalData.price}원</span>
+              </div>
+              <div className="bottom-line2">
+                <button onClick={() => {
+                    addCartFn()
+                    handlerFn("addCart")
+                  }}>
+                  <span>장바구니 추가</span>
+                  <img src={`/images/common/cart_icon.svg`} alt="cart" />
+                </button>
+                {/* <button onClick={addCartFn}>장바구니 추가</button> */}
+
+                <button onClick={addPayementFn}>구매하기</button>
+                
+
+                {/* <button onClick={() => {navigate('/cart')}}>장바구니 이동</button> */}
+              </div>
+              <div className="bottom-line3">
+                <div className="buttons">
+                  <button onClick={minusFn} className="buttons-child">-</button>
+                  <span className="buttons-child">{itemCount}</span>
+                  <button onClick={plusFn} className="buttons-child">+</button>
+                </div>
+                <span>총합{modalData.price*itemCount}</span>
+              </div>
+              <div className="bottom-line4">
+                <span className="text">{modalData.comment}</span>
+              </div>
+
+              <div className="dum">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                </p>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
+                </p>
+              </div>
             </div>
-            <div className="bottom-line3">
-              <span className="text">{modalData.comment}</span>
-              <span className="price">{modalData.price}원</span>
-            </div>
+
           </div>
         </div>
       </div>
