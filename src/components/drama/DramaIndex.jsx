@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import DramaModal from './DramaModal'
 import { useDispatch, useSelector } from 'react-redux'
 import { itemThunk } from '../../slice/itemSlice'
@@ -10,10 +10,9 @@ const item={
 }
 
 const DramaIndex = () => {
-
+  const modalRef=useRef()
   const [dramaModal,setDramaModal]=useState(false)
   const [modalItem,setModalItem]=useState(item)
-  // const [dramaList,setDramaList]=useState([])
   const dispatch=useDispatch()
   const items=useSelector(state=>state.item.items)
   useEffect(()=>{
@@ -21,15 +20,9 @@ const DramaIndex = () => {
     dispatch(itemThunk(type))
   },[])
   const dramaModalFn=(e)=>{
-    // console.log(e.target.parentElement)
-    // console.log(e.currentTarget)
     const litag=e.target.parentElement
-    // console.log(litag.children[0])
     const imgsrc=litag.children[0].getAttribute('src')
-    // console.log(imgsrc)
-    const id=e.currentTarget.getAttribute('data-id')
-  
-    // console.log(id)
+    const id=e.currentTarget.getAttribute('data-id')  
     setModalItem({
       id: parseInt(id),
       img: imgsrc,
@@ -44,20 +37,13 @@ const DramaIndex = () => {
     h3.innerText=`${age}`
     age>0?setArr(items.filter(el=> el.age===age).slice(0,4)):setArr(items.slice(0,4))
   }
-  const overFn=(e)=>{
-    const divTag=e.target.parentElement
-    const id=e.currentTarget.getAttribute('data-id')
-    const selItem=items.filter(el=>el.id===id)
-    divTag.children[1].innerText=selItem[0].title
-  }
-  const leaveFn=(e)=>{
-    const divTag=e.target.parentElement    
-    divTag.children[1].innerText=``
+  const clickOutModal=(e)=>{
+    if(setDramaModal&&(modalRef.current===e.target)){setDramaModal(false)}
   }
 
   return (
     <>
-    {dramaModal ? <DramaModal modalItem={modalItem}
+    {dramaModal ? <DramaModal modalRef={modalRef} modalItem={modalItem} clickOutModal={clickOutModal}
       setDramaModal={setDramaModal}/>:<></>}
     <div className="drama">
       <div className="drama-con">
@@ -70,7 +56,7 @@ const DramaIndex = () => {
             <div className="drama-head">
             <h2>전체작품</h2>
             <select name="age" id="age" onChange={ageChangeFn} defaultValue={true}>
-                <option value="all">전체</option>
+                <option value="전체">전체</option>
                 <option value="15">15</option>
                 <option value="19">19</option>
               </select>
@@ -95,7 +81,7 @@ const DramaIndex = () => {
             <ul>
               {items &&items.filter(el => el.genre==="판타지").map((el,idx)=>{
                 return(
-                  <li key={idx} data-id={el.id} onClick={dramaModalFn} onMouseEnter={overFn} onMouseLeave={leaveFn}>
+                  <li key={idx} data-id={el.id} onClick={dramaModalFn}>
                     <div className="item-img">
                       <img src={`/images/itemData/${el.img}`} alt={el.img} /><span></span>
                     </div>                

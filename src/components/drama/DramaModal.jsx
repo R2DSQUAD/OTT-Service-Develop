@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addCart } from '../../slice/cartslice'
 import { useNavigate } from 'react-router-dom'
@@ -14,7 +14,7 @@ const item={
   genre:''
 }
 
-const DramaModal = ({modalItem,setDramaModal}) => {
+const DramaModal = ({modalItem,setDramaModal,clickOutModal,modalRef}) => {
   const [isCartModal,setIsCartModal]=useState(false)
   const closeFn = () => {
     setDramaModal(false)
@@ -45,21 +45,17 @@ const DramaModal = ({modalItem,setDramaModal}) => {
     count: count,
     comment: modalList.comment, 
   }
-  const [content,setContent]=useState('')
   const dispatch=useDispatch()
-  const addCartFn=(e)=>{
-    const text=e.currentTarget.innerText
+  const addCartFn=()=>{
     dispatch(addCart(dramaCart))
+    // alert('장바구니에 추가')
     setIsCartModal(true)
-    setContent(text)
   }
-
   const addPayementFn = () => {
     dispatch(addPayment(dramaCart));
     alert("구매페이지로 이동합니다.");
     navigate("/paymentIndex?type=buy");
   };
-
   const navigate=useNavigate()
   const addCart2Fn=()=>{
     navigate('/cart')
@@ -70,26 +66,44 @@ const DramaModal = ({modalItem,setDramaModal}) => {
   const decreFn=()=>{
     count<=1 ? setCount(1) : setCount(count-1) 
   }
-
   return (
     <>
-      {isCartModal ?<CartModal setIsCartModal={setIsCartModal} setDramaModal={setDramaModal} content={content}/>:<></>}
-      <div className="dramaModal">
+      {isCartModal ?<CartModal setIsCartModal={setIsCartModal} setDramaModal={setDramaModal}/>:<></>}
+      <div className="dramaModal" onClick={(e)=>{clickOutModal(e)}} ref={modalRef}>
         <div className="dramaModal-con">
-            <span className='close' onClick={closeFn}>X</span>
           <div className="item">
-            <div className="modal-list">
+            <span className='close' onClick={closeFn}>✕</span>
+            <div className="top">
                <img src={`/images/itemData/${modalList.img}`} alt={modalList.img} />
-               <span>제목:{modalList.title}</span>
-               <span>가격:{modalList.price}</span>
-               <span>총 금액:{modalList.price * count}</span>
+               <span className='title'>{modalList.title}</span>
             </div>
-            <button onClick={increFn}>+</button>
-            <span>{count}</span>
-            <button onClick={decreFn}>-</button>
-            <button onClick={addCartFn}>장바구니</button>
-            <button onClick={addCart2Fn}>장바구니이동</button>
-            <button onClick={addPayementFn}>구매</button>
+            <div className="bottom">
+              <div className="detail">
+                <ul>
+                <li>{modalList.age}</li>
+                  <li>·</li>
+                  <li>{modalList.year}</li>
+                  <li>·</li>
+                  <li>{modalList.genre}</li>
+                </ul>
+              </div>
+              <div className="cartBtn">
+                <button onClick={addPayementFn}>📼 구매하기</button>
+                <button onClick={addCartFn}>🛒 장바구니</button>
+                <div className="itemCount">
+                  <button onClick={decreFn}>-</button>
+                  <span>{count}</span>
+                  <button onClick={increFn}>+</button>
+                </div>
+              </div>
+              <div className="comment">
+                <span>{modalList.comment}</span>
+              </div>
+              <div className="price">
+                <span>{modalList.price}원</span>
+                <span>총 금액: {modalList.price * count}원</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

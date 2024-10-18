@@ -1,13 +1,13 @@
 import React from 'react'
 
-const MapModal = ({setMapModal,modalItem}) => {
+const MapModal = ({setMapModal,modalItem,clickOutModal,modalRef}) => {
   const closeFn=()=>{
     setMapModal(false)
   }
   console.log(modalItem)
   return (
     <>
-    <div className="mapModal">
+    <div className="mapModal" ref={modalRef} onClick={(e)=>{clickOutModal(e)}}>
       <div className="mapModal-con">
         <div className="maptitle">
           <div className="none"></div>
@@ -25,11 +25,13 @@ const MapModal = ({setMapModal,modalItem}) => {
                 <li>지점명</li>
                 <li>상세주소</li>
                 <li>연락처</li>
+                <li><img src="/images/common/home.png" alt="home" /></li>
               </ul>
               <ul className='nameDetail'>
                 <li>{modalItem.place_name}</li>
                 <li>{modalItem.address_name}</li>
                 <li>{modalItem.phone}</li>
+                <li><a href={modalItem.place_url}>홈페이지</a></li>
               </ul>
             </div>
             <div className="none"></div>

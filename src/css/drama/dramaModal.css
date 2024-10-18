@@ -10,36 +10,166 @@
   justify-content: center;
   align-items: center;
 }
-.dramaModal .dramaModal-con{
-  width: 400px;
-  height: 350px;
-  background-color: white;
+.dramaModal .dramaModal-con {
+  /* flex: 0 1 800px; */
+  width: 50vw;
+  aspect-ratio: 16/9;
+  background-color: rgba(22, 22, 22);
   position: relative;
+  border-radius: 15px;
+  box-sizing: border-box;
+  /* padding: 80px; */
+}
+
+.dramaModal .dramaModal-con .item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dramaModal .dramaModal-con .item span.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  color: white;
+  padding: 0.4vh 0.4vh;
+  font-size: 30px;
+  z-index: 10001;
+  cursor: pointer;
+}
+
+.dramaModal .dramaModal-con .top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.dramaModal .dramaModal-con .top img {
+  object-fit: cover;
+  width: 100%;
+  /* height: 400px; */
+  z-index: 9999;
+  border-radius: 15px;
+  box-sizing: border-box;
+  display: block;
+  mask-image: linear-gradient(to bottom, rgba(22, 22, 22, 1), rgba(22, 22, 22, 0));
+}
+
+.dramaModal .dramaModal-con .top span.title {
+  display: flex;
+  font-size: 3vw;
+  width: calc(100% - 2rem);
+  left: 1rem;
+  flex-direction: column;
+  position: absolute;
+  bottom: 0;
+  z-index: 10000;
+}
+
+.dramaModal .dramaModal-con .bottom {
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
+  gap: 10px;
 }
-.dramaModal .dramaModal-con span.close{
-  color: white;
-  padding: 5px;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.dramaModal .dramaModal-con .item{
-  width: 100%;
-}
-.dramaModal .dramaModal-con .item img{
-  width: 100%;
-  height: auto;
-  display: block;
-}
-.dramaModal .dramaModal-con .item span{
-  color: black;
-}
-.dramaModal .dramaModal-con .item .modal-list{
-  width: 100%;
+
+.dramaModal .dramaModal-con .bottom .detail>ul {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 2vw;
+}
+
+.dramaModal .dramaModal-con .bottom .detail>ul>li:first-child {
+  width: 30px;
+  height: 30px;
+  background-color: #373737;
+  border-radius: 8px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+.dramaModal .dramaModal-con .bottom .cartBtn {
+  display: flex;
+  gap: 20px;
+}
+
+.dramaModal .dramaModal-con .bottom .cartBtn > button {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: #F05;
+  border: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dramaModal .dramaModal-con .bottom .cartBtn .itemCount {
+  display: flex;
+  gap: 10px;
+}
+
+.dramaModal .dramaModal-con .bottom .cartBtn .itemCount > button {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: #F05;
+  border: 0;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.dramaModal .dramaModal-con .bottom .cartBtn .itemCount > span {
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dramaModal .dramaModal-con .bottom .comment > span{
+  font-size: 1.5vw;
+  color: #cecece;
+
+}
+
+.dramaModal .dramaModal-con .bottom .price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dramaModal .dramaModal-con .bottom .price span {
+  width: auto;
+  height: 60px;
+  font-size: 1vw;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: #F05;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 30px;
+}
+@media (max-width:1024px){
+  .dramaModal .dramaModal-con {
+    width: 60vw;
+    aspect-ratio: 16/9;
+  }
+  .dramaModal .dramaModal-con .top span.title{
+    /* font-size: 30px; */
+  }
 }

@@ -53,9 +53,9 @@ const CartList = () => {
   return (
     <>
       <div className="cartIndex">
-        <button className='back' onClick={()=>{
+        {/* <button className='back' onClick={()=>{
           navigate(-1)
-        }}>이전페이지</button>
+        }}>이전페이지</button> */}
         <div className="cart-con">
           <div className="top">
             <h1 className="title">상품 목록</h1>
@@ -64,8 +64,10 @@ const CartList = () => {
           <div className="list-detail">
           {cartItems.length>0?
           <div className="list-detail-con">
-            <input type="checkbox" className='all' name='All' value='All' onClick={selectAll}/>
-            <span>상세정보</span>
+            <input type="checkbox" className='all' name='All' value='All' id='check' onClick={selectAll}/>
+            <button className='deleteAll' onClick={()=>{
+                dispatch(allDeleteCart(cartItems))
+              }}>장바구니 비우기</button>
           </div>
           :<></>}
           </div>
@@ -75,7 +77,7 @@ const CartList = () => {
                 return(
                   <div className="cart-items" key={idx}>
                     <div className="item-left">
-                      <input type="checkbox" className='cbox' name='cbox' value={el.id} onClick={select} />
+                      <input type="checkbox" className='cbox' name='cbox' value={el.id} id='check' onClick={select} />
                       <img src={el.img} alt={el.img} />
                     </div>
                     <div className="item-right">
@@ -83,18 +85,20 @@ const CartList = () => {
                         <span>{el.type}제목 : {el.title}</span>
                         <span>상품가격 : {el.price}원</span>
                       </div>
-                      <div className="item-count">
-                        <span className='count'>{el.count}</span>
-                        <div className="item-count-btn">
-                          <span className='plus' onClick={()=>{dispatch(increCount(el.id))}}>▴</span>
-                          <span className='minus' onClick={()=>{dispatch(decreCount(el.id))}}>▾</span>
-                        </div>
-                      </div> 
                       <div className="item-total">
+                          <div className="count-box">
+                            <span className='count'>{el.count}</span>
+                            <div className="item-count-btn">
+                              <button className='plus' onClick={()=>{dispatch(increCount(el.id))}}>+</button>
+                              <button className='minus' onClick={()=>{dispatch(decreCount(el.id))}}>-</button>
+                            </div>
+                          </div>
+                        <div className="item-price">
                         <span>총 금액 : {el.count * el.price}원</span>
                         <button className='delete' onClick={()=>{
                           dispatch(deleteCart(el.id))
-                        }}>X</button>
+                        }}>✕</button>
+                        </div> 
                       </div>                     
                     </div>
                   </div>
@@ -102,8 +106,9 @@ const CartList = () => {
               }
             )}
           </div>
-        </div>
-        {cartItems.length > 0 ?
+                       
+          </div>
+          {cartItems.length > 0 ?
           <div className="cart-pay">
             <div className="deleteCart">
               <div className="sel-delete">
@@ -112,9 +117,7 @@ const CartList = () => {
                   삭제하기
                 </button>
               </div>
-              <button className='deleteAll' onClick={()=>{
-                dispatch(allDeleteCart(cartItems))
-              }}>장바구니 비우기</button>
+              
             </div>
             <div className="cart-pay-con">   
               <ul>

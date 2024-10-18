@@ -1,16 +1,19 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import MapModal from "./MapModal";
+import axios from 'axios'
+import React, { useEffect, useRef, useState } from 'react'
+import MapModal from './MapModal'
 
 const { kakao } = window;
 
 const KakaoApi = () => {
-  const [mapModal, setMapModal] = useState(false);
-  const [kakaoData, setKakaoData] = useState([]);
-
-  const [onkakao, setOnkakao] = useState("롯데시네마 노원");
-  const [modalItem, setModalitem] = useState({});
-
+  const modalRef=useRef()
+  const [mapModal,setMapModal]=useState(false)
+  const [kakaoData,setKakaoData]=useState([])
+  const [onkakao, setOnkakao]=useState("롯데시네마 노원")
+  const [modalItem,setModalitem]=useState({})
+  const [resizeMap,setResizeMap]=useState(window.innerWidth)
+  const clickOutModal=(e)=>{
+    if(setMapModal&&(modalRef.current===e.target)){setMapModal(false)}
+  }
   useEffect(() => {
     // 지도를 표시할 div
     var container = document.getElementById("map");
@@ -35,16 +38,21 @@ const KakaoApi = () => {
       imageOption
     );
     // 마커 위치
-    var markerPosition = new kakao.maps.LatLng(33.450701, 126.570667);
+    // var markerPosition  = new kakao.maps.LatLng(33.450701, 126.570667); 
+  
 
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-      position: markerPosition,
-      image: markerImage,
-    });
+    // // 마커를 생성합니다
+    // var marker = new kakao.maps.Marker({
+    //     position: markerPosition,
+    //     image: markerImage
+    // });
+
 
     // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
+    // marker.setMap(map);
+
+  
+
 
     //////////////////////////////////////////////////////////////////////////
 
@@ -64,7 +72,12 @@ const KakaoApi = () => {
         position: new kakao.maps.LatLng(place.y, place.x),
         image: markerImage,
       });
+      window.addEventListener("resize",function(event){
 
+        var resizePosition = marker.getPosition(); 
+        map.relayout();
+        map.setCenter(resizePosition);
+      })
       // 마커에 클릭이벤트를 등록합니다
       kakao.maps.event.addListener(marker, "click", function () {
         // 마커를 클릭하면 장소명이 인포윈도우에 표출됩니다
@@ -137,16 +150,14 @@ const KakaoApi = () => {
     var ps = new kakao.maps.services.Places();
 
     // 키워드로 장소를 검색합니다
-    ps.keywordSearch("노원 상계동 영화관", placesSearchCB);
-  }, [onkakao]);
-
+    ps.keywordSearch('노원 상계동 영화관', placesSearchCB); 
+    
+  },[onkakao])
+  
+  
   return (
     <>
-      {mapModal ? (
-        <MapModal setMapModal={setMapModal} modalItem={modalItem} />
-      ) : (
-        <></>
-      )}
+      {mapModal? <MapModal modalRef={modalRef} clickOutModal={clickOutModal} setMapModal={setMapModal} modalItem={modalItem}/>:<></>}
       <div className="kakao-api">
         <div className="kakao-api-header">
           <h1>주문처</h1>
