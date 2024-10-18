@@ -76,7 +76,7 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 460px) {
   .member-header .member-header-con> .gnb > h1.logo{
     display: none; 
   }

@@ -13,44 +13,23 @@ const mainListData = {
 };
 const webtoonBanner = [];
 const movieBanner = [];
-const animeBanner = [];
-const dramaBanner = [];
-const mainBanner = [];
+const animeBanner =[];
+const dramaBanner =[];
+const mainBanner =[];
 
 const MainIndex = () => {
-
-  const length = mainBanner.length;
-
-
-  const nextSlide = () => {
-    num > 6 ? setNum(0) : setNum(num => num + 1)
-    const gab = gab1
-    const goto = (gab * num) + 'px'
-    gallery.current.style.left = goto;
-    gallery.current.style.transition = 'all 0.3s'
-    setNum(num === length - 1 ? 0 : num + 1);
-    // console.log('dsasa')
-  };
-  const prevSlide = () => {
-    num > 6 ? setNum(0) : setNum(num => num + 1)
-    const gab = gab1
-    const goto = (gab * num) + 'px'
-    gallery.current.style.left = goto;
-    gallery.current.style.transition = 'all 0.3s'
-    setNum(num === 0 ? length - 1 : num - 1);
-    // console.log('dsasa')
-  };
-
-
+ 
+  
+ 
+  
 
   const [movieList, setMovieList] = useState([]);
   const [webtoonList, setWebtoonList] = useState([]);
   const [animeList, setAnimeList] = useState([]);
   const [dramaList, setDramaList] = useState([]);
   const [mainList, setMainList] = useState([]);
-  const [num, setNum] = useState(0)
-  const [gab1, setGab1] = useState(0)
-  const gallery = useRef()
+
+
   const [mainModal, setMainModal] = useState(false);
   const [modalitem, setModalitem] = useState(mainListData);
   const onMainModalFn = (e) => {
@@ -71,60 +50,39 @@ const MainIndex = () => {
       img: imgSrc,
       price: price,
       comment: comment,
-      age: age,
-      year: year,
-      time: time
+      age:age,
+      year:year,
+      time:time
     });
     setMainModal(true);
   };
-
-  const autoGallery = () => {
-    num > 6 ? setNum(0) : setNum(num => num + 1)
-    const gab = gab1
-    const goto = (gab * num) + 'px'
-    gallery.current.style.left = goto;
-    gallery.current.style.transition = 'all 1s'
-  }
-
-  let setln;
+ 
   
+// 함수 표현식
 
 
-  // console.log(length, ' size')
-  // console.log(gallery, ' gallery')
-  // console.log(gallery.current, ' gallery current')
-  // 함수 표현식
+// 함수를 3000 후에 실행 1000-> 1초
 
-
-  // 함수를 3000 후에 실행 1000-> 1초
   useEffect(() => {
     const axiosFn = async () => {
       try {
         const res = await axios.get("http://localhost:3001/allItems");
-        // console.log(res.data);
+        console.log(res.data);
         setWebtoonList(res.data);
         setMovieList(res.data);
         setAnimeList(res.data);
         setDramaList(res.data);
         setMainList(res.data);
+       
       } catch (err) {
         alert(err);
       }
     };
     axiosFn();
-    setGab1(-500)
-    
-    // setGab1(gallery.current.children[0].children[0].offsetLeft - gallery.current.children[0].children[1].offsetLeft)
-    
-  console.log(gallery.current.children[0].children[0],'child0')
-  console.log(gallery.current.children[0].children[1],'child1');
-    num > 6 ? setNum(0) : <></>
-    setln = setInterval(autoGallery, 10000)
-    return () => clearInterval(setln)
-  }, [num])
+  }, []);
 
   while (
-    mainBanner.length < 9 &&
+    mainBanner.length < 7 &&
     mainBanner.length < mainList.length
   ) {
     const random = Math.floor(Math.random() * mainList.length);
@@ -145,6 +103,7 @@ const MainIndex = () => {
       }
     }
   }
+
   if (movieList && movieList.length > 0) {
     const movieListItemsOnly = movieList.filter((el) => el.type === "영화");
 
@@ -184,6 +143,7 @@ const MainIndex = () => {
       }
     }
   }
+  
 
   return (
     <>
@@ -195,15 +155,11 @@ const MainIndex = () => {
         <div className="main-con">
           <div className="maintop">
             <div className="maintop-con">
-              <div className="bCon">
-                <li className="leftBtn" onClick={prevSlide}>L</li>
-                <li className="rightBtn" onClick={nextSlide}>R</li>
-              </div>
-              <div className="gallery" ref={gallery}>
+              <div className="gallery">
                 <ul>
-                  {mainBanner &&
+                {mainBanner &&
                     mainBanner.map((el, index) => {
-                      {
+                       {
                         return (
                           <li key={index}>
                             <div className="image">
@@ -226,6 +182,10 @@ const MainIndex = () => {
                       }
                     })}
                 </ul>
+              </div>
+              <div className="bCon">
+                <span className="spanLeft">왼쪽</span>
+                <span className="spanRight">오른쪽</span>
               </div>
             </div>
           </div>
@@ -274,12 +234,12 @@ const MainIndex = () => {
               <div className="top">
                 <ul>
                   <li>드라마</li>
-                  <li><Link to={"drama"}>더보기</Link></li>
+                 <li><Link to={"drama"}>더보기</Link></li> 
                 </ul>
               </div>
               <div className="bottom">
                 <ul>
-                  {dramaBanner &&
+                {dramaBanner &&
                     dramaBanner.map((el, index) => {
                       {
                         if (el.type === "드라마")
@@ -319,7 +279,7 @@ const MainIndex = () => {
               </div>
               <div className="bottom">
                 <ul>
-                  {animeBanner &&
+                {animeBanner &&
                     animeBanner.map((el, index) => {
                       {
                         if (el.type === "애니메이션")

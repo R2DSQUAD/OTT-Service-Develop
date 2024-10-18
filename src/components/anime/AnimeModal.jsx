@@ -61,7 +61,7 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
   const addPayementFn = () => {
     dispatch(addPayment(animeCart));
     alert("구매페이지로 이동합니다.");
-    navigate("/paymentIndex");
+    navigate("/paymentIndex?type=buy");
   };
 
   const plusFn = () => {

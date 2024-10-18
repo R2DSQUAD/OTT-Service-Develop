@@ -20,7 +20,6 @@ const MemberUpdateLayout = lazy(() =>
 );
 const DramaPage = lazy(() => import("../pages/drama/DramaPage"));
 const PaymentIndexPage = lazy(() => import("../pages/payment/PaymentIndexPage"));
-const PaymentCartPage = lazy(() => import("../pages/payment/PaymentCartPage"));
 const PaymentPage = lazy(() => import("../pages/auth/payment/PaymentPage"));
 const PaymentDetailPage = lazy(() => import("../pages/auth/payment/PaymentDetailPage"));
 const KakaoPage=lazy(()=> import('../api/KakaoAPI'))
@@ -66,7 +65,6 @@ const root = createBrowserRouter([
           </Suspense>
         ),
       },
-      ,
       {
         path: "cart",
         element: (
@@ -96,14 +94,6 @@ const root = createBrowserRouter([
         element: (
           <Suspense fallback={Loading}>
             <PaymentIndexPage />
-          </Suspense>
-        ),
-      },
-      {
-        path: "paymentCart",
-        element: (
-          <Suspense fallback={Loading}>
-            <PaymentCartPage />
           </Suspense>
         ),
       },

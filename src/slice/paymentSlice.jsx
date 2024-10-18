@@ -7,8 +7,6 @@ const initstate = {
   status: null,
 };
 
-
-
 const paymentSlice = createSlice({
   name: "payment",
   initialState: initstate,
@@ -44,7 +42,7 @@ async (_, {getState})=>{
   const signInUser = getState().auth.signInUser; //redux getState로 값 가져오기
   const res = await axios.get(`http://localhost:3001/payments?userEmail=${signInUser[0].userEmail}`);
   const data=res.data
-  
+  console.log(res.data)
   return data
 });
 
