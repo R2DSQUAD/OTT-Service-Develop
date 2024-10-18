@@ -34,11 +34,25 @@
   padding: 1vw 0;
   gap: 1vw;
   box-sizing: border-box;
+  align-items: center;
 }
-.drama .drama-con .drama-list .dramaList .drama-head h3{
+.drama .drama-con .drama-list .dramaList .drama-head select{
   width: 100px;
+  height: 26px;
   display: flex;
   justify-content: center;
+  border: 1px solid #c4c4c4;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.drama .drama-con .drama-list .dramaList .drama-head select:focus{
+  border: 1px solid #9b51e0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  outline: 1px solid #f8e4ff;
+}
+.drama .drama-con .drama-list .dramaList .drama-head h2{
+  width: 100px;
 }
 .drama .drama-con .drama-list .dramaList ul{
   flex: 1;
@@ -80,8 +94,22 @@
   .drama .drama-con .drama-list .dramaList ul{
     grid-template-columns: repeat(3,1fr);
     grid-template-rows: repeat(1,auto);
+    grid-auto-rows: auto;
   }
   /* .drama .drama-con .drama-list .dramaList ul li:nth-child(4){
     display: none;
   } */
+}
+@media (max-width: 768px){
+  .drama .drama-con .drama-list .dramaList ul{
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2,auto);
+    grid-auto-rows: auto;
+  }
+  .drama .drama-con h1{
+    font-size: 30px;
+  }
+  .drama .drama-con .drama-list .dramaList h2{
+    font-size: 20px;
+  }
 }
