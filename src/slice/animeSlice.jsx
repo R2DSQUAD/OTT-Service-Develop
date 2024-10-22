@@ -3,13 +3,31 @@ import axios from 'axios'
 import React from 'react'
 
 const initState = {
-  animeData: []
+  animeData: [],
+  recent: {
+    userEmail: '',
+    itemIdArr: []
+  }
 }
 
 const animeSlice = createSlice({
   name: 'anime',
   initialState: initState,
   reducers: {
+    addRecentFn: (state, action) => {
+      //배열안에 이미 있는지 판단 -> 없으면 추가
+      const isIn = state.recent.itemIdArr.includes(action.payload) 
+      if (!isIn) {
+        if (state.recent.itemIdArr.length === 5) {
+          state.recent.itemIdArr.splice(0,1)
+        }
+        state.recent.itemIdArr.push(action.payload)
+      } 
+      //-----------------------
+    },
+    deleteRecentFn: (state, action) => {
+      state.recent.itemIdArr = []
+    }
    
   },
   extraReducers: (builder) => {
@@ -41,5 +59,5 @@ export const animeDataFn = createAsyncThunk('anime/animeDataFn',
 
 )
 
-export const {animeListSelect} = animeSlice.actions
+export const {addRecentFn, deleteRecentFn} = animeSlice.actions
 export default animeSlice

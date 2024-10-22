@@ -24,6 +24,7 @@ const CommonModal = ({contents, setIsCommonModal}) => {
     }
     authAxiosFn()
 
+    dispatch(signOutFn())
     navigate('/')
   }
 

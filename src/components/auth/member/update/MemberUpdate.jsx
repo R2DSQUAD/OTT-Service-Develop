@@ -95,6 +95,7 @@ const MemberUpdate = () => {
     }
   }
   
+  // 삭제 기능은 모달창에 삽입했다.
   // const deleteUserFn = () => {
   //   alert('회원정보를 삭제합니다.')
   //   dispatch(signOutFn())
@@ -107,51 +108,46 @@ const MemberUpdate = () => {
   // }
   
 
+  // 수정 버튼 클릭시 작동하는 함수
   const upDateUserFn = (e) => {
     
-    // 미입력시 알림창
+    // 입력하지 않은 부분 없는지 검사 
     let escapeReturn = false
-
-    // 변경부분 없으면 alert 구현 중
-    // Object.values(update).forEach((el, idx) => {
-    //   const isEquaul = {
-    //     ...signInUser[0]
-    //   }
-    //   if (el === )
-    // })
-
-
 
     Object.values(update).forEach((el, idx) => {
 
       if (el === null || el === "") {
         escapeReturn = true
-        // return
         handlerFn2('failInput')
-      }
-    // Object.values(update).forEach(el => {
-    //   if (el === null || el === "") {
-    //     escapeReturn = true
-    //     // return
-    //     handlerFn2('failInput')
-    //   }
-      // if (el === ) { // 수정된 값이 없을시 (회원정보 변동 x 시)로직 구현 중//
-
-      // } else if (el === null || el === "") {
-      //   escapeReturn = true
-      //   // return
-      //   handlerFn('failInput')
-      // }
+      } 
+    
     })
     if (escapeReturn) {
       // alert('정보를 입력해주세요')
       return
     }
-    // 미입력시 알림창
+    // ---------------------------
 
+
+    // 변경사항이 없을 경우
     
+    if (Object.values(update).every(el => Object.values(signInUser[0]).includes(el))) {
+      escapeReturn = true
+      handlerFn2("updatePlease")
+    } 
+    if (escapeReturn) {
+      // alert('정보를 입력해주세요')
+      return
+    }
+
+    // ------------------
+
+    // handlerFn2("updatePlease") // 변경내용 전부 같을 떄
+    
+    // 회원정보 업데이트(수정)
     dispatch(replaceUserFn(update))
     
+    // db 회원정보 수정
     const authAxiosFn = async () => {
       const updateData = await axios.patch(`http://localhost:3001/members/${signInUser[0].id}`, update)
     }
@@ -162,7 +158,9 @@ const MemberUpdate = () => {
     handlerFn2('successUpdate')
   }
 
+  
 
+  // 공용 모달 세팅
 
   // 공용 모달창 on/off state 
   const [isCommonModal, setIsCommonModal] = useState(false)
@@ -182,13 +180,15 @@ const MemberUpdate = () => {
   }
 
   const handlerFn2 = (contents) => {
-    
+  
     setContents(contents)
     setIsAlertModal(true)
   }
   
+  // ---------------
   
-  
+  console.log(contents)
+
   return (
     <>
       {isCommonModal && <CommonModal contents={contents} setIsCommonModal={setIsCommonModal} />}

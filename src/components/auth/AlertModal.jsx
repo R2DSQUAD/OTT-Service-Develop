@@ -23,6 +23,7 @@ const AlertModal = ({contents, setIsAlertModal}) => {
           {contents === 'failUnique' && <span>중복 다시 입력</span>}
           {contents === 'successSignIn' && <span>회원가입이 되었습니다.</span>}
           {contents === 'successUpdate' && <span>회원정보를 수정했습니다.</span>}
+          {contents === 'updatePlease' && <span>수정할 내용이 없습니다.</span>}
         </div>
         <div className="alert-modal-bottom">
           <div className="check">

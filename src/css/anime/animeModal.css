@@ -13,18 +13,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999999;
+  z-index: 5000;
   /* overflow: auto; */
+
 }
 
-.animeModal-con {
+.animeModal .animeModal-con {
   flex: 0 1 1200px;
+ 
   /* height: auto; */
   height: 800px;
   background-color: #000;
   color: #fff;
   
-  position: relative;
 
   display: flex;
   flex-direction: column;
@@ -32,29 +33,35 @@
   align-items: center;
 
   border-radius: 15px;
-  /* overflow: hidden; */
+  
 
-  padding: 4vw ;
+  /* padding: 2vw 4vw ; */
   box-sizing: border-box;
 
-  
-}
-
-.animeModal-con .animeModal-wrap {
   overflow: auto;
 
-  /* display: flex; 
-  flex-direction: column; */
+  position: relative;
 }
 
-.animeModal-con .animeModal-wrap::-webkit-scrollbar {
+.animeModal-con::-webkit-scrollbar {
   display: none;
 }
 
-.animeModal-con .top {
-  flex: 3;
+.animeModal .animeModal-con .modal-wrap {
+  width: 52.08vw; /* 1000px*/
+ 
+  height: 700px;
+
+  /* position: relative; */
+}
+
+
+
+.animeModal .animeModal-con .modal-wrap .top {
+
   width: 100%;
-  overflow: hidden;
+  height: 562.5px;
+ 
 
   display: flex;
   justify-content: center;
@@ -62,13 +69,17 @@
   
   position: relative;
 
-  /* border-radius: 10px; */
   box-sizing: border-box;
+
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+
 }
 
 
 
-.animeModal-con .top img {
+
+.animeModal .animeModal-con .top img {
   display: block;
   width: 100%;
  
@@ -80,40 +91,40 @@
   mask-image: linear-gradient(to bottom, rgba(22, 22, 22, 1), rgba(22, 22, 22, 0));
 }
 
-.animeModal-con .top h3 {
+.animeModal .animeModal-con .top h2 {
   position: absolute;
   bottom: 3vw;
   left: 3vw;
   z-index: 999;
 
-  font-size: 50px;
+  font-size: 70px;
 }
 
-.animeModal-con .bottom {
-  flex: 1;
-  /* background-color: blue; */
+.animeModal .animeModal-con .bottom {
+  
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  /* padding: 1vw; */
   box-sizing: border-box;
 
   gap: 1vw;
 
   width: 100%;
+
+
 }
 
 
-.animeModal-con .bottom .bottom-line1 {
+.animeModal .animeModal-con .bottom .bottom-line1 {
   display: flex;
   align-items: center;
 
   gap: 0.5vw;
 }
 
-.animeModal-con .bottom .bottom-line1 .age {
+.animeModal .animeModal-con .bottom .bottom-line1 .age {
   width: 30px; 
   height: 30px;
 
@@ -127,12 +138,12 @@
   justify-content: center;
 }
 
-.animeModal-con .bottom .bottom-line2 {
+.animeModal .animeModal-con .bottom .bottom-line2 {
   display: flex;
   gap: 1vw;
 }
 
-.animeModal-con .bottom .bottom-line2 button {
+.animeModal .animeModal-con .bottom .bottom-line2 button {
   padding: 0.5vw 2vw;
   box-sizing: border-box;
 
@@ -141,18 +152,19 @@
   background-color: rgb(255, 0, 85, 1);
   color: #fff;
 
+  cursor: pointer;
 }
 
-.animeModal-con .bottom .bottom-line2 > button:first-child img {
+.animeModal .animeModal-con .bottom .bottom-line2 > button:nth-child(2) img {
   display: none;
 }
 
-.animeModal-con .bottom .bottom-line2 > button:hover {
+.animeModal .animeModal-con .bottom .bottom-line2 > button:hover {
   background-color: #fff;
   color: rgb(255, 0, 85, 1);
 }
 
-.animeModal-con .bottom .bottom-line3 {
+.animeModal .animeModal-con .bottom .bottom-line3 {
   display: flex;
   justify-content: space-between;
 
@@ -162,14 +174,17 @@
   
 }
 
-.animeModal-con .bottom .bottom-line3 .buttons {
+.animeModal .animeModal-con .bottom .bottom-line3 .buttons {
   display: flex;
   gap: 5vmin;
 }
 
+.animeModal .animeModal-con .bottom .bottom-line3 .buttons button {
+  cursor: pointer;
+}
 
 
-.animeModal-con .bottom .bottom-line3 .buttons-child {
+.animeModal .animeModal-con .bottom .bottom-line3 .buttons-child {
   flex:1;
 
   border: 2px solid #fff;
@@ -181,23 +196,13 @@
   background-color: unset;
 }
 
-.animeModal-con .bottom .bottom-line3 span {
+.animeModal .animeModal-con .bottom .bottom-line3 span {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.animeModal-con span.close {
- 
-  /* right: 20px;
-  top: 20px; */
-
- 
- 
-  
-
-
-
+.animeModal .animeModal-con span.close {
 
   display: flex;
   justify-content: center;
@@ -210,8 +215,8 @@
   box-sizing: border-box;
 
   position: absolute;
-  top: 1.85vh;
-  right: 1.85vh;
+  top: 50px;
+  right: 50px;
 
   z-index: 1000;
 }
@@ -228,106 +233,68 @@
     background-color: unset;
   }
 
-  .animeModal-con {
+  .animeModal .animeModal-con {
     width: 100%;
     height: calc(100vh - 80px - 80px);
-    border-radius: unset;
+
+    padding: unset;
+  }
+  .animeModal .animeModal-con .modal-wrap {
+    width: 100%;
+    /* width: 100%;
+    height: */
   }
 
-  .animeModal-con .top {
+  .animeModal .animeModal-con .modal-wrap .top {
+    height: 360px;
+  }
+  
+  .animeModal .animeModal-con .top h2 {
+  
+    font-size: 50px;
+  }
+
+
+
+  .animeModal .animeModal-con .bottom .bottom-line2 {
+    width: 100%;
+    display: flex;
+  }
+
+  .animeModal .animeModal-con .bottom .bottom-line2 button {
+    padding: 20px 10px;
+
+  }
+
+  .animeModal .animeModal-con .bottom .bottom-line2 button:nth-child(1) {
     flex: 3;
   }
 
- 
-
-  .animeModal-con .bottom {
-    flex: 2;
-
-    justify-content: unset;
-
-    gap: 10px;
-
-    position: relative;
-  }
-
-  .animeModal-con .bottom .bottom-line2 {
-    flex-direction: row-reverse;
-
-    gap: 10px;
-  }
-
-  .animeModal-con .bottom .bottom-line2 button:first-child {
-    
+  .animeModal .animeModal-con .bottom .bottom-line2 button:nth-child(2) {
+    flex: 1;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    
-
   }
 
-  .animeModal-con .bottom .bottom-line2 button:first-child span {
+  .animeModal .animeModal-con .bottom .bottom-line2 button:nth-child(2) span {
     display: none;
-
   }
 
-  .animeModal-con .bottom .bottom-line2 button:first-child img {
+  .animeModal .animeModal-con .bottom .bottom-line2 button:nth-child(2) img {
     display: flex;
-
-    
   }
 
-  .animeModal-con .bottom .bottom-line2 button:nth-child(2) {
-    width: 100%;
-
-    padding: 10px;
-  }
-
-  .animeModal-con .bottom .bottom-line2 .count-buttons {
-    position: absolute;
-
-    display: flex;
-
-    top: 140px;
-    left: calc(50% - 103.88px);
-
-    gap: 30px;
-
-
-    /* border: 1px solid #f00; */
-
-  }
-
-  .animeModal-con .bottom .bottom-line2 .count-buttons .buttons {
-    border: 1px solid #fff;
-    padding: 10px 20px;
-    box-sizing: border-box;
-
-    border-radius: unset;
-  }
+  .animeModal .animeModal-con span.close {
   
-  .animeModal-con .bottom .bottom-line2 .count-buttons button {
-    background-color: unset;
-  }
-
+    font-size: 50px;
+ 
+    top: 10px;
+    right: 20px;
   
-
-  .animeModal-con .bottom .bottom-line3 span.price {
-    background-color: unset;
-    /* border: 1px solid #f00; */
-
-    display: inline-block;
-
-    width: 280px;
+   
   }
 
-  .animeModal-con .bottom .bottom-line3 span.price::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 5px;
-    box-shadow: inset 0 -1px 1px hsla(0, 0%, 100%, 0.692);
-  }
-
-}
+} 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import AnimeModal from './AnimeModal'
 import { useDispatch, useSelector } from 'react-redux'
-import { animeDataFn, dbDataFn } from '../../slice/animeSlice'
+import { addRecentFn, animeDataFn, dbDataFn } from '../../slice/animeSlice'
 
 
 
@@ -10,6 +10,10 @@ const AnimeIndex = () => {
 
 
   const dispatch = useDispatch()
+
+  const isSignIn = useSelector(state => state.auth.isSignIn)
+  const recent = useSelector(state => state.anime.recent)
+
 
   // db데이터 (전역처리)
   const animeData = useSelector(state => state.anime.animeData)
@@ -30,7 +34,12 @@ const AnimeIndex = () => {
   
   // 상품 아이디 세팅 & 모달창 on
   const onAnimeModalFn = (e) => {
+
     const itemId = e.currentTarget.getAttribute('data-id');
+
+    if (isSignIn) {
+      dispatch(addRecentFn(itemId))
+    }
 
     setItemId({
       id: itemId
@@ -40,7 +49,8 @@ const AnimeIndex = () => {
   }
   
 
- 
+  console.log(recent)
+  console.log(isSignIn)
 
   return (
     <>
