@@ -5,7 +5,7 @@
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 2000;
+  z-index: 1000000;
 
   display: flex;
   justify-content: center;
@@ -48,8 +48,6 @@
   align-items: center;
  
 
-  /* background-color: #0f0; */
-
   padding: 1vw;
   box-sizing: border-box;
 
@@ -87,4 +85,37 @@
   position: absolute;
   right: 10px;
   top: 10px;
+}
+
+
+
+
+
+
+/* 태블릿 */
+@media (max-width: 1024px) {
+ 
+
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .common-modal .common-modal-con {
+    flex: unset;
+    width:  80%;
+    height: 300px;
+  }
+
+  .common-modal .common-modal-con .common-modal-top {
+    flex: 1;
+  }
+
+  .common-modal .common-modal-con .common-modal-bottom {
+    /* flex: ; */
+  }
+
+  .common-modal .common-modal-con .common-modal-bottom span {
+    padding: 1vh 2vh;
+  }
+
 }

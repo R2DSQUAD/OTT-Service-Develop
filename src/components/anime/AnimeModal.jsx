@@ -106,18 +106,26 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
 
   return (
     <>
-      {isCommonModal && <CommonModal contents={contents} setIsCommonModal={setIsCommonModal} />}
+      {isCommonModal && (
+        <CommonModal contents={contents} setIsCommonModal={setIsCommonModal} />
+      )}
       <div className="animeModal">
         <div className="animeModal-con">
-          <div className="animeModal-wrap">
-            <span className="close" onClick={closeBtn}>×</span> {/* x 버튼 */}
+          <div className="modal-wrap">
+            <span className="close" onClick={closeBtn}>
+              ×
+            </span>{" "}
+            {/* x 버튼 */}
             <div className="top">
-              <img src={`/images/itemData/${modalData.img}`} alt={modalData.img} />
-              <h3>{modalData.title}</h3>
+              <img
+                src={`/images/itemData/${modalData.img}`}
+                alt={modalData.img}
+              />
+              <h2>{modalData.title}</h2>
             </div>
             <div className="bottom">
               <div className="bottom-line1">
-                <span className="age">{modalData.age}</span> 
+                <span className="age">{modalData.age}</span>
                 <span>·</span>
                 <span>{modalData.time}</span>
                 <span>·</span>
@@ -125,50 +133,127 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
                 <span>{modalData.price}원</span>
               </div>
               <div className="bottom-line2">
-                <button onClick={() => {
-                    addCartFn()
-                    handlerFn("addCart")
-                  }}>
+                <button onClick={addPayementFn}>구매하기</button>
+                <button
+                  onClick={() => {
+                    addCartFn();
+                    handlerFn("addCart");
+                  }}
+                >
                   <span>장바구니 추가</span>
                   <img src={`/images/common/cart_icon.svg`} alt="cart" />
                 </button>
                 {/* <button onClick={addCartFn}>장바구니 추가</button> */}
 
-                <button onClick={addPayementFn}>구매하기</button>
-                
 
                 {/* <button onClick={() => {navigate('/cart')}}>장바구니 이동</button> */}
               </div>
               <div className="bottom-line3">
                 <div className="buttons">
-                  <button onClick={minusFn} className="buttons-child">-</button>
+                  <button onClick={minusFn} className="buttons-child">
+                    -
+                  </button>
                   <span className="buttons-child">{itemCount}</span>
-                  <button onClick={plusFn} className="buttons-child">+</button>
+                  <button onClick={plusFn} className="buttons-child">
+                    +
+                  </button>
                 </div>
-                <span>총합{modalData.price*itemCount}</span>
+                <span>총합{modalData.price * itemCount}</span>
               </div>
               <div className="bottom-line4">
                 <span className="text">{modalData.comment}</span>
-              </div>
-
-              <div className="dum">
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, magnam. Quam aliquam natus facere saepe inventore laborum odit dicta? Doloremque facilis voluptatem asperiores explicabo nesciunt eius sit impedit, aliquam repudiandae?
-                </p>
+                <div className="dum">
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Distinctio, magnam. Quam aliquam natus facere saepe inventore
+                    laborum odit dicta? Doloremque facilis voluptatem asperiores
+                    explicabo nesciunt eius sit impedit, aliquam repudiandae? Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
+                    magnam. Quam aliquam natus facere saepe inventore laborum odit
+                    dicta? Doloremque facilis voluptatem asperiores explicabo
+                    nesciunt eius sit impedit, aliquam repudiandae? Lorem ipsum
+                    dolor sit amet consectetur adipisicing elit. Distinctio, magnam.
+                    Quam aliquam natus facere saepe inventore laborum odit dicta?
+                    Doloremque facilis voluptatem asperiores explicabo nesciunt eius
+                    sit impedit, aliquam repudiandae? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Distinctio, magnam. Quam aliquam
+                    natus facere saepe inventore laborum odit dicta? Doloremque
+                    facilis voluptatem asperiores explicabo nesciunt eius sit
+                    impedit, aliquam repudiandae? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Distinctio, magnam. Quam aliquam
+                    natus facere saepe inventore laborum odit dicta? Doloremque
+                    facilis voluptatem asperiores explicabo nesciunt eius sit
+                    impedit, aliquam repudiandae?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Distinctio, magnam. Quam aliquam natus facere saepe inventore
+                    laborum odit dicta? Doloremque facilis voluptatem asperiores
+                    explicabo nesciunt eius sit impedit, aliquam repudiandae? Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
+                    magnam. Quam aliquam natus facere saepe inventore laborum odit
+                    dicta? Doloremque facilis voluptatem asperiores explicabo
+                    nesciunt eius sit impedit, aliquam repudiandae? Lorem ipsum
+                    dolor sit amet consectetur adipisicing elit. Distinctio, magnam.
+                    Quam aliquam natus facere saepe inventore laborum odit dicta?
+                    Doloremque facilis voluptatem asperiores explicabo nesciunt eius
+                    sit impedit, aliquam repudiandae? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Distinctio, magnam. Quam aliquam
+                    natus facere saepe inventore laborum odit dicta? Doloremque
+                    facilis voluptatem asperiores explicabo nesciunt eius sit
+                    impedit, aliquam repudiandae? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Distinctio, magnam. Quam aliquam
+                    natus facere saepe inventore laborum odit dicta? Doloremque
+                    facilis voluptatem asperiores explicabo nesciunt eius sit
+                    impedit, aliquam repudiandae?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Distinctio, magnam. Quam aliquam natus facere saepe inventore
+                    laborum odit dicta? Doloremque facilis voluptatem asperiores
+                    explicabo nesciunt eius sit impedit, aliquam repudiandae? Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
+                    magnam. Quam aliquam natus facere saepe inventore laborum odit
+                    dicta? Doloremque facilis voluptatem asperiores explicabo
+                    nesciunt eius sit impedit, aliquam repudiandae? Lorem ipsum
+                    dolor sit amet consectetur adipisicing elit. Distinctio, magnam.
+                    Quam aliquam natus facere saepe inventore laborum odit dicta?
+                    Doloremque facilis voluptatem asperiores explicabo nesciunt eius
+                    sit impedit, aliquam repudiandae? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Distinctio, magnam. Quam aliquam
+                    natus facere saepe inventore laborum odit dicta? Doloremque
+                    facilis voluptatem asperiores explicabo nesciunt eius sit
+                    impedit, aliquam repudiandae? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Distinctio, magnam. Quam aliquam
+                    natus facere saepe inventore laborum odit dicta? Doloremque
+                    facilis voluptatem asperiores explicabo nesciunt eius sit
+                    impedit, aliquam repudiandae?
+                  </p>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Distinctio, magnam. Quam aliquam natus facere saepe inventore
+                    laborum odit dicta? Doloremque facilis voluptatem asperiores
+                    explicabo nesciunt eius sit impedit, aliquam repudiandae? Lorem
+                    ipsum dolor sit amet consectetur adipisicing elit. Distinctio,
+                    magnam. Quam aliquam natus facere saepe inventore laborum odit
+                    dicta? Doloremque facilis voluptatem asperiores explicabo
+                    nesciunt eius sit impedit, aliquam repudiandae? Lorem ipsum
+                    dolor sit amet consectetur adipisicing elit. Distinctio, magnam.
+                    Quam aliquam natus facere saepe inventore laborum odit dicta?
+                    Doloremque facilis voluptatem asperiores explicabo nesciunt eius
+                    sit impedit, aliquam repudiandae? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Distinctio, magnam. Quam aliquam
+                    natus facere saepe inventore laborum odit dicta? Doloremque
+                    facilis voluptatem asperiores explicabo nesciunt eius sit
+                    impedit, aliquam repudiandae? Lorem ipsum dolor sit amet
+                    consectetur adipisicing elit. Distinctio, magnam. Quam aliquam
+                    natus facere saepe inventore laborum odit dicta? Doloremque
+                    facilis voluptatem asperiores explicabo nesciunt eius sit
+                    impedit, aliquam repudiandae?
+                  </p>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>

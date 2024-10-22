@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { signOutFn } from "../../slice/authSlice";
 import axios from "axios";
 import { defaultPayment } from "../../slice/paymentSlice";
-
+import { deleteRecentFn } from "../../slice/animeSlice";
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -31,6 +31,15 @@ const Header = () => {
 
   }, [dispatch, signInUser, isPaymentList]);
 
+  const onSignOut = (e) => {
+    e.preventDefault();
+    alert("로그아웃 되었습니다. ");
+    dispatch(deleteRecentFn());
+    dispatch(signOutFn());
+    dispatch(defaultPayment());
+    navigate("/");
+  }
+
   return (
     <>
       <div className="header">
@@ -56,14 +65,7 @@ const Header = () => {
               <li>
                 {isSignIn ? (
                   <Link
-                    onClick={(e) => {
-                      e.preventDefault();
-                      alert("로그아웃 되었습니다. ");
-                      dispatch(signOutFn());
-                      dispatch(defaultPayment());
-                      navigate("/");
-                    }}
-                  >
+                    onClick={onSignOut}>
                     로그아웃
                   </Link>
                 ) : (
