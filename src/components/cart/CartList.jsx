@@ -2,9 +2,12 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { decreCount, deleteCart, allDeleteCart, increCount } from '../../slice/cartslice'
+import DeleteModal from '../modal/DeleteModal'
 
 const CartList = () => {
-
+  const [isDeleteModal,setIsDeleteModal]=useState(false)
+  const [deleteItem,setDeleteItem]=useState('')
+  const [selId,setSelId]=useState([])
   const navigate=useNavigate()
   const dispatch=useDispatch()
   const cartItems=useSelector(state => state.cart.items)
@@ -43,15 +46,32 @@ const CartList = () => {
   }
   const deleteSel=(e)=>{
     const checked=document.querySelectorAll('.cbox:checked')
-    console.log(checked)
+    setDeleteItem('deleteSel')
+    setIsDeleteModal(true)
     checked.forEach((ck)=>{
-      dispatch(deleteCart(ck.value))
+      const num=selId.findIndex((el)=>{
+        return el===ck.value;
+      })
+      if(num===-1){
+        selId.push(ck.value)
+      }
+      // dispatch(deleteCart(ck.value))
       ck.checked=false
     })
-  }  
-
+  }
+  const deleteAllFn=(e)=>{
+    setIsDeleteModal(true)
+    setDeleteItem('deleteAll')
+  }
+  const selDeleteFn=(e)=>{
+    const value=e.currentTarget.value
+    selId.push(value)
+    setDeleteItem('deleteSel')
+    setIsDeleteModal(true)
+  }
   return (
     <>
+    {isDeleteModal?<DeleteModal setIsDeleteModal={setIsDeleteModal} deleteItem={deleteItem} selId={selId}/>:<></>}
       <div className="cartIndex">
         {/* <button className='back' onClick={()=>{
           navigate(-1)
@@ -65,9 +85,7 @@ const CartList = () => {
           {cartItems.length>0?
           <div className="list-detail-con">
             <input type="checkbox" className='all' name='All' value='All' id='check' onClick={selectAll}/>
-            <button className='deleteAll' onClick={()=>{
-                dispatch(allDeleteCart(cartItems))
-              }}>장바구니 비우기</button>
+            <button className='deleteAll' onClick={deleteAllFn}>장바구니 비우기</button>
           </div>
           :<></>}
           </div>
@@ -95,9 +113,7 @@ const CartList = () => {
                           </div>
                         <div className="item-price">
                         <span>총 금액 : {el.count * el.price}원</span>
-                        <button className='delete' onClick={()=>{
-                          dispatch(deleteCart(el.id))
-                        }}>✕</button>
+                        <button className='delete' value={el.id} onClick={selDeleteFn}>✕</button>
                         </div> 
                       </div>                     
                     </div>
@@ -122,7 +138,7 @@ const CartList = () => {
             <div className="cart-pay-con">   
               <ul>
                 <li><span>총 {totalCount}개 상품</span></li>
-                <li><span>총 상품금액:{totalPrice}</span></li>
+                <li><span>총 금액:{totalPrice}</span></li>
               </ul>
               <button className='paybtn' onClick={payFn}>결제하기</button>
             </div>
