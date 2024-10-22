@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: rgba(255, 255, 255, 0.521); */
+    background-color: rgba(0, 0, 0, 0.521);
     position: fixed;
     left: 0;
     top: 0;
@@ -78,4 +78,10 @@ height: 30px;
     width: 100%;
     height: 100%;
     border-radius: 10px
+}
+
+@media (max-width: 460px){
+    .update-member .update-member-con{
+        width: 80vw;
+    }
 }

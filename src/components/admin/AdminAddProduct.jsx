@@ -24,6 +24,7 @@ const addProductData ={
   const [addmodal1, setAddmodal1] = useState(false);
   const [addmodal2, setAddmodal2] = useState(false);
   const [addmodal3, setAddmodal3] = useState(false);
+  const [contents, setContents] = useState("")
 
 
     const [postImg, setPostImg] = useState('');
@@ -33,7 +34,8 @@ const addProductData ={
     const addModal1Fn = () => {
       setAddmodal1(true);
     }
-    const addModal2Fn = () => {
+    const addModal2Fn = (contents) => {
+      setContents(contents)
       setAddmodal2(true);
     }
     const addModal3Fn = () => {
@@ -73,12 +75,54 @@ const addProductData ={
             addModal1Fn()
             // alert("제목을 바꿔주세요")
             return
-        }else if(add.title===""||add.price===""||add.year===""||add.age===""||add.time===""||add.genre===""||add.comment===""||add.type===""){
-            addModal2Fn()
+        }else if(add.title===""){
+            addModal2Fn('f1')
             // alert("제목을 입력해주세요")
 
           return
-        }else{
+        }else if(add.price===""){
+          addModal2Fn('f2')
+          // alert("제목을 입력해주세요")
+
+        return
+      }
+      else if(add.age===""){
+        addModal2Fn('f3')
+        // alert("제목을 입력해주세요")
+
+      return
+    }
+    else if(add.year===""){
+      addModal2Fn('f4')
+      // alert("제목을 입력해주세요")
+
+    return
+  }
+  else if(add.genre===""){
+    addModal2Fn('f5')
+    // alert("제목을 입력해주세요")
+
+  return
+}
+else if(add.time===""){
+  addModal2Fn('f6')
+  // alert("제목을 입력해주세요")
+
+return
+}
+else if(add.comment===""){
+  addModal2Fn('f7')
+  // alert("제목을 입력해주세요")
+
+return
+}
+else if(add.type===""){
+  addModal2Fn('f8')
+  // alert("제목을 입력해주세요")
+
+return
+}
+        else{
             addModal3Fn()
         // const addOk = await axios.post(`http://localhost:3001/allItems`,add)
        
@@ -92,7 +136,7 @@ const addProductData ={
   return (
     <>
     {addmodal1 ? (<AdminAddModal1 setAddmodal1={setAddmodal1}/>):(<></>)}
-    {addmodal2 ? (<AdminAddmodal2 setAddmodal2={setAddmodal2}/>):(<></>)}
+    {addmodal2 ? (<AdminAddmodal2 contents={contents} setAddmodal2={setAddmodal2}/>):(<></>)}
     {addmodal3 &&(<AdminAddModal3  add={add} setAddmodal3={setAddmodal3}/>)}
     <div className="add-product">
     <div className="add-product-con">
@@ -142,7 +186,7 @@ const addProductData ={
         <li>
           <select name="type" id="type"value={add.type}
              onChange={onAddChangeFn}>
-            <option >----</option>
+            <option value="">----</option>
             <option value="영화">영화</option>
             <option value="드라마">드라마</option>
             <option value="애니메이션">애니메이션</option>

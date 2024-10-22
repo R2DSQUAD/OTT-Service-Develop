@@ -19,11 +19,14 @@ const AdminOrderPlaceModal3 = ({setPlaceModal3}) => {
     const [addPlacemodal1, setAddPlacemodal1] = useState(false);
     const [addPlacemodal2, setAddPlacemodal2] = useState(false);
     const [addPlacemodal3, setAddPlacemodal3] = useState(false);
+    const [contents, setContents] = useState("")
 
     const addPlaceModal1Fn = () => {
         setAddPlacemodal1(true);
       }
-      const addPlaceModal2Fn = () => {
+      const addPlaceModal2Fn = (contents) => {
+      setContents(contents)
+
         setAddPlacemodal2(true);
       }
       const addPlaceModal3Fn = () => {
@@ -50,16 +53,74 @@ const AdminOrderPlaceModal3 = ({setPlaceModal3}) => {
                 addPlaceModal1Fn()
                 // alert("제목을 바꿔주세요")
                 return
-            }else if(addPlace.place_name===""||addPlace.address_name===""||addPlace.category_group_code===""||addPlace.phone===""
-              ||addPlace.category_group_name==="" ||addPlace.category_name==="" ||addPlace.distance==="" ||addPlace.place_url==="" ||addPlace.road_address_name===""
-              ||addPlace.x==="" ||addPlace.y==="" 
-
-            ){
-                addPlaceModal2Fn()
+            }else if(addPlace.place_name===""){
+                addPlaceModal2Fn('f1')
                 // alert("을 입력해주세요")
     
               return
-            }else{
+            }
+            else if(addPlace.address_name===""){
+              addPlaceModal2Fn('f2')
+              // alert("을 입력해주세요")
+  
+            return
+          }
+          else if(addPlace.category_group_code===""){
+            addPlaceModal2Fn('f3')
+            // alert("을 입력해주세요")
+
+          return
+        }
+        else if(addPlace.phone===""){
+          addPlaceModal2Fn('f4')
+          // alert("을 입력해주세요")
+
+        return
+      }  
+      else if(addPlace.category_group_name===""){
+        addPlaceModal2Fn('f5')
+        // alert("을 입력해주세요")
+
+      return
+    }
+    else if(addPlace.category_name===""){
+      addPlaceModal2Fn('f6')
+      // alert("을 입력해주세요")
+
+    return
+  }
+  else if(addPlace.distance===""){
+    addPlaceModal2Fn('f7')
+    // alert("을 입력해주세요")
+
+  return
+}
+else if(addPlace.place_url===""){
+  addPlaceModal2Fn('f8')
+  // alert("을 입력해주세요")
+
+return
+}
+else if(addPlace.road_address_name===""){
+  addPlaceModal2Fn('f9')
+  // alert("을 입력해주세요")
+
+return
+}
+else if(addPlace.x===""){
+  addPlaceModal2Fn('f10')
+  // alert("을 입력해주세요")
+
+return
+}
+else if(addPlace.y===""){
+  addPlaceModal2Fn('f11')
+  // alert("을 입력해주세요")
+
+return
+}
+
+            else{
                 addPlaceModal3Fn()
             // const addOk = await axios.post(`http://localhost:3001/allItems`,add)
            
@@ -76,7 +137,7 @@ const AdminOrderPlaceModal3 = ({setPlaceModal3}) => {
   return (
     <>
     {addPlacemodal1 ? (<AdminAddPlaceModal1 setAddPlacemodal1={setAddPlacemodal1}/>):(<></>)}
-    {addPlacemodal2 ? (<AdminAddPlaceModal2 setAddPlacemodal2={setAddPlacemodal2}/>):(<></>)}
+    {addPlacemodal2 ? (<AdminAddPlaceModal2 contents={contents} setAddPlacemodal2={setAddPlacemodal2}/>):(<></>)}
     {addPlacemodal3 &&(<AdminAddPlaceModal3  addPlace={addPlace} setAddPlacemodal3={setAddPlacemodal3}/>)}
     <div className="add-place">
     <div className="add-place-con">

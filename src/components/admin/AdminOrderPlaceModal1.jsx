@@ -19,6 +19,8 @@ const AdminOrderPlaceModal1 = ({setPlaceModal1}) => {
   return (
     <div className="delete-place">
         <div className="delete-place-con">
+        <img src="/images/icon/warning-98676_1920.png" alt="icon" />
+            <span>삭제된 내용은 복구 하실 수 없습니다.</span>
             <span>삭제 하시겠습니까??</span>
             <div className="button">
             <button onClick={onDeleteFn} >네</button>
