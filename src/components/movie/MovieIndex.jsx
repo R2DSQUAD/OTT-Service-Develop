@@ -31,6 +31,8 @@ const MovieIndex = () => {
     const age = e.currentTarget.getAttribute("data-age");
     const year = e.currentTarget.getAttribute("data-year");
     const time = e.currentTarget.getAttribute("data-time");
+    const type = e.currentTarget.getAttribute("data-type");
+
     console.log(modalitem)
 
 
@@ -43,7 +45,8 @@ const MovieIndex = () => {
       price: price,
       age:age,
       year:year,
-      time:time
+      time:time,
+      type:type
     });
     setMovieModal(true);
   };
@@ -92,6 +95,7 @@ const MovieIndex = () => {
                             data-age={el.age}
                             data-year={el.year}
                             data-time={el.time}
+                            data-type={el.type}
                             
                           />
                         </div>
@@ -123,6 +127,7 @@ const MovieIndex = () => {
                             data-age={el.age}
                             data-year={el.year}
                             data-time={el.time}
+                            data-type={el.type}
                           />
                         </div>
                       </li>
@@ -153,6 +158,7 @@ const MovieIndex = () => {
                             data-age={el.age}
                             data-year={el.year}
                             data-time={el.time}
+                            data-type={el.type}
                           />
                         </div>
                       </li>
@@ -183,6 +189,7 @@ const MovieIndex = () => {
                             data-age={el.age}
                             data-year={el.year}
                             data-time={el.time}
+                            data-type={el.type}
                           />
                         </div>
                       </li>

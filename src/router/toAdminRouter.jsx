@@ -16,6 +16,7 @@ const AdminOrderPlace = lazy(()=> import('../pages/admin/AdminOrderPlaceDetailPa
 
 
 
+
 const toAdminRouter = () => {
   return (
     [   
@@ -48,6 +49,7 @@ const toAdminRouter = () => {
           path: 'adminplace',
           element: <Suspense fallback={Loading}><AdminPlace/></Suspense>
         }
+        
         ,
         {
           path: 'admincart',

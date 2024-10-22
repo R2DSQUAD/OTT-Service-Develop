@@ -160,7 +160,7 @@ function AdminOrderPlace() {
    <div className="admin-place-con"> 
     <h1>주문처 페이지</h1>
       <div className="place-add">
-      <li onClick={onPlaceModal3Fn}>주문처 추가하기</li>
+      <li onClick={onPlaceModal3Fn}>주문처 추가</li>
         </div>
           <div className="admin-place-list" >
             <ul>
