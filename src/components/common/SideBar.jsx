@@ -5,13 +5,18 @@ import { signOutFn } from "../../slice/authSlice";
 import axios from "axios";
 import { defaultPayment } from "../../slice/paymentSlice";
 
-const Header = () => {
+const SideBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const isSignIn = useSelector((state) => state.auth.isSignIn);
   const signInUser = useSelector((state) => state.auth.signInUser);
   const isCart = useSelector((state) => state.cart.items);
   const [isPaymentList, setIsPaymentList] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(isOpen => !isOpen)
+  };
 
   useEffect(() => {
     if (signInUser.length > 0) {
@@ -33,15 +38,23 @@ const Header = () => {
 
   return (
     <>
-      <div className="header">
-        <div className="header-con">
+      <div className={`sideBar ${isOpen ? 'active' : ''}`}>
+        <div className={"sideBar-con"}>
           <div className="gnb">
-            <h1 className="logo">
+          <h1 className="logo">
               <Link to={"/"}>
                 <img src="/images/common/main_logo.png" alt="logo" />
               </Link>
             </h1>
-            <ul>
+            <h1 className="logo-mini">
+              <Link to={"/"}>
+                <img src="/images/common/logo.png" alt="logo" />
+              </Link>
+            </h1>
+            <button onClick={() => toggleMenu()}>test</button>
+          </div>
+          <div className="gnb_nav">
+          <ul className={isOpen ? "showMenu" : "hideMenu"}>
               {isSignIn && isPaymentList.length > 0 && (
                 <li>
                   <Link to={"/payment"}>결제내역</Link>
@@ -103,6 +116,7 @@ const Header = () => {
         </div>
       </div>
     </>
-  );
-};
-export default Header;
+  )
+}
+
+export default SideBar

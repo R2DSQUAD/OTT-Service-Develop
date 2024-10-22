@@ -940,6 +940,15 @@
       "phoneNumber": "11111",
       "address": "11111",
       "role": "ROLE_MEMBER"
+    },
+    {
+      "id": "f51f",
+      "userName": "test2",
+      "userEmail": "test2",
+      "userPw": "test2",
+      "phoneNumber": "test2",
+      "address": "test2",
+      "role": "ROLE_ADMIN"
     }
   ],
   "payments": [
@@ -1072,6 +1081,262 @@
       ],
       "paymentAmount": 10000,
       "time": "2024/10/17 12:23:5"
+    },
+    {
+      "id": "306d",
+      "branchType": "롯데시네마 수락산",
+      "paymentMethod": "네이버 페이",
+      "orderType": "예약 주문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": "19",
+          "type": "웹툰",
+          "title": "촉법소년",
+          "price": "13000",
+          "img": "/images/itemData/JuvenileOffender.jpg",
+          "genre": "액션",
+          "age": "15",
+          "year": "2023",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 16:5:21"
+    },
+    {
+      "id": "4d43",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "카드결제",
+      "orderType": "예약 주문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": 72,
+          "price": "11000",
+          "title": "반지의 제왕: 힘의 반지 (2022)",
+          "img": "/images/itemData/rings.jpg",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 0,
+      "time": "2024/10/18 17:31:19"
+    },
+    {
+      "id": "0442",
+      "branchType": "CGV 방학",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": "9",
+          "type": "웹툰",
+          "title": "기기괴괴2",
+          "price": "13000",
+          "img": "/images/itemData/talesOfTheUnusual2.jpg",
+          "genre": "공포",
+          "age": "15",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/18 18:1:21"
+    },
+    {
+      "id": "f7c4",
+      "branchType": "CGV 하계",
+      "paymentMethod": "카카오 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": 73,
+          "price": "14000",
+          "title": "우리가 끝이야 (2024)",
+          "img": "/images/itemData/us.webp",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 14000,
+      "time": "2024/10/21 11:40:55"
+    },
+    {
+      "id": "2179",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "네이버 페이",
+      "orderType": "예약 주문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": "9",
+          "type": "웹툰",
+          "title": "기기괴괴2",
+          "price": "13000",
+          "img": "/images/itemData/talesOfTheUnusual2.jpg",
+          "genre": "공포",
+          "age": "15",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/21 11:56:27"
+    },
+    {
+      "id": "c3e0",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "카드결제",
+      "orderType": "택배 배송",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": "18",
+          "type": "웹툰",
+          "title": "참교육",
+          "price": "13000",
+          "img": "/images/itemData/GetSchooled.jpg",
+          "genre": "액션",
+          "age": "15",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/21 16:44:21"
+    },
+    {
+      "id": "5289",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "네이버 페이",
+      "orderType": "직접 방문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "test",
+      "paymentResult": [
+        {
+          "id": "2",
+          "type": "웹툰",
+          "title": "엽총소년",
+          "price": "14000",
+          "img": "/images/itemData/shotgunBoy.jpg",
+          "genre": "스릴러",
+          "age": "15",
+          "year": "2021",
+          "time": "",
+          "count": 1
+        },
+        {
+          "id": "13",
+          "type": "웹툰",
+          "title": "무한의 마법사",
+          "price": "13000",
+          "img": "/images/itemData/wizardOfInfinity.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2022",
+          "time": "",
+          "count": 1
+        },
+        {
+          "id": "1",
+          "type": "웹툰",
+          "title": "이혼 후 코인 대박",
+          "price": "12000",
+          "img": "/images/itemData/coinJackpotAfterDivorce.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2024",
+          "time": "11",
+          "count": 1
+        },
+        {
+          "id": "8",
+          "type": "웹툰",
+          "title": "두번 사는 랭커",
+          "price": "13000",
+          "img": "/images/itemData/rankersThatLiveTwice.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2019",
+          "time": "",
+          "count": 1
+        },
+        {
+          "id": "15",
+          "type": "웹툰",
+          "title": "좋아? 죽어!",
+          "price": "13000",
+          "img": "/images/itemData/LoveYouTillDeath.jpg",
+          "genre": "스릴러",
+          "age": "18",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        },
+        {
+          "id": "5",
+          "type": "웹툰",
+          "title": "싸움독학",
+          "price": "19000",
+          "img": "/images/itemData/viralHit.jpg",
+          "genre": "액션",
+          "age": "15",
+          "year": "2019",
+          "time": "",
+          "count": 1
+        },
+        {
+          "id": "10",
+          "type": "웹툰",
+          "title": "픽미업",
+          "price": "13000",
+          "img": "/images/itemData/pickMeUp.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2022",
+          "time": "",
+          "count": 1
+        },
+        {
+          "id": "12",
+          "type": "웹툰",
+          "title": "던전리셋",
+          "price": "13000",
+          "img": "/images/itemData/dungeonReset.jpg",
+          "genre": "판타지",
+          "age": "ALL",
+          "year": "2020",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 110000,
+      "time": "2024/10/21 16:45:20"
     }
   ],
   "shopList": [

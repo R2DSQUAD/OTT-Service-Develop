@@ -1,10 +1,7 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { useSelector } from "react-redux";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initstate = {
   items: [],
-  status: null,
 };
 
 const paymentSlice = createSlice({
@@ -17,34 +14,18 @@ const paymentSlice = createSlice({
       });
 
       if (num === -1) {
-        state.items.splice(0,1);
+        state.items = initstate.items;
         state.items.push(action.payload);
       } else {
         state.items[num].count += action.payload.count;
       }
     },
-    clearPayment: (state, action) => {
-      state.items = initstate.items
-      state.status = initstate.status
+    defaultPayment: (state, action) => {
+      state.items = initstate.items;
     }
-  
-  },
-  extraReducers: (builder)=>{
-    builder.addCase(paymentListThunk.fulfilled,(state,action)=>{
-      state.items=action.payload
-      state.status= 'success'
-    })
   }
 }
 )
-export const paymentListThunk=createAsyncThunk('payment/paymentListThunk',
-async (_, {getState})=>{
-  const signInUser = getState().auth.signInUser; //redux getState로 값 가져오기
-  const res = await axios.get(`http://localhost:3001/payments?userEmail=${signInUser[0].userEmail}`);
-  const data=res.data
-  console.log(res.data)
-  return data
-});
 
-export const { addPayment, clearPayment } = paymentSlice.actions
+export const { addPayment, defaultPayment } = paymentSlice.actions
 export default paymentSlice;

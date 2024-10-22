@@ -75,30 +75,3 @@
     font-size: 12px;
   }
 }
-
-@media (max-width: 460px) {
-  .member-header .member-header-con> .gnb > h1.logo{
-    display: none; 
-  }
-
-  .member-header .member-header-con> .gnb > h1.logo-mini{
-    display:block;
-  }
-
-  .member-header .member-header-con> .gnb > h1.logo-mini a img{
-    width: 40px;
-    height: auto;
-    display: block;
-    object-fit: cover;
-  }
-
-  .member-header .member-header-con> .gnb > ul {
-    gap: 20px;
-    padding: 10px;
-  }
-
-
-  .member-header .member-header-con> .gnb > ul > li {
-    font-size: 12px;
-  }
-}

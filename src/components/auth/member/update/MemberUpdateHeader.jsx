@@ -12,7 +12,7 @@ const MemberUpdateHeader = () => {
           <Link onClick={(e) => {
             e.preventDefault()
             navigate(-1)
-          }}><img src={'/images/common/logo.svg'} alt="logo" /></Link>
+          }}><img src={'/images/common/main_logo.png'} alt="logo" /></Link>
         </h1>
         <div className="member-update-header-btn">
           <Link onClick={(e) => {

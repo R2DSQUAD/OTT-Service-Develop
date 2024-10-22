@@ -68,14 +68,14 @@ const MapDetailModal = ({ setIsMapDetailModal, detailmodalItem }) => {
           <div className="maptitle">
             <div className="none"></div>
             <h2>
-              <img src="/images/common/logo.svg" alt="logo" />
+              <img src="/images/common/main_logo.png" alt="logo" />
             </h2>
             <span className="close" onClick={closeFn}>
               ✕
             </span>
           </div>
           <div className="mapitem">
-            <div id="map" style={{ width: "400px", height: "300px" }}></div>
+            <div id="map"></div>
             <div className="mapbottom">
               <span>{detailmodalItem.place_name}</span>
               <div className="mapDetail">

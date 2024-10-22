@@ -26,18 +26,19 @@
 .paymentDetail .paymentDetail-con .content ul {
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1fr 1fr 2fr;
+  grid-template-columns: repeat(8,1fr);
   grid-template-rows: repeat(1, 150px);
-  padding: 0 30px;
   width: 100%;
   box-sizing: border-box;
 }
 
 .paymentDetail .paymentDetail-con .content ul li {
   display: flex;
+  width: 100px;
   justify-content: center;
   align-items: center;
   text-align: center;
+  padding: 0 30px;
 }
 
 .paymentDetail .paymentDetail-con .content ul li img {
@@ -50,7 +51,4 @@
   height: 100px;
 }
 
-.paymentDetail .paymentDetail-con .content ul li img.horizontalImg{
-  
-}
 
