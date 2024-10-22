@@ -1,18 +1,17 @@
-@import url(cartAlertModal.css);
-.cartModal{
+.alertModal{
   width: 100%;
   height: 100vh;
   background-color: rgba(172, 172, 172, 0.377);
   position: fixed;
   left: 0;
   top: 0;
-  z-index: 9999;
+  z-index: 10000;
 
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.cartModal .cartModal-con{
+.alertModal .alertModal-con{
   width: 600px;
   height: 200px;
   background-color: rgba(22, 22, 22);
@@ -26,15 +25,15 @@
   justify-content: center;
   gap: 60px;
 }
-.cartModal .cartModal-con span{
+.alertModal .alertModal-con span{
   font-size: 20px;
 }
-.cartModal .cartModal-con .cartBtn{
+.alertModal .alertModal-con .cartMoveBtn{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   width: 100%;
 }
-.cartModal .cartModal-con .cartBtn button{
+.alertModal .alertModal-con .cartMoveBtn button{
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,12 +44,13 @@
   border-radius: 10px;
 }
 @media (max-width:768px){
-  .cartModal .cartModal-con{
+  .alertModal .alertModal-con{
     width: 95%;
     height: 150px;
     padding: 15px 10px;
   }
-  .cartModal .cartModal-con .cartBtn button{
+  .alertModal .alertModal-con .cartMoveBtn button{
     width: 140px;
   }
 }
+

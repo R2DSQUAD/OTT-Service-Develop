@@ -131,5 +131,10 @@
   }
   .mapModal .mapModal-con .mapitem .mapbottom{
     flex: 1;
+    gap: 5px;
+  }
+  .mapModal .mapModal-con .mapitem .mapbottom .mapDetail ul.mapName li:last-child img{
+    width: 16px;
+    height: 16px;
   }
 }

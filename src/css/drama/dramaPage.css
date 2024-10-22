@@ -32,7 +32,6 @@
 .drama .drama-con .drama-list .dramaList .drama-head{
   display: flex;
   padding: 1vw 0;
-  gap: 1vw;
   box-sizing: border-box;
   align-items: center;
 }
@@ -52,7 +51,7 @@
   outline: 1px solid #f8e4ff;
 }
 .drama .drama-con .drama-list .dramaList .drama-head h2{
-  width: 100px;
+  width: 140px;
 }
 .drama .drama-con .drama-list .dramaList ul{
   flex: 1;
@@ -76,19 +75,7 @@
 .drama .drama-con .drama-list .dramaList ul li img{
   width: 100%;
   display: block;
-}
-.drama .drama-con .drama-list .dramaList ul li .item-img{
-  position: relative;
-}
-.drama .drama-con .drama-list .dramaList ul li .item-img span{
-  position: absolute;
-  z-index: 1;
-  top: 80%;
-  left: 50%;
-  transform: translate( -50%, -50% );
-  color:white;
-  font-size: 20px;
-  font-weight: bolder;
+  border-radius: 5px;
 }
 @media (max-width: 1024px){
   .drama .drama-con .drama-list .dramaList ul{
@@ -106,10 +93,16 @@
     grid-template-rows: repeat(2,auto);
     grid-auto-rows: auto;
   }
+  .drama .drama-con .drama-list .dramaList .drama-head h2{
+    width: 100px;
+  }
   .drama .drama-con h1{
     font-size: 30px;
   }
   .drama .drama-con .drama-list .dramaList h2{
     font-size: 20px;
+  }
+  .drama .drama-con{
+    padding: 15px;
   }
 }

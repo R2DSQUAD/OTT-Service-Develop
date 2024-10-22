@@ -43,7 +43,7 @@ const DramaIndex = () => {
 
   return (
     <>
-    {dramaModal ? <DramaModal modalRef={modalRef} modalItem={modalItem} clickOutModal={clickOutModal}
+    {dramaModal ? <DramaModal modalRef={modalRef} setModalItem={setModalItem} modalItem={modalItem} clickOutModal={clickOutModal}
       setDramaModal={setDramaModal}/>:<></>}
     <div className="drama">
       <div className="drama-con">
@@ -57,8 +57,8 @@ const DramaIndex = () => {
             <h2>전체작품</h2>
             <select name="age" id="age" onChange={ageChangeFn} defaultValue={true}>
                 <option value="전체">전체</option>
-                <option value="15">15</option>
-                <option value="19">19</option>
+                <option value="15">15세 이상</option>
+                <option value="19">19세 이상</option>
               </select>
             </div>           
             <ul>
@@ -81,10 +81,8 @@ const DramaIndex = () => {
             <ul>
               {items &&items.filter(el => el.genre==="판타지").map((el,idx)=>{
                 return(
-                  <li key={idx} data-id={el.id} onClick={dramaModalFn}>
-                    <div className="item-img">
-                      <img src={`/images/itemData/${el.img}`} alt={el.img} /><span></span>
-                    </div>                
+                  <li key={idx} data-id={el.id} onClick={dramaModalFn}>                 
+                      <img src={`/images/itemData/${el.img}`} alt={el.img} />                
                 </li>
                 )
               })}

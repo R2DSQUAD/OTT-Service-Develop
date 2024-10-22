@@ -429,6 +429,7 @@
       "title": "사냥개들",
       "price": 10000,
       "img": "사냥개들.png",
+      "logoImg": "사냥개들로고.png",
       "genre": "액션"
     },
     {
@@ -440,6 +441,7 @@
       "title": "무빙",
       "price": 15000,
       "img": "무빙.png",
+      "logoImg": "무빙로고.png",
       "genre": "액션"
     },
     {
@@ -451,6 +453,7 @@
       "title": "약한영웅 Class 1",
       "price": 12000,
       "img": "약한영웅.png",
+      "logoImg": "약한영웅로고.png",
       "genre": "액션"
     },
     {
@@ -462,6 +465,7 @@
       "title": "택배기사",
       "price": 13000,
       "img": "택배기사.png",
+      "logoImg": "택배기사로고.png",
       "genre": "액션"
     },
     {
@@ -473,6 +477,7 @@
       "title": "오징어게임",
       "price": 20000,
       "img": "오징어게임.png",
+      "logoImg": "오징어게임로고.png",
       "genre": "스릴러"
     },
     {
@@ -484,6 +489,7 @@
       "title": "경성크리처",
       "price": 14000,
       "img": "경성크리처.png",
+      "logoImg": "경성크리처로고.png",
       "genre": "스릴러"
     },
     {
@@ -495,6 +501,7 @@
       "title": "괴물",
       "price": 16000,
       "img": "괴물.png",
+      "logoImg": "괴물로고.png",
       "genre": "스릴러"
     },
     {
@@ -506,6 +513,7 @@
       "title": "살인자ㅇ난감",
       "price": 17000,
       "img": "살인자ㅇ난감.png",
+      "logoImg": "살인장난감로고.png",
       "genre": "스릴러"
     },
     {
@@ -517,6 +525,7 @@
       "title": "스위트홈",
       "price": 18000,
       "img": "스위트홈.png",
+      "logoImg": "스위트홈로고.png",
       "genre": "판타지"
     },
     {
@@ -528,6 +537,7 @@
       "title": "지옥",
       "price": 19000,
       "img": "지옥.png",
+      "logoImg": "지옥로고.png",
       "genre": "판타지"
     },
     {
@@ -539,6 +549,7 @@
       "title": "위쳐",
       "price": 10000,
       "img": "위쳐.png",
+      "logoImg": "위쳐로고.png",
       "genre": "판타지"
     },
     {
@@ -550,6 +561,7 @@
       "title": "경이로운 소문",
       "price": 11000,
       "img": "소문.png",
+      "logoImg": "경이로운소문로고.png",
       "genre": "판타지"
     },
     {
@@ -561,6 +573,7 @@
       "title": "멜로가 체질",
       "price": 10000,
       "img": "멜로가 체질.png",
+      "logoImg": "멜로가체질로고.png",
       "genre": "로맨스"
     },
     {
@@ -572,6 +585,7 @@
       "title": "도깨비",
       "price": 10000,
       "img": "도깨비.png",
+      "logoImg": "도깨비로고.png",
       "genre": "로맨스"
     },
     {
@@ -583,6 +597,7 @@
       "title": "사랑의 불시착",
       "price": 10000,
       "img": "사랑의 불시착.png",
+      "logoImg": "사랑의불시착로고.png",
       "genre": "로맨스"
     },
     {
@@ -594,6 +609,7 @@
       "title": "그 해 우리는",
       "price": 10000,
       "img": "그 해 우리는.png",
+      "logoImg": "그해우리는로고.png",
       "genre": "로맨스"
     },
     {
