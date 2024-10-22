@@ -6,7 +6,7 @@ const AdminLeft = () => {
     <div className="admin-left">
     <div className="admin-left-con">
       <h1 className="admin-logo">
-        <Link to={"/admin"}><img src="/images/common/logo.svg" alt="logo" /></Link>
+        <Link to={"/admin"}><img src="/images/common/main_logo.png" alt="logo" /></Link>
       </h1>
       <div className="admin-gnb">
         <ul>

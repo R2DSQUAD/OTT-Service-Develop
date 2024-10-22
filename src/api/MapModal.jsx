@@ -11,7 +11,7 @@ const MapModal = ({setMapModal,modalItem,clickOutModal,modalRef}) => {
       <div className="mapModal-con">
         <div className="maptitle">
           <div className="none"></div>
-          <h2><img src="/images/common/logo.svg" alt="logo" /></h2>
+          <h2><img src="/images/common/main_logo.png" alt="logo" /></h2>
           <span className="close" onClick={closeFn}>✕</span>
         </div>
         <div className="mapitem">

@@ -22,8 +22,6 @@
   align-items: center;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(1, 80px);
-  gap: 150px;
-  padding: 0 30px;
   box-sizing: border-box;
 }
 
@@ -34,6 +32,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 }
 
 .payment .payment-con .content > ul.dataList > li:last-child{
@@ -46,3 +45,14 @@
   cursor: pointer;
 }
 
+@media (min-width: 769px) and (max-width: 1024px) {
+  .payment .payment-con .content > ul {
+    font-size: 12px;
+  }
+}
+
+@media  (max-width: 768px) {
+  .payment .payment-con .content > ul {
+    font-size: 10px;
+  }
+}

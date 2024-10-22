@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signOutFn } from "../../../slice/authSlice";
-import { clearPayment, paymentListThunk } from "../../../slice/paymentSlice";
+import axios from "axios";
 
 const MemberHeader = () => {
   const navigate = useNavigate();
@@ -10,13 +10,24 @@ const MemberHeader = () => {
   const isSignIn = useSelector((state) => state.auth.isSignIn);
   const signInUser = useSelector((state) => state.auth.signInUser);
   const isCart = useSelector((state) => state.cart.items);
-  const paymentList = useSelector((state) => state.payment.items);
+  const [isPaymentList, setIsPaymentList] = useState([]);
 
   useEffect(() => {
     if (signInUser.length > 0) {
-      dispatch(paymentListThunk());
+      const AxiosFn = async (e) => {
+        try {
+          const res = await axios.get(
+            `http://localhost:3001/payments?userEmail=${signInUser[0].userEmail}`
+          );
+          const resData = res.data;
+          setIsPaymentList(resData);
+        } catch (err) {
+          alert(err);
+        }
+      };
+      AxiosFn();
     }
-  }, [dispatch, signInUser]);
+  }, [dispatch, signInUser, isPaymentList]);
 
   return (
     <div className="member-header">
@@ -24,7 +35,7 @@ const MemberHeader = () => {
         <div className="gnb">
           <h1 className="logo">
             <Link to={"/"}>
-              <img src="/images/common/logo.svg" alt="logo" />
+              <img src="/images/common/main_logo.png" alt="logo" />
             </Link>
           </h1>
           <h1 className="logo-mini">
@@ -33,7 +44,7 @@ const MemberHeader = () => {
             </Link>
           </h1>
           <ul>
-            {paymentList.length > 0 && (
+            {isSignIn && isPaymentList.length > 0 && (
               <li>
                 <Link to={"/payment"}>결제내역</Link>
               </li>
@@ -50,7 +61,6 @@ const MemberHeader = () => {
                     e.preventDefault();
                     alert("로그아웃 되었습니다. ");
                     dispatch(signOutFn());
-                    dispatch(clearPayment());
                     navigate("/");
                   }}
                 >

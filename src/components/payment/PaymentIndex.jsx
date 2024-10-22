@@ -109,7 +109,7 @@ const PaymentIndex = () => {
       setItemPrice(price);
     }
     else if (query.get("type") === "cart") {
-      const {total, price} = calcTotalAndPrice(payment);
+      const {total, price} = calcTotalAndPrice(cart);
       setTotalPrice(total);
       setItemPrice(price);
     }
@@ -353,7 +353,7 @@ const PaymentIndex = () => {
                     onClick={mapModalFn}
                     data-id={el.id}
                   >
-                    지도보기
+                    🌏지도보기
                   </span>
                 </div>
               );

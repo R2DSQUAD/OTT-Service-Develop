@@ -59,11 +59,11 @@ const PaymentDetail = () => {
               <li>영상 시간</li>
               <li>사진</li>
             </ul>
-            {paymentData.paymentResult &&
-              paymentData.paymentResult.map((el, idx) => {
-                return (
-                  <>
-                    <ul>
+            <ul>
+              {paymentData.paymentResult &&
+                paymentData.paymentResult.map((el, idx) => {
+                  return (
+                    <>
                       <li>{el.type}</li>
                       <li>{el.title}</li>
                       <li>{el.genre}</li>
@@ -80,10 +80,10 @@ const PaymentDetail = () => {
                           alt={el.img}
                         />
                       </li>
-                    </ul>
-                  </>
-                );
-              })}
+                    </>
+                  );
+                })}
+            </ul>
           </div>
         </div>
       </div>

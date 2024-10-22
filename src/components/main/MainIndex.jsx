@@ -9,7 +9,7 @@ const mainListData = {
   title: "",
   comment: "",
   price: "",
-  img: "",
+  img: ""
 };
 const webtoonBanner = [];
 const movieBanner = [];
