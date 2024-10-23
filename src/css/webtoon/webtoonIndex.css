@@ -42,7 +42,7 @@
   width: 100%;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(1, auto);
-  grid-auto-rows: 460px;
+  grid-auto-rows: 300px;
   gap: 1vw;
   grid-auto-columns: 50px;
   grid-auto-flow: column;
@@ -102,7 +102,7 @@
   border-radius: 20px;
 }
 
-@media (max-width: 768px) {
+@media(min-width: 769px) and (max-width: 1024px){
   .webtoon .webtoon-con .webtoonContent .mainBanner>ul {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, auto);
@@ -113,6 +113,22 @@
   .webtoon .webtoon-con .webtoonContent .subMenu>ul {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, auto);
+    grid-auto-rows: 200px;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .webtoon .webtoon-con .webtoonContent .mainBanner>ul {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    grid-auto-rows: 200px;
+    gap: 20px;
+  }
+
+  .webtoon .webtoon-con .webtoonContent .subMenu>ul {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
     grid-auto-rows: 200px;
     gap: 20px;
   }

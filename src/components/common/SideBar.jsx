@@ -4,7 +4,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { signOutFn } from "../../slice/authSlice";
 import axios from "axios";
 import { defaultPayment } from "../../slice/paymentSlice";
-import { localhost } from "../../api/CommonAPI";
 
 const SideBar = () => {
   const navigate = useNavigate();
@@ -15,8 +14,31 @@ const SideBar = () => {
   const [isPaymentList, setIsPaymentList] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
 
+  const toggleMenuClose = () => {
+    setIsOpen(false);
+    removeStyle();
+  };
+
+  const toggleMenuCloseMain = () => {
+    setIsOpen(false);
+
+    const leftStyle = document.querySelector(".left");
+    leftStyle.style.display = "block";
+  };
   const toggleMenu = () => {
-    setIsOpen(isOpen => !isOpen)
+    setIsOpen((isOpen) => !isOpen);
+    removeStyle();
+  };
+
+  console.log(isOpen, "dsadas");
+
+  const removeStyle = () => {
+    const leftStyle = document.querySelector(".left");
+    if (isOpen === false) {
+      leftStyle.style.display = "none";
+    } else {
+      leftStyle.style.display = "block";
+    }
   };
 
   useEffect(() => {
@@ -24,7 +46,7 @@ const SideBar = () => {
       const AxiosFn = async (e) => {
         try {
           const res = await axios.get(
-            `http://${localhost}:3001/payments?userEmail=${signInUser[0].userEmail}`
+            `http://192.168.23.215:3001/payments?userEmail=${signInUser[0].userEmail}`
           );
           const resData = res.data;
           setIsPaymentList(resData);
@@ -34,37 +56,62 @@ const SideBar = () => {
       };
       AxiosFn();
     }
-
   }, [dispatch, signInUser, isPaymentList]);
 
   return (
     <>
-      <div className={`sideBar ${isOpen ? 'active' : ''}`}>
+      <div className={`sideBar ${isOpen ? "active" : ""}`}>
         <div className={"sideBar-con"}>
           <div className="gnb">
-          <h1 className="logo">
+            <h1 className="logo">
               <Link to={"/"}>
-                <img src="/images/common/main_logo.png" alt="logo" />
+                <img
+                  src="/images/common/main_logo.png"
+                  alt="logo"
+                  onClick={() => toggleMenuCloseMain()}
+                />
               </Link>
             </h1>
             <h1 className="logo-mini">
               <Link to={"/"}>
-                <img src="/images/common/logo.png" alt="logo" />
+                <img
+                  src="/images/common/logo.png"
+                  alt="logo"
+                  onClick={() => toggleMenuCloseMain()}
+                />
               </Link>
             </h1>
-            <button onClick={() => toggleMenu()}>test</button>
+            <div
+              className="sideBarToggle"
+              onClick={() => {
+                toggleMenu();
+              }}
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
           <div className="gnb_nav">
-          <ul className={isOpen ? "showMenu" : "hideMenu"}>
+            <ul className={isOpen ? "showMenu" : "hideMenu"}>
               {isSignIn && isPaymentList.length > 0 && (
                 <li>
-                  <Link to={"/payment"}>결제내역</Link>
+                  <Link to={"/payment"} onClick={() => toggleMenuClose()}>
+                    결제내역
+                  </Link>
                 </li>
               )}
-
+              <li>
+                <Link to={"/kakaopage"} onClick={() => toggleMenuClose()}>
+                  지점
+                </Link>
+              </li>
               {isCart.length > 0 && (
                 <li>
-                  <Link to={"/cart"}>장바구니</Link>
+                  <Link to={"/cart"} onClick={() => toggleMenuClose()}>
+                    {" "}
+                    장바구니
+                  </Link>
                 </li>
               )}
               <li>
@@ -75,23 +122,30 @@ const SideBar = () => {
                       alert("로그아웃 되었습니다. ");
                       dispatch(signOutFn());
                       dispatch(defaultPayment());
+                      toggleMenuClose();
                       navigate("/");
                     }}
                   >
                     로그아웃
                   </Link>
                 ) : (
-                  <Link to={"/signIn"}>로그인</Link>
+                  <Link to={"/signIn"} onClick={() => toggleMenuClose()}>
+                    로그인
+                  </Link>
                 )}
               </li>
               {!isSignIn && (
                 <li>
-                  <Link to={"/signUp"}>회원가입</Link>
+                  <Link to={"/signUp"} onClick={() => toggleMenuClose()}>
+                    회원가입
+                  </Link>
                 </li>
               )}
               {isSignIn && (
                 <li>
-                  <Link to={"/member"}>{signInUser[0].userEmail}님</Link>
+                  <Link to={"/member"} onClick={() => toggleMenuClose()}>
+                    {signInUser[0].userEmail}님
+                  </Link>
                 </li>
               )}
               {isSignIn ? (
@@ -100,6 +154,7 @@ const SideBar = () => {
                     <Link
                       onClick={(e) => {
                         e.preventDefault();
+                        toggleMenuClose();
                         navigate("/admin/index");
                       }}
                     >
@@ -117,7 +172,7 @@ const SideBar = () => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SideBar
+export default SideBar;

@@ -50,8 +50,8 @@
 }
 
 .webtoonModal .webtoonModal-con .top img {
-  width: 280px;
-  height: 400px;
+  width: 400px;
+  height: 218px;
   z-index: 9999;
   border-radius: 15px;
   box-sizing: border-box;
@@ -155,14 +155,11 @@
   height: auto;
 }
 
-@media(min-width: 769px) and (max-width: 1024){
-}
-
 @media (max-width: 768px) {
 
   .webtoonModal .webtoonModal-con .top img {
-    width: 175px;
-    height: 250px;
+    width: 320px;
+    height: 175px;
   }
 
   .webtoonModal .webtoonModal-con .top span.title {

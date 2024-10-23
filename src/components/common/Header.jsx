@@ -8,9 +8,6 @@ import { localhost } from "../../api/CommonAPI";
 import axios from "axios";
 import { deleteUserFn } from "../../slice/userSlice";
 
-
-
-
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -19,10 +16,7 @@ const Header = () => {
   const isCart = useSelector((state) => state.cart.items);
   const [isPaymentList, setIsPaymentList] = useState([]);
 
-
-  const user = useSelector(state => state.user)
-
-
+  const user = useSelector((state) => state.user);
 
   useEffect(() => {
     if (signInUser.length > 0) {
@@ -39,51 +33,47 @@ const Header = () => {
       };
       AxiosFn();
     }
-
   }, [dispatch, signInUser, isPaymentList]);
-
-  
 
   const onSignOut = (e) => {
     e.preventDefault();
-    handlerFn("logOut")  // 회원정보페이지에서 로그아웃 시 모달창 안뜸
+    handlerFn("logOut"); // 회원정보페이지에서 로그아웃 시 모달창 안뜸
     dispatch(signOutFn());
     dispatch(defaultPayment());
     navigate("/");
-  }
+  };
 
-  
-
-  const [isAlertModal, setIsAlertModal] = useState(false)
-  const [contents, setContents] = useState("")
+  const [isAlertModal, setIsAlertModal] = useState(false);
+  const [contents, setContents] = useState("");
 
   const handlerFn = (contents) => {
-    setContents(contents)
-    setIsAlertModal(true)
-  }
+    setContents(contents);
+    setIsAlertModal(true);
+  };
 
   const recentOut = () => {
-    const recentKeep = {... user}
+    const recentKeep = { ...user };
 
     dispatch(deleteUserFn());
 
     const axiosRecentFn = async () => {
       const recentObj = {
-        recent: recentKeep.recent
-      }
+        recent: recentKeep.recent,
+      };
 
-      const res = await axios.patch(`http://${localhost}:3001/members/${recentKeep.recentId}`, recentObj)
-    }
-    axiosRecentFn()
-  }
-
-
-
-  
+      const res = await axios.patch(
+        `http://${localhost}:3001/members/${recentKeep.recentId}`,
+        recentObj
+      );
+    };
+    axiosRecentFn();
+  };
 
   return (
     <>
-      {isAlertModal && <AlertModal contents={contents} setIsAlertModal={setIsAlertModal} />}
+      {isAlertModal && (
+        <AlertModal contents={contents} setIsAlertModal={setIsAlertModal} />
+      )}
       <div className="header">
         <div className="header-con">
           <div className="gnb">
@@ -93,6 +83,9 @@ const Header = () => {
               </Link>
             </h1>
             <ul>
+              <li>
+                <Link to={"/kakaopage"}>지점</Link>
+              </li>
               {isSignIn && isPaymentList.length > 0 && (
                 <li>
                   <Link to={"/payment"}>결제내역</Link>
@@ -108,9 +101,10 @@ const Header = () => {
                 {isSignIn ? (
                   <Link
                     onClick={(event) => {
-                      onSignOut(event)
-                      recentOut()
-                      }}>
+                      onSignOut(event);
+                      recentOut();
+                    }}
+                  >
                     로그아웃
                   </Link>
                 ) : (
