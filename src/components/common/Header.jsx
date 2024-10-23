@@ -2,9 +2,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signOutFn } from "../../slice/authSlice";
-import axios from "axios";
 import { defaultPayment } from "../../slice/paymentSlice";
-import { deleteRecentFn } from "../../slice/animeSlice";
+import AlertModal from "../auth/AlertModal";
+import { localhost } from "../../api/CommonAPI";
+import axios from "axios";
+import { deleteUserFn } from "../../slice/userSlice";
+
+
+
+
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -13,12 +19,17 @@ const Header = () => {
   const isCart = useSelector((state) => state.cart.items);
   const [isPaymentList, setIsPaymentList] = useState([]);
 
+
+  const user = useSelector(state => state.user)
+
+
+
   useEffect(() => {
     if (signInUser.length > 0) {
       const AxiosFn = async (e) => {
         try {
           const res = await axios.get(
-            `http://localhost:3001/payments?userEmail=${signInUser[0].userEmail}`
+            `http://${localhost}:3001/payments?userEmail=${signInUser[0].userEmail}`
           );
           const resData = res.data;
           setIsPaymentList(resData);
@@ -31,17 +42,48 @@ const Header = () => {
 
   }, [dispatch, signInUser, isPaymentList]);
 
+  
+
   const onSignOut = (e) => {
     e.preventDefault();
-    alert("로그아웃 되었습니다. ");
-    dispatch(deleteRecentFn());
+    handlerFn("logOut")  // 회원정보페이지에서 로그아웃 시 모달창 안뜸
     dispatch(signOutFn());
     dispatch(defaultPayment());
     navigate("/");
   }
 
+  
+
+  const [isAlertModal, setIsAlertModal] = useState(false)
+  const [contents, setContents] = useState("")
+
+  const handlerFn = (contents) => {
+    setContents(contents)
+    setIsAlertModal(true)
+  }
+
+  const recentOut = () => {
+    const recentKeep = {... user}
+
+    dispatch(deleteUserFn());
+
+    const axiosRecentFn = async () => {
+      const recentObj = {
+        recent: recentKeep.recent
+      }
+
+      const res = await axios.patch(`http://${localhost}:3001/members/${recentKeep.recentId}`, recentObj)
+    }
+    axiosRecentFn()
+  }
+
+
+
+  
+
   return (
     <>
+      {isAlertModal && <AlertModal contents={contents} setIsAlertModal={setIsAlertModal} />}
       <div className="header">
         <div className="header-con">
           <div className="gnb">
@@ -65,7 +107,10 @@ const Header = () => {
               <li>
                 {isSignIn ? (
                   <Link
-                    onClick={onSignOut}>
+                    onClick={(event) => {
+                      onSignOut(event)
+                      recentOut()
+                      }}>
                     로그아웃
                   </Link>
                 ) : (

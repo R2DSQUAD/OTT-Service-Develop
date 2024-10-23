@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { localhost } from '../../api/CommonAPI'
 
 const AdminProductDetailModal2 = ({update,setProductModal2}) => {
     const param = useParams()
@@ -11,7 +12,7 @@ const AdminProductDetailModal2 = ({update,setProductModal2}) => {
       }
       const UpdateFn = async () => {
        
-        axios.put(`http://localhost:3001/allItems/${param.id}`,update); 
+        axios.put(`http://${localhost}:3001/allItems/${param.id}`,update); 
          
         navigate(-1)
       };

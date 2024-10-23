@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import OrderMovieModal from "./MovieModal.jsx";
 import MovieModal from "./MovieModal.jsx";
+import { localhost } from "../../api/CommonAPI.jsx";
 const movieListData = {
   id: 0,
   main_num: 0,
@@ -54,7 +55,7 @@ const MovieIndex = () => {
   useEffect(() => {
     const axiosFn1 = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/allItems");
+        const res = await axios.get(`http://${localhost}:3001/allItems`);
         console.log(res.data);
         setMovieList(res.data);
       } catch (err) {

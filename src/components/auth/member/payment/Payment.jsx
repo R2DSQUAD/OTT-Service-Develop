@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom/dist";
 import MapDetailModal from "../../../../api/MapDetailModal ";
+import { localhost } from "../../../../api/CommonAPI";
 
 const Payment = () => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const Payment = () => {
   useEffect(() => {
     const AxiosFn = async (e) => {
       try {
-        const res = await axios.get("http://localhost:3001/payments");
+        const res = await axios.get(`http://${localhost}:3001/payments`);
         const resData = res.data;
         setPaymentData(resData);
       } catch (err) {
@@ -36,7 +37,7 @@ const Payment = () => {
     const placeName = e.currentTarget.getAttribute("value");
       const axiosFn = async () => {
         try {
-          const res = await axios.get(`http://localhost:3001/shopList?place_name=${placeName}`)
+          const res = await axios.get(`http://${localhost}:3001/shopList?place_name=${placeName}`)
           if (res.data && res.data.length > 0) {
             // 데이터가 있을 경우에만 처리
             setDetailmodalItem(res.data[0]);

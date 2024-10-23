@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { localhost } from "../../api/CommonAPI";
 
 const AdminCartList = () => {
   const [cartList, setCartList] = useState([]);
   useEffect(() => {
     const axiosFn = async () => {
       try {
-        const res = await axios.get("http://localhost:3001/payments");
+        const res = await axios.get(`http://${localhost}:3001/payments`);
         setCartList(res.data);
       } catch (err) {
         alert(err);

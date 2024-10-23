@@ -30,7 +30,7 @@
 // export const mapThunk = createAsyncThunk('map/mapThunk',
 //   async () => {
 //     try {
-//       const res = await axios.get('http://localhost:3001/orderPlace')
+//       const res = await axios.get(`http://${localhost}:3001/orderPlace`)
 //       const data = res.data
 //       return data
 //     } catch (err) {

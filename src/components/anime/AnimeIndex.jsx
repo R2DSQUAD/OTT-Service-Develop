@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import AnimeModal from './AnimeModal'
 import { useDispatch, useSelector } from 'react-redux'
-import { addRecentFn, animeDataFn, dbDataFn } from '../../slice/animeSlice'
+import { animeDataFn } from '../../slice/animeSlice'
+import { addRecentFn } from '../../slice/userSlice'
 
 
 
@@ -12,7 +13,7 @@ const AnimeIndex = () => {
   const dispatch = useDispatch()
 
   const isSignIn = useSelector(state => state.auth.isSignIn)
-  const recent = useSelector(state => state.anime.recent)
+  const recent1 = useSelector(state => state.user)
 
 
   // db데이터 (전역처리)
@@ -49,8 +50,10 @@ const AnimeIndex = () => {
   }
   
 
-  console.log(recent)
-  console.log(isSignIn)
+  console.log(recent1, "-----test=====")
+  // console.log(isSignIn)
+
+
 
   return (
     <>

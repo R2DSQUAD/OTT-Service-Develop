@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import AdminPaymentDetailModal from './AdminPaymentDetailModal'
+import { localhost } from '../../api/CommonAPI'
 
 const AdminPaymentDetail = () => {
     const param=useParams()
@@ -16,7 +17,7 @@ const AdminPaymentDetail = () => {
         const paymentDetailFn = async () =>{
             // const productId = param.param.id
                 try{
-                    const res = await axios.get(`http://localhost:3001/payments/${param.id}`)
+                    const res = await axios.get(`http://${localhost}:3001/payments/${param.id}`)
                     console.log(res.data, 'data')
                      setPayment(res.data)                
                 }catch (err) {

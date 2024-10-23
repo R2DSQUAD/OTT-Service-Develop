@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { localhost } from '../../api/CommonAPI'
 
 const AdminMember = () => {
     const[memberList,setMemberList]=useState([])
@@ -8,7 +9,7 @@ const AdminMember = () => {
     useEffect(()=>{
         const axiosFn=async()=>{
           try{
-            const res = await axios.get('http://localhost:3001/members')
+            const res = await axios.get(`http://${localhost}:3001/members`)
           setMemberList(res.data)
         }catch(err){
           alert(err)

@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { signOutFn } from '../../slice/authSlice'
+import { localhost } from '../../api/CommonAPI'
 
 
 const CommonModal = ({contents, setIsCommonModal}) => {
@@ -20,7 +21,7 @@ const CommonModal = ({contents, setIsCommonModal}) => {
     // alert('회원정보를 삭제합니다.')
     dispatch(signOutFn())
     const authAxiosFn = async () => {
-      const deleteData = await axios.delete(`http://localhost:3001/members/${signInUser[0].id}`)
+      const deleteData = await axios.delete(`http://${localhost}:3001/members/${signInUser[0].id}`)
     }
     authAxiosFn()
 

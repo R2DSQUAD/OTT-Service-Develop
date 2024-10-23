@@ -3,6 +3,7 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import AdminMemberDetailModal2 from './AdminMemberDetailModal2';
+import { localhost } from '../../api/CommonAPI';
 const memberData={
     id:"",
     userName:"",
@@ -38,7 +39,7 @@ const AdminMemberDetailModal = ({setMemberModal}) => {
         const memberDetailFn = async () =>{
             // const productId = param.param.id
                 try{
-                    const res = await axios.get(`http://localhost:3001/members/${param.id}`)
+                    const res = await axios.get(`http://${localhost}:3001/members/${param.id}`)
                     console.log(res.data, 'data')
                      setUpdate(res.data)                
                 }catch (err) {

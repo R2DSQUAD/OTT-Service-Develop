@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { addPayment } from '../../slice/paymentSlice'
 import CartModal from '../modal/CartModal'
 import { itemThunk } from '../../slice/itemSlice'
+import { localhost } from '../../api/CommonAPI'
 
 const item={
   id: 0,
@@ -28,7 +29,7 @@ const DramaModal = ({modalItem,setModalItem,setDramaModal,clickOutModal,modalRef
     dispatch(itemThunk(type))
     const axFn= async()=>{
       try{
-        const res=await axios.get(`http://localhost:3001/allItems?id=${modalItem.id}`)
+        const res=await axios.get(`http://${localhost}:3001/allItems?id=${modalItem.id}`)
         setModalList(res.data[0])   
       }
       catch(err){alert(err)}

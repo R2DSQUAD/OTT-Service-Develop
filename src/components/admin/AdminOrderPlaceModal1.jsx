@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import { localhost } from '../../api/CommonAPI'
 
 const AdminOrderPlaceModal1 = ({setPlaceModal1}) => {
   const navigate=useNavigate()
@@ -11,7 +12,7 @@ const AdminOrderPlaceModal1 = ({setPlaceModal1}) => {
     }
     const onDeleteFn = (e) =>{
       const placeAxiosFn = async (e) =>{
-          axios.delete(`http://localhost:3001/shopList/${param.id}`)
+          axios.delete(`http://${localhost}:3001/shopList/${param.id}`)
           navigate(-1);
       }
       placeAxiosFn()

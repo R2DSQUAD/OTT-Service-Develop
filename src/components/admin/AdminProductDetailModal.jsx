@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import AdminProductDetailModal2 from './AdminProductDetailModal2';
+import { localhost } from '../../api/CommonAPI';
 const productData={
     id:"",
     title:"",
@@ -54,7 +55,7 @@ const AdminProductDetailModal = ({setProductModal}) => {
         }
         const UpdateFn = async () => {
             if (window.confirm("수정 하시겠습니까??")){
-            axios.put(`http://localhost:3001/allItems/${param.id}`,update); 
+            axios.put(`http://${localhost}:3001/allItems/${param.id}`,update); 
             // setProduct(product.filter((product) => product.id !== id)); 
             navigate(-1)
             alert('수정완료');
@@ -69,7 +70,7 @@ const AdminProductDetailModal = ({setProductModal}) => {
             const productDetailFn = async () =>{
                 // const productId = param.param.id
                     try{
-                        const res = await axios.get(`http://localhost:3001/allItems/${param.id}`)
+                        const res = await axios.get(`http://${localhost}:3001/allItems/${param.id}`)
                         console.log(res.data, 'data')
                          setUpdate(res.data)                
                     }catch (err) {

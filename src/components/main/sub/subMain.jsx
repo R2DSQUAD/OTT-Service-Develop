@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import MainModal from "../MainModal";
+import { localhost } from "../../../api/CommonAPI";
 
 const mainListData = {
     id: "",
@@ -93,7 +94,7 @@ const SubMain = () => {
     useEffect(() => {
       const axiosFn = async () => {
         try {
-          const res = await axios.get("http://localhost:3001/allItems");
+          const res = await axios.get(`http://${localhost}:3001/allItems`);
         
           setMainList(res.data);
         } catch (err) {

@@ -23,6 +23,17 @@
 
 .header .header-con>.gnb>h1 {
   display: none;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 80px;
+}
+
+.header .header-con>.gnb>h1 img {
+  width: 120px;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
 .header .header-con>.gnb>ul {

@@ -74,12 +74,22 @@
 
   background-color: rgba(255, 0, 0, 54%);
   color: #fff;
+
+  cursor: pointer;
 }
 
 .signIn-form > ul > li:last-child {
   display: flex;
   justify-content: center;
   align-items: center;
+
+  font-weight: bold;
+}
+
+.signIn-form > ul > li:last-child:hover {
+  cursor: pointer;
+
+  filter: brightness(80%);
 }
 
 

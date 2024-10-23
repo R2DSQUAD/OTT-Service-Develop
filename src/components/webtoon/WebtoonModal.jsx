@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addCart } from "../../slice/cartslice";
 import { addPayment } from "../../slice/paymentSlice";
 import { useNavigate } from "react-router-dom";
+import { localhost } from "../../api/CommonAPI";
 
 const WebtoonModal = ({ modalItem, setModalItem, setIsWebtoonModal }) => {
   const [modalItemCount, setModalItemCount] = useState(1);
@@ -33,7 +34,7 @@ const WebtoonModal = ({ modalItem, setModalItem, setIsWebtoonModal }) => {
     const axiosFn = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/allItems?id=${modalItem.id}`
+          `http://${localhost}:3001/allItems?id=${modalItem.id}`
         );
         setModalItems(res.data[0]);
       } catch (err) {
@@ -89,7 +90,7 @@ const WebtoonModal = ({ modalItem, setModalItem, setIsWebtoonModal }) => {
 
     const axiosFn = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/allItems?id=${eId}`);
+        const res = await axios.get(`http://${localhost}:3001/allItems?id=${eId}`);
         setModalItems(res.data[0]);
       } catch (err) {
         alert("데이터가 없습니다. 네트워크 상태를 확인해주세요.");

@@ -12,6 +12,7 @@ const AlertModal = ({contents, setIsAlertModal}) => {
     setIsAlertModal(false)
   }
 
+  console.log("모달은 실행됩니다.")
 
   return (
     <div className="alert-modal">
@@ -24,11 +25,13 @@ const AlertModal = ({contents, setIsAlertModal}) => {
           {contents === 'successSignIn' && <span>회원가입이 되었습니다.</span>}
           {contents === 'successUpdate' && <span>회원정보를 수정했습니다.</span>}
           {contents === 'updatePlease' && <span>수정할 내용이 없습니다.</span>}
+          {contents === 'logOut' && <span>로그아웃 되었습니다.</span>}
         </div>
         <div className="alert-modal-bottom">
           <div className="check">
             <button onClick={() => {
               closeFn()
+             
               if (contents === 'successSignIn') {
                 navigate('/signIn')
               }

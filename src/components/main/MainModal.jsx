@@ -5,6 +5,7 @@ import MainModal1 from './MainModal1'
 import { addPayment } from "../../slice/paymentSlice";
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
+import { localhost } from '../../api/CommonAPI';
 const movietData ={
     id:'',
     title:'',
@@ -27,7 +28,7 @@ const MainModal = ({modalitem,setMainModal}) => {
     const axiosFn = async () => {
       
       try {
-        const res = await axios.get("http://localhost:3001/allItems");
+        const res = await axios.get(`http://${localhost}:3001/allItems`);
         console.log(res.data);
        
         setMainItem(res.data);
@@ -60,7 +61,7 @@ const MainModal = ({modalitem,setMainModal}) => {
    const axiosFn = async () => {
      try {
        const res = await axios.get(
-         `http://localhost:3001/allItems?id=${eId}`
+         `http://${localhost}:3001/allItems?id=${eId}`
        );
        console.log(res.data[0])
 

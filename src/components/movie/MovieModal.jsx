@@ -5,6 +5,7 @@ import { addCart } from '../../slice/cartslice'
 import MovieModal1 from './MovieModal1'
 import { addPayment } from "../../slice/paymentSlice";
 import { useNavigate } from 'react-router-dom'
+import { localhost } from '../../api/CommonAPI'
 const movietData ={
     id:0,
     title:'',
@@ -25,7 +26,7 @@ const MovieModal = ({modalitem,setMovieModal}) => {
     const axiosFn = async () => {
       
       try {
-        const res = await axios.get("http://localhost:3001/allItems");
+        const res = await axios.get(`http://${localhost}:3001/allItems`);
         console.log(res.data);
        
         setMainItem(res.data);
@@ -57,7 +58,7 @@ const MovieModal = ({modalitem,setMovieModal}) => {
     const axiosFn = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/allItems?id=${eId}`
+          `http://${localhost}:3001/allItems?id=${eId}`
         );
         console.log(res.data[0])
 
@@ -92,9 +93,9 @@ const MovieModal = ({modalitem,setMovieModal}) => {
     // useEffect(()=>{
     //     const axiosFn1=async ()=>{
     //       try{
-    //         //   const res = await axios.get(`http://localhost:3001/comedy`,{id:"id값"})
-    //           const res = await axios.get(`http://localhost:3001/comedy`,{ params: { id:  }}) // { params: { answer: 42 }
-    //         //   const res = await axios.get(`http://localhost:3001/comedy?id=${}`)
+    //         //   const res = await axios.get(`http://${localhost}:3001/comedy`,{id:"id값"})
+    //           const res = await axios.get(`http://${localhost}:3001/comedy`,{ params: { id:  }}) // { params: { answer: 42 }
+    //         //   const res = await axios.get(`http://${localhost}:3001/comedy?id=${}`)
     //           console.log(res.data)
     //       }catch(err){
     //         alert(err)

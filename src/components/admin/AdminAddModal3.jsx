@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
+import { localhost } from '../../api/CommonAPI';
 
 const AdminAddModal3 = ({add,setAddmodal3}) => {
     const navigate=useNavigate()
@@ -10,7 +11,7 @@ const AdminAddModal3 = ({add,setAddmodal3}) => {
       }
       const onAddFn = (e) =>{
         const addAxiosFn = async (e) =>{
-            const addOk = await axios.post(`http://localhost:3001/allItems`,add)
+            const addOk = await axios.post(`http://${localhost}:3001/allItems`,add)
             navigate(-1);
         }
         addAxiosFn()
