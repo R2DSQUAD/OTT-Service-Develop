@@ -958,7 +958,7 @@
       "userPw": "test",
       "phoneNumber": "tset",
       "address": "test",
-      "role": "ROLE_MEMBER",
+      "role": "ROLE_ADMIN",
       "recent": [
         "33",
         "34",
@@ -1352,6 +1352,28 @@
       ],
       "paymentAmount": 10000,
       "time": "2024/10/22 16:51:1"
+    },
+    {
+      "id": "1659",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "카드결제",
+      "orderType": "직접 방문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "tset",
+      "paymentResult": [
+        {
+          "id": 53,
+          "price": "10000",
+          "title": "도깨비",
+          "img": "/images/itemData/도깨비.png",
+          "type": "드라마",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 10000,
+      "time": "2024/10/23 16:22:14"
     }
   ],
   "shopList": [
