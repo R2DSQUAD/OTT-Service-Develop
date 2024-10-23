@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import AdminProductDetailModal from './AdminProductDetailModal'
 import AdminProductDetailModal1 from './AdminProductDetailModal1'
+import { localhost } from '../../api/CommonAPI'
 // const productData={
 // id:"",
 // title:"",
@@ -37,7 +38,7 @@ const AdminProductDetail = () => {
         const productDetailFn = async () =>{
             // const productId = param.param.id
                 try{
-                    const res = await axios.get(`http://localhost:3001/allItems/${param.id}`)
+                    const res = await axios.get(`http://${localhost}:3001/allItems/${param.id}`)
                     console.log(res.data, 'data')
                      setProduct(res.data)                
                 }catch (err) {
@@ -50,7 +51,7 @@ const AdminProductDetail = () => {
 
     // const DeleteFn = async () => {
     //     if (window.confirm("삭제 하시겠습니까??")) {
-    //         axios.delete(`http://localhost:3001/allItems/${param.id}`); 
+    //         axios.delete(`http://${localhost}:3001/allItems/${param.id}`); 
     //         // setProduct(product.filter((product) => product.id !== id)); 
     //         navigate(-1)
     //         alert("삭제되었습니다.");

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { signOutFn } from "../../../slice/authSlice";
 import axios from "axios";
+import { localhost } from "../../../api/CommonAPI";
 
 const MemberHeader = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ const MemberHeader = () => {
       const AxiosFn = async (e) => {
         try {
           const res = await axios.get(
-            `http://localhost:3001/payments?userEmail=${signInUser[0].userEmail}`
+            `http://${localhost}:3001/payments?userEmail=${signInUser[0].userEmail}`
           );
           const resData = res.data;
           setIsPaymentList(resData);

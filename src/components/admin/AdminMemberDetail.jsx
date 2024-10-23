@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import AdminMemberDetailModal from './AdminMemberDetailModal'
 import AdminMemberDetailModal1 from './AdminMemberDetailModal1'
+import { localhost } from '../../api/CommonAPI'
 
 const AdminMemberDetail = () => {
     const param=useParams()
@@ -23,7 +24,7 @@ const AdminMemberDetail = () => {
         const memberDetailFn = async () =>{
             // const productId = param.param.id
                 try{
-                    const res = await axios.get(`http://localhost:3001/members/${param.id}`)
+                    const res = await axios.get(`http://${localhost}:3001/members/${param.id}`)
                     console.log(res.data, 'data')
                      setMember(res.data)                
                 }catch (err) {
@@ -35,7 +36,7 @@ const AdminMemberDetail = () => {
 
     const DeleteFn = async () => {
         // if (window.confirm("삭제 하시겠습니까??")) {
-        //     axios.delete(`http://localhost:3001/members/${param.id}`); 
+        //     axios.delete(`http://${localhost}:3001/members/${param.id}`); 
         //     // setProduct(product.filter((product) => product.id !== id)); 
         //     navigate(-1)
         //     alert("삭제되었습니다.");

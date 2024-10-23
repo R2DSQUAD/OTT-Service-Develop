@@ -2,6 +2,7 @@ import axios, { all } from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import AdminProductDetail from './AdminProductDetail'
+import { localhost } from '../../api/CommonAPI'
 
 // const productData={
 //   type:""
@@ -16,7 +17,7 @@ const AdminProduct = () => {
   useEffect(()=>{
     const axiosFn=async()=>{
       try{
-        const res = await axios.get('http://localhost:3001/allItems')
+        const res = await axios.get(`http://${localhost}:3001/allItems`)
       setItemList(res.data)
     }catch(err){
       alert(err)
@@ -39,10 +40,10 @@ const AdminProduct = () => {
       const axiosFn=async()=>{
         try{
           if(e.target.value==='all' ){
-            const res = await axios.get(`http://localhost:3001/allItems`)
+            const res = await axios.get(`http://${localhost}:3001/allItems`)
             setItemList(res.data)
           }else{
-            const res = await axios.get(`http://localhost:3001/allItems?type=${e.target.value}`)
+            const res = await axios.get(`http://${localhost}:3001/allItems?type=${e.target.value}`)
             setItemList(res.data)
           }
         }catch(err){

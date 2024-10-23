@@ -4,6 +4,7 @@ import AdminOrderPlaceModal from "./AdminOrderPlaceDetail";
 import AdminOrderPlaceModal1 from "./AdminOrderPlaceModal1";
 import { useNavigate, useParams } from "react-router-dom";
 import AdminOrderPlaceModal3 from "./AdminOrderPlaceModal3";
+import { localhost } from "../../api/CommonAPI";
 
 const { kakao } = window;
 // const placeData={
@@ -84,7 +85,7 @@ function AdminOrderPlace() {
    
     const axiosFn = async (e) => {
       try {
-        const res = await axios.get(`http://localhost:3001/shopList`)
+        const res = await axios.get(`http://${localhost}:3001/shopList`)
         const data = res.data
         console.log(data)
         setPlace(data)

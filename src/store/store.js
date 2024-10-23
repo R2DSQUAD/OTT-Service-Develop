@@ -6,6 +6,7 @@ import paymentSlice from '../slice/paymentSlice'
 import allItemSlice from '../slice/allItemSlice'
 import animeSlice from '../slice/animeSlice'
 import randomSlice from '../slice/randomSlice'
+import userSlice from '../slice/userSlice'
 
 const store = configureStore({
   reducer:{
@@ -16,6 +17,7 @@ const store = configureStore({
     allItem: allItemSlice.reducer,
     anime: animeSlice.reducer,
     random: randomSlice.reducer,
+    user: userSlice.reducer
   }
 })
 

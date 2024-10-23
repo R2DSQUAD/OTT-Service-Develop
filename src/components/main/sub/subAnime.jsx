@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import MainModal from "../MainModal";
+import { localhost } from "../../../api/CommonAPI";
 
 const mainListData = {
     id: "",
@@ -22,7 +23,7 @@ const SubAnime = () => {
         const axiosFn = async () => {
           
           try {
-            const res = await axios.get("http://192.168.23.226:3001/allItems");
+            const res = await axios.get(`http://${localhost}:3001/allItems`);
             console.log(res.data);
            
             setAnimeList(res.data);

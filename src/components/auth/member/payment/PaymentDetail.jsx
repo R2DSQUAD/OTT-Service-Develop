@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { localhost } from "../../../../api/CommonAPI";
 
 const PaymentDetail = () => {
   const param = useParams();
@@ -13,7 +14,7 @@ const PaymentDetail = () => {
     const AxiosFn = async (e) => {
       try {
         const res = await axios.get(
-          `http://localhost:3001/payments/${param.id}`
+          `http://${localhost}:3001/payments/${param.id}`
         );
         const resData = res.data;
         setPaymentData(resData);

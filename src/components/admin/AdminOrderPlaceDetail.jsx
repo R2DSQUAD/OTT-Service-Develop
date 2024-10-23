@@ -5,6 +5,7 @@ import AdminOrderPlaceModal2 from './AdminOrderPlaceModal2';
 import AdminOrderPlaceModal1 from './AdminOrderPlaceModal1';
 import AdminOrderPlaceModal3 from './AdminOrderPlaceModal3';
 import AdminOrderPlaceModal4 from './AdminOrderPlaceModal4';
+import { localhost } from '../../api/CommonAPI';
 const {kakao} = window
 const placeData={
     id:"",
@@ -88,7 +89,7 @@ const AdminOrderPlaceDetail = () => {
             // const productId = param.param.id
             
                 try{
-                    const res = await axios.get(`http://localhost:3001/shopList/${param.id}`)
+                    const res = await axios.get(`http://${localhost}:3001/shopList/${param.id}`)
                     console.log(res.data, 'data')
                      setUpdate(res.data)
                      

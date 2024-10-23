@@ -960,11 +960,11 @@
       "address": "test",
       "role": "ROLE_MEMBER",
       "recent": [
+        "33",
+        "34",
         "28",
-        "25",
-        "27",
-        "26",
-        "32"
+        "21",
+        "29"
       ]
     }
   ],
@@ -1326,6 +1326,32 @@
       ],
       "paymentAmount": 12000,
       "time": "2024/10/22 16:24:7"
+    },
+    {
+      "id": "4e43",
+      "branchType": "메가박스 창동",
+      "paymentMethod": "네이버 페이",
+      "orderType": "택배 배송",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "tset",
+      "paymentResult": [
+        {
+          "id": "24",
+          "type": "애니메이션",
+          "title": "5등분의 신부",
+          "price": "10000",
+          "img": "/images/itemData/ani5.jpg",
+          "genre": "러브코미디",
+          "age": "15",
+          "year": "2020",
+          "time": "20분",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 10000,
+      "time": "2024/10/22 16:51:1"
     }
   ],
   "shopList": [

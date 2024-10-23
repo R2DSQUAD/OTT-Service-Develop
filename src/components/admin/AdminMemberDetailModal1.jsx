@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import { localhost } from '../../api/CommonAPI';
 const AdminMemberDetailModal1 = ({setMemberModal1}) => {
     const navigate=useNavigate()
     const param=useParams()
@@ -10,7 +11,7 @@ const AdminMemberDetailModal1 = ({setMemberModal1}) => {
       }
       const onDeleteFn = (e) =>{
         const addAxiosFn = async (e) =>{
-            axios.delete(`http://localhost:3001/members/${param.id}`)
+            axios.delete(`http://${localhost}:3001/members/${param.id}`)
             navigate(-1);
         }
         addAxiosFn()

@@ -11,6 +11,7 @@ import { addPayment } from "../../slice/paymentSlice";
 
 
 import CommonModal from "./CommonModal";
+import { localhost } from "../../api/CommonAPI";
 
 const AnimeModal = ({ itemId, setIsAnimeModal }) => {
 
@@ -24,7 +25,7 @@ const AnimeModal = ({ itemId, setIsAnimeModal }) => {
   useEffect(() => {
     const axiosFn = async () => {
       try {
-        const items = await axios.get(`http://localhost:3001/allItems?id=${itemId.id}`)
+        const items = await axios.get(`http://${localhost}:3001/allItems?id=${itemId.id}`)
 
         setModalData(items.data[0]); // [{}]
         

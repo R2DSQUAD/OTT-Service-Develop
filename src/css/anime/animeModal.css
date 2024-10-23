@@ -208,15 +208,18 @@
   justify-content: center;
   align-items: center;
 
-  font-size: 30px;
+  font-size: 50px;
   
   color: #fff;
   
   box-sizing: border-box;
 
-  position: absolute;
-  top: 50px;
-  right: 50px;
+  position: fixed;
+  /* top: 80px; */
+  /* right: 400px; */
+  top: 7.407vh;
+  right: 44vh;
+
 
   z-index: 1000;
 }
@@ -236,8 +239,12 @@
   .animeModal .animeModal-con {
     width: 100%;
     height: calc(100vh - 80px - 80px);
+    /* height: auto; */
+    /* height: 600px; */
 
-    padding: unset;
+    padding: 0 10px;
+
+    border-radius: unset;
   }
   .animeModal .animeModal-con .modal-wrap {
     width: 100%;
@@ -246,7 +253,10 @@
   }
 
   .animeModal .animeModal-con .modal-wrap .top {
-    height: 360px;
+    /* height: 360px; */
+    /* max-height: 360px; */
+    height: auto;
+    border-radius: 20px 20px 0 0 ;
   }
   
   .animeModal .animeModal-con .top h2 {

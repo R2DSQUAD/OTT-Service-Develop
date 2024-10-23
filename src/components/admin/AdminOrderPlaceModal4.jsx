@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import AdminMemberDetailModal2 from './AdminMemberDetailModal2';
 import AdminOrderPlaceModal2 from './AdminOrderPlaceModal2';
 import AdminOrderPlaceModal1 from './AdminOrderPlaceModal1';
+import { localhost } from '../../api/CommonAPI';
 const placeData={
     id:"",
     category_group_code:"",
@@ -49,7 +50,7 @@ const AdminOrderPlaceModal4 = ({setPlaceModal4}) => {
         const orderPlaceFn = async () =>{
             // const productId = param.param.id
                 try{
-                    const res = await axios.get(`http://localhost:3001/shopList/${param.id}`)
+                    const res = await axios.get(`http://${localhost}:3001/shopList/${param.id}`)
                     console.log(res.data, 'data')
                      setUpdate(res.data)                
                 }catch (err) {

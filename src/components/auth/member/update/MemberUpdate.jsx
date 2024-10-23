@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import CommonModal from '../../../anime/CommonModal'
 import AlertModal from '../../AlertModal'
+import { localhost } from '../../../../api/CommonAPI'
 
 
 
@@ -100,7 +101,7 @@ const MemberUpdate = () => {
   //   alert('회원정보를 삭제합니다.')
   //   dispatch(signOutFn())
   //   const authAxiosFn = async () => {
-  //     const deleteData = await axios.delete(`http://localhost:3001/members/${signInUser[0].id}`)
+  //     const deleteData = await axios.delete(`http://${localhost}:3001/members/${signInUser[0].id}`)
   //   }
   //   authAxiosFn()
 
@@ -149,7 +150,7 @@ const MemberUpdate = () => {
     
     // db 회원정보 수정
     const authAxiosFn = async () => {
-      const updateData = await axios.patch(`http://localhost:3001/members/${signInUser[0].id}`, update)
+      const updateData = await axios.patch(`http://${localhost}:3001/members/${signInUser[0].id}`, update)
     }
     authAxiosFn()
     

@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
 import MapModal from './MapModal'
+import { localhost } from './CommonAPI';
 
 const { kakao } = window;
 
@@ -100,7 +101,7 @@ const KakaoApi = () => {
       // db 저장
       const axiosKakaoFn = async () => {
         try {
-          const res = await axios.get(`http://localhost:3001/shopList`);
+          const res = await axios.get(`http://${localhost}:3001/shopList`);
 
           if (res.data.length === 0) {
             const filterItem = data.filter(
@@ -111,7 +112,7 @@ const KakaoApi = () => {
             );
 
             filterItem.map((el) => {
-              axios.post(`http://localhost:3001/shopList`, el);
+              axios.post(`http://${localhost}:3001/shopList`, el);
             });
             await Promise.all(filterItem);
           }

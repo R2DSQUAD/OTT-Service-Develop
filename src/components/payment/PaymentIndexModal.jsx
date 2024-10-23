@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { allDeleteCart } from "../../slice/cartslice";
 import { useDispatch } from "react-redux";
+import { localhost } from "../../api/CommonAPI";
 
 const PaymentIndexModal = ({ setIsPaymentModal, paymentData, query }) => {
   const navigate = useNavigate();
@@ -15,7 +16,7 @@ const PaymentIndexModal = ({ setIsPaymentModal, paymentData, query }) => {
     const AxiosFn = async (e) => {
       try {
         const res = await axios.post(
-          `http://localhost:3001/payments`,
+          `http://${localhost}:3001/payments`,
           JSON.stringify(paymentData)
         );
         const resData = res.data;

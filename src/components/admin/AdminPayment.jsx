@@ -2,13 +2,14 @@ import axios from 'axios'
 
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { localhost } from '../../api/CommonAPI'
 const AdminPayment = () => {
     const[paymentList,setPaymentList]=useState([])
     const navigate = useNavigate()
     useEffect(()=>{
         const axiosFn=async()=>{
           try{
-            const res = await axios.get('http://localhost:3001/payments')
+            const res = await axios.get(`http://${localhost}:3001/payments`)
           setPaymentList(res.data)
         }catch(err){
           alert(err)

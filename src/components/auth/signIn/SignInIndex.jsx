@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom/dist'
 import { signInUserFn } from '../../../slice/authSlice'
 
 import AlertModal from '../AlertModal'
+import { localhost } from '../../../api/CommonAPI'
+import { updateIdFn } from '../../../slice/userSlice'
 
 const signInData = {
   userEmail: '',
@@ -38,47 +40,36 @@ const SignInIndex = () => {
 
     // 미입력시 알림창
     let escapeReturn = false
-    // Object.values(signIn).forEach(el => {
-    //   if (el === null || el === "") {
-    //     escapeReturn = true
-    //     return
-    //   }
-    // })
+    
     Object.values(signIn).forEach(el => {
       if (el === null || el === "") {
         escapeReturn = true
-        handlerFn('failInput')
+        handlerFn('failInput') // 정보를 입력해주세요
       }
     })
     if (escapeReturn) {
-      // alert('정보를 입력해주세요')
       return
     }
     // 미입력시 알림창
 
     const SignInAxiosFn = async () => {
-      const res = await axios.get('http://localhost:3001/members')
+      const res = await axios.get(`http://${localhost}:3001/members`)
       const num = res.data.findIndex(el => {
         return el.userEmail === signIn.userEmail && el.userPw === signIn.userPw
       })
       const userDataGet = res.data[num]
 
       if (num !== -1) {
-       
+        
+        
         dispatch(signInUserFn(userDataGet))
-
+        dispatch(updateIdFn(userDataGet.id))
         navigate('/')
   
-        // if (userDataGet.role === "ROLE_ADMIN") {
-        //   alert('관리자 페이지로 이동합니다.')
-        //   navigate('/admin')
-        // } else {
-        //   navigate('/')
-        // }
-  
       } else {
+
         handlerFn('failSignIn')
-        // alert('로그인 실패 다시 입력해주세요')
+
         return
       }
     }
@@ -127,7 +118,9 @@ const SignInIndex = () => {
               <li>
                 <button onClick={onSignInFn}>로그인</button>
               </li>
-              <li>
+              <li onClick={() => {
+                navigate('/signUp')
+              }}>
                 회원이 아니신가요? <br/>
                 지금 회원가입하세요
               </li>

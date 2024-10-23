@@ -1,3 +1,6 @@
+@import url(memberPayDetail.css);
+
+
 .member-index {
   width: 100%;
   
@@ -149,7 +152,7 @@
 
   border-radius: 5px;
 
-  flex: 2;
+  flex: 3;
   height: 700px;
 
   padding: 30px;
@@ -208,17 +211,22 @@
   width: 100%;
 }
 
+.member-index .member-index-con .member-index-right .member-index-right-con {
+  height: 600px;
+  overflow: auto;
+}
+
 .member-index .member-index-con .member-index-right .member-index-right-con > ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(1, 140px);
   grid-auto-rows: 140px;
 
-  gap: 1vw;
+  gap: 2vw;
 }
 
 .member-index .member-index-con .member-index-right .member-index-right-con > ul > li {
-  
+ 
 
 }
 

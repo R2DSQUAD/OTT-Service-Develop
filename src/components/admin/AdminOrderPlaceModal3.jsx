@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import AdminAddPlaceModal1 from './AdminAddPlaceModal1';
 import AdminAddPlaceModal2 from './AdminAddPlaceModal2';
 import AdminAddPlaceModal3 from './AdminAddPlaceModal3';
+import { localhost } from '../../api/CommonAPI';
 
 const addPlaceData ={
  
@@ -43,7 +44,7 @@ const AdminOrderPlaceModal3 = ({setPlaceModal3}) => {
     }
     const onAddFn = (e) =>{
         const addAxiosFn = async (e) =>{
-            const res = await axios.get(`http://localhost:3001/shopList`)
+            const res = await axios.get(`http://${localhost}:3001/shopList`)
     
             const num = res.data.findIndex(el=>{
                 return el.place_name === addPlace.place_name
@@ -122,7 +123,7 @@ return
 
             else{
                 addPlaceModal3Fn()
-            // const addOk = await axios.post(`http://localhost:3001/allItems`,add)
+            // const addOk = await axios.post(`http://${localhost}:3001/allItems`,add)
            
             // alert('상품추가 성공')
             }

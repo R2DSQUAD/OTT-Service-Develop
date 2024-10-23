@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import AdminAddModal1 from './AdminAddModal1'
 import AdminAddmodal2 from './AdminAddmodal2'
 import AdminAddModal3 from './AdminAddModal3'
+import { localhost } from '../../api/CommonAPI'
 
 const addProductData ={
     title:"",
@@ -65,7 +66,7 @@ const addProductData ={
     }
     const onAddFn = (e) =>{
     const addAxiosFn = async (e) =>{
-        const res = await axios.get(`http://localhost:3001/allItems`)
+        const res = await axios.get(`http://${localhost}:3001/allItems`)
 
         const num = res.data.findIndex(el=>{
             return el.title === add.title
@@ -124,7 +125,7 @@ return
 }
         else{
             addModal3Fn()
-        // const addOk = await axios.post(`http://localhost:3001/allItems`,add)
+        // const addOk = await axios.post(`http://${localhost}:3001/allItems`,add)
        
         // alert('상품추가 성공')
         }

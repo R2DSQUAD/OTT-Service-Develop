@@ -5,6 +5,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import PaymentIndexModal from "./PaymentIndexModal";
 import axios from "axios";
 import MapDetailModal from "../../api/MapDetailModal ";
+import { localhost } from "../../api/CommonAPI";
 
 const loginRef = {
   id: "",
@@ -121,7 +122,7 @@ const PaymentIndex = () => {
 
     const kaKaoMap = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/shopList`);
+        const res = await axios.get(`http://${localhost}:3001/shopList`);
         setShopList(res.data);
       } catch (err) {
         alert(err);
@@ -149,7 +150,7 @@ const PaymentIndex = () => {
     const eId = e.currentTarget.getAttribute("data-id");
     const axiosFn = async () => {
       try {
-        const res = await axios.get(`http://localhost:3001/shopList?id=${eId}`);
+        const res = await axios.get(`http://${localhost}:3001/shopList?id=${eId}`);
         setDetailmodalItem(res.data[0]);
       } catch (err) {
         alert(err);
