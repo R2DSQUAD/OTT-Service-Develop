@@ -13,6 +13,14 @@ const SideBar = () => {
   const isCart = useSelector((state) => state.cart.items);
   const [isPaymentList, setIsPaymentList] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
+  const leftStyle = document.querySelector(".left");
+  const [isPc, setIsPc] = useState(window.innerWidth > 1025 ? true : false);
+  const sideBarActive = document.querySelector(".sideBar.active");
+
+  const screenChange = (e) => {
+    const matches = e.matches;
+    setIsPc(matches);
+  };
 
   const toggleMenuClose = () => {
     setIsOpen(false);
@@ -30,14 +38,14 @@ const SideBar = () => {
     removeStyle();
   };
 
-  console.log(isOpen, "dsadas");
-
   const removeStyle = () => {
-    const leftStyle = document.querySelector(".left");
-    if (isOpen === false) {
-      leftStyle.style.display = "none";
-    } else {
-      leftStyle.style.display = "block";
+    if (leftStyle) {
+      if (isOpen === false) {
+        leftStyle.style.display = "none";
+      }
+      else {
+        leftStyle.style.display = "block";
+      }
     }
   };
 
@@ -56,7 +64,19 @@ const SideBar = () => {
       };
       AxiosFn();
     }
-  }, [dispatch, signInUser, isPaymentList]);
+
+    if (leftStyle) {
+      if (isPc === true) {
+        leftStyle.style.display = "block"
+      } else if (sideBarActive) {
+        leftStyle.style.display = "none";
+      }
+    }
+
+    let pcVer = window.matchMedia("screen and (min-width: 1025px)");
+    pcVer.addEventListener("change", screenChange);
+    return () => pcVer.removeEventListener("change", screenChange);
+  }, [dispatch, signInUser, isPaymentList, isPc]);
 
   return (
     <>

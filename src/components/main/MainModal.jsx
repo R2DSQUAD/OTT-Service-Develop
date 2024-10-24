@@ -174,6 +174,7 @@ const MainModal = ({modalitem,setMainModal}) => {
 
             <div className="sub-mainmodal">
               <div className="sub-mainmodal-con">
+              <span>추천 리스트</span>
               <ul>
                 {mainMo &&
                   mainMo.map((el, idx) => {
