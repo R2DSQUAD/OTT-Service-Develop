@@ -1,9 +1,11 @@
 @import url(animeModal.css);
+@import url(commonModal.css);
+
 
 .anime {
   width: 100%;
 
-  padding: 5vw;
+  padding: 30px;
   box-sizing: border-box;
 }
 
@@ -17,8 +19,16 @@
   justify-content: space-between;
 }
 
+/* 상단 카테고리 바 */
+.anime .anime-con .top-content {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
 .ainme .anime-con .top-content > h1 {
-  font-size: 40px;
+  font-size: 2.1vw;
 }
 
 .ainme .anime-con .top-content hr {
@@ -26,86 +36,103 @@
   background-color: white;
 }
 
-.anime .anime-con .bottom-content > h1 {
-  color: #fff;
+/* 상품들 */
+.anime .anime-con .bottom-content {
+  padding: 30px 0 0 0;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.anime .anime-con .bottom-content .anime-items h2.sub-title {
+  font-size: 2.2vh;
 }
 
 
-
-/* 그리드 */
-.anime .anime-con .bottom-content > ul {
+.anime .anime-con .bottom-content .anime-items ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(9, auto);
+  grid-template-rows: repeat(1, auto);
   grid-auto-rows: auto;
-  
 
-
-  padding: 2vw 0;
   gap: 2vw;
 
   box-sizing: border-box;
 }
 
-/* 큰제목 4개 grid 행, 열 선택해서 배치 */
-.anime .anime-con .bottom-content > ul > h1.ani-title1 {
-  grid-row-start: 1;
-  grid-row-end: 2;
-
-  grid-column-start: 1;
-  grid-column-end: 5;
-}
-.anime .anime-con .bottom-content > ul > h1.ani-title2 {
-  grid-row-start: 3;
-  grid-row-end: 4;
-
-  grid-column-start: 1;
-  grid-column-end: 5;
-}
-.anime .anime-con .bottom-content > ul > h1.ani-title3 {
-  grid-row-start: 5;
-  grid-row-end: 6;
-
-  grid-column-start: 1;
-  grid-column-end: 5;
-}
-.anime .anime-con .bottom-content > ul > h1.ani-title4 {
-  grid-row-start: 7;
-  grid-row-end: 8;
-
-  grid-column-start: 1;
-  grid-column-end: 5;
-}
-
-
-.anime .anime-con .bottom-content > ul > li {
+.anime .anime-con .bottom-content .anime-items ul > li {
   display: flex;
   flex-direction: column;
 
-  border-radius: 20px; 
-  
-  overflow: hidden;
-  
+  cursor: pointer;
+
+  gap: 1vw;
   box-sizing: border-box;
+
 }
 
-/* .anime .anime-con .bottom-content > ul > li h1{
-  color: #fff;
-} */
-
-
-.anime .anime-con .bottom-content > ul > li .top {
- 
+.anime .anime-con .bottom-content .anime-items ul > li > .top {
   border-radius: 20px;
   box-sizing: border-box;
   overflow: hidden;
+
+  transition: all 0.3s;
 }
 
-.anime .anime-con .bottom-content > ul > li .top img {
+.anime .anime-con .bottom-content .anime-items > ul > li .top img {
   display: block;
   width: 100%;
+} 
+
+.anime .anime-con .bottom-content .anime-items ul > li:hover > .top {
+  transform: scale(1.2);
+} 
+
+.anime .anime-con .bottom-content .anime-items > ul > li > .bottom h3 {
+  font-size: 1.73vh;
 }
 
-/* .anime .anime-con .bottom-content > ul > li .bottom h3 {
-  color: #fff;
-} */
+
+
+
+
+
+
+
+
+
+
+
+/* 태블릿 */
+@media (max-width: 1024px) {
+  .anime .anime-con .bottom-content .anime-items ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(1, auto);
+    grid-auto-rows: auto;
+  
+    gap: 2vw;
+  
+    box-sizing: border-box;
+  }
+
+
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .anime .anime-con .bottom-content .anime-items ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, auto);
+    grid-auto-rows: auto;
+  
+    gap: 2vw;
+  
+    box-sizing: border-box;
+  }
+
+}

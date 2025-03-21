@@ -1,6 +1,8 @@
 .animeModal {
   width: 100%;
+  
   height: 100vh;
+  /* max-height: 100vh; */
 
   background-color: rgba(205, 205, 205, 0.45);
 
@@ -11,79 +13,122 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 5000;
+  /* overflow: auto; */
 
 }
 
-.animeModal-con {
-  flex: 0 1 500px;
-  height: 500px;
+.animeModal .animeModal-con {
+  flex: 0 1 1200px;
+ 
+  /* height: auto; */
+  height: 800px;
   background-color: #000;
   color: #fff;
   
-  position: relative;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
-  border-radius: 10px;
-  overflow: hidden;
+  border-radius: 15px;
+  
 
-}
+  /* padding: 2vw 4vw ; */
+  box-sizing: border-box;
 
-.animeModal-con .top {
-  flex: 3;
-  width: 100%;
-  overflow: hidden;
+  overflow: auto;
 
-  display: flex;
   position: relative;
 }
 
-
-
-.animeModal-con .top img {
-  display: block;
-  width: 100%;
-  z-index: 998;
+.animeModal-con::-webkit-scrollbar {
+  display: none;
 }
 
-.animeModal-con .top h3 {
+.animeModal .animeModal-con .modal-wrap {
+  width: 52.08vw; /* 1000px*/
+ 
+  height: 700px;
+
+  /* position: relative; */
+}
+
+
+
+.animeModal .animeModal-con .modal-wrap .top {
+
+  width: 100%;
+  height: 562.5px;
+ 
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  position: relative;
+
+  box-sizing: border-box;
+
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+
+}
+
+
+
+
+.animeModal .animeModal-con .top img {
+  display: block;
+  width: 100%;
+ 
+
+  z-index: 998;
+
+  
+  
+  mask-image: linear-gradient(to bottom, rgba(22, 22, 22, 1), rgba(22, 22, 22, 0));
+}
+
+.animeModal .animeModal-con .top h2 {
   position: absolute;
   bottom: 3vw;
   left: 3vw;
   z-index: 999;
 
-  font-size: 50px;
+  font-size: 70px;
 }
 
-.animeModal-con .bottom {
-  flex: 1;
-  /* background-color: blue; */
+.animeModal .animeModal-con .bottom {
+  
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  padding: 1vw;
   box-sizing: border-box;
 
   gap: 1vw;
+
+  width: 100%;
+
+
 }
 
-.animeModal-con .bottom .bottom-line1 {
+
+.animeModal .animeModal-con .bottom .bottom-line1 {
   display: flex;
   align-items: center;
 
   gap: 0.5vw;
 }
 
-.animeModal-con .bottom .bottom-line1 .age {
+.animeModal .animeModal-con .bottom .bottom-line1 .age {
   width: 30px; 
   height: 30px;
 
-  background-color: hsl(0, 0%, 47%);
+  background-color: #373737;
   border-radius: 5px;
 
   box-sizing: border-box;
@@ -93,13 +138,13 @@
   justify-content: center;
 }
 
-.animeModal-con .bottom .bottom-line2 {
+.animeModal .animeModal-con .bottom .bottom-line2 {
   display: flex;
   gap: 1vw;
 }
 
-.animeModal-con .bottom .bottom-line2 button {
-  padding: 0.5vw 1vw;
+.animeModal .animeModal-con .bottom .bottom-line2 button {
+  padding: 0.5vw 2vw;
   box-sizing: border-box;
 
   border: 0;
@@ -107,39 +152,58 @@
   background-color: rgb(255, 0, 85, 1);
   color: #fff;
 
+  cursor: pointer;
 }
 
-.animeModal-con .bottom .bottom-line2 button:hover {
+.animeModal .animeModal-con .bottom .bottom-line2 > button:nth-child(2) img {
+  display: none;
+}
+
+.animeModal .animeModal-con .bottom .bottom-line2 > button:hover {
   background-color: #fff;
   color: rgb(255, 0, 85, 1);
 }
 
-.animeModal-con .bottom .bottom-line3 {
+.animeModal .animeModal-con .bottom .bottom-line3 {
   display: flex;
-  gap: 1vw;
+  justify-content: space-between;
+
+  padding: 5vmin;
+  box-sizing: border-box;
+
+  
 }
 
-.animeModal-con .bottom .bottom-line3 span.text {
- flex: 5;
- /* background-color: #f00; */
- color: #fff;
+.animeModal .animeModal-con .bottom .bottom-line3 .buttons {
+  display: flex;
+  gap: 5vmin;
 }
 
-.animeModal-con .bottom .bottom-line3 span.price{
-  flex: 2;
-  width: 100px;
-  height: 40px;
+.animeModal .animeModal-con .bottom .bottom-line3 .buttons button {
+  cursor: pointer;
+}
 
+
+.animeModal .animeModal-con .bottom .bottom-line3 .buttons-child {
+  flex:1;
+
+  border: 2px solid #fff;
+
+  padding: 1vmax 1.5vmax;
+  box-sizing: border-box;
+
+  color: #fff;
+  background-color: unset;
+}
+
+.animeModal .animeModal-con .bottom .bottom-line3 span {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  background-color: rgb(255, 0, 85, 1);
-  border-radius: 5px;
-  color: #fff;
 }
 
-.animeModal-con span.close {
+.animeModal .animeModal-con span.close {
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -150,10 +214,97 @@
   
   box-sizing: border-box;
 
-  position: absolute;
-  top: 1vw;
-  right: 1vw;
+  position: fixed;
+  /* top: 80px; */
+  /* right: 400px; */
+  top: 7.407vh;
+  right: 44vh;
+
 
   z-index: 1000;
 }
 
+
+/* 태블릿 */
+@media (max-width: 1024px) {
+ 
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .animeModal {
+    background-color: unset;
+  }
+
+  .animeModal .animeModal-con {
+    width: 100%;
+    height: calc(100vh - 80px - 80px);
+    /* height: auto; */
+    /* height: 600px; */
+
+    padding: 0 10px;
+
+    border-radius: unset;
+  }
+  .animeModal .animeModal-con .modal-wrap {
+    width: 100%;
+    /* width: 100%;
+    height: */
+  }
+
+  .animeModal .animeModal-con .modal-wrap .top {
+    /* height: 360px; */
+    /* max-height: 360px; */
+    height: auto;
+    border-radius: 20px 20px 0 0 ;
+  }
+  
+  .animeModal .animeModal-con .top h2 {
+  
+    font-size: 50px;
+  }
+
+
+
+  .animeModal .animeModal-con .bottom .bottom-line2 {
+    width: 100%;
+    display: flex;
+  }
+
+  .animeModal .animeModal-con .bottom .bottom-line2 button {
+    padding: 20px 10px;
+
+  }
+
+  .animeModal .animeModal-con .bottom .bottom-line2 button:nth-child(1) {
+    flex: 3;
+  }
+
+  .animeModal .animeModal-con .bottom .bottom-line2 button:nth-child(2) {
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .animeModal .animeModal-con .bottom .bottom-line2 button:nth-child(2) span {
+    display: none;
+  }
+
+  .animeModal .animeModal-con .bottom .bottom-line2 button:nth-child(2) img {
+    display: flex;
+  }
+
+  .animeModal .animeModal-con span.close {
+  
+    font-size: 50px;
+ 
+    top: 10px;
+    right: 20px;
+  
+   
+  }
+
+} 

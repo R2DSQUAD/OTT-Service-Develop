@@ -1,13 +1,13 @@
 import React from 'react'
 import SignInHeader from '../../components/auth/signIn/SignInHeader'
 import SignInFooter from '../../components/auth/signIn/SignInFooter'
-import SignInIndex from '../../components/auth/signIn/SignInIndex'
+import SignInIndexPage from '../../pages/auth/SignInIndexPage'
 
 const SignInLayout = () => {
   return (
     <>
       <SignInHeader/>
-        <SignInIndex/>
+        <SignInIndexPage/>
       <SignInFooter/>
     </>
   )
