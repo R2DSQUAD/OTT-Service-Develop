@@ -966,6 +966,18 @@
         "21",
         "29"
       ]
+<<<<<<< HEAD
+=======
+    },
+    {
+      "id": "744d",
+      "userName": "12345",
+      "userEmail": "12345@email.com",
+      "userPw": "12345",
+      "phoneNumber": "12345",
+      "address": "12345",
+      "role": "ROLE_MEMBER"
+>>>>>>> dfbb0c1 (최종)
     }
   ],
   "payments": [
@@ -1374,6 +1386,61 @@
       ],
       "paymentAmount": 10000,
       "time": "2024/10/23 16:22:14"
+<<<<<<< HEAD
+=======
+    },
+    {
+      "id": "ebf8",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "카드결제",
+      "orderType": "직접 방문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "tset",
+      "paymentResult": [
+        {
+          "id": "17",
+          "type": "웹툰",
+          "title": "당신이 범인이야!",
+          "price": "13000",
+          "img": "/images/itemData/itsYourCulprit.jpg",
+          "genre": "스릴러",
+          "age": "15",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/24 11:25:20"
+    },
+    {
+      "id": "49a6",
+      "branchType": "롯데시네마 노원",
+      "paymentMethod": "카카오 페이",
+      "orderType": "예약 주문",
+      "userEmail": "test",
+      "userName": "test",
+      "address": "test",
+      "phone": "tset",
+      "paymentResult": [
+        {
+          "id": "17",
+          "type": "웹툰",
+          "title": "당신이 범인이야!",
+          "price": "13000",
+          "img": "/images/itemData/itsYourCulprit.jpg",
+          "genre": "스릴러",
+          "age": "15",
+          "year": "2024",
+          "time": "",
+          "count": 1
+        }
+      ],
+      "paymentAmount": 13000,
+      "time": "2024/10/24 11:25:30"
+>>>>>>> dfbb0c1 (최종)
     }
   ],
   "shopList": [
