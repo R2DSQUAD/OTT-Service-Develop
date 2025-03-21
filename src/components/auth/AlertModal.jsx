@@ -14,6 +14,10 @@ const AlertModal = ({contents, setIsAlertModal}) => {
 
   console.log("모달은 실행됩니다.")
 
+<<<<<<< HEAD
+=======
+  //확인
+>>>>>>> dfbb0c1 (최종)
   return (
     <div className="alert-modal">
       <div className="alert-modal-con">

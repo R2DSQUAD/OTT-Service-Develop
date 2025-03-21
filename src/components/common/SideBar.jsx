@@ -19,7 +19,11 @@ const SideBar = () => {
 
   const screenChange = (e) => {
     const matches = e.matches;
+<<<<<<< HEAD
     setIsPc(matches);
+=======
+    setIsPc(matches); 
+>>>>>>> dfbb0c1 (최종)
   };
 
   const toggleMenuClose = () => {
@@ -49,6 +53,11 @@ const SideBar = () => {
     }
   };
 
+<<<<<<< HEAD
+=======
+  console.log(isPc)
+
+>>>>>>> dfbb0c1 (최종)
   useEffect(() => {
     if (signInUser.length > 0) {
       const AxiosFn = async (e) => {

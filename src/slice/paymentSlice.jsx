@@ -14,14 +14,22 @@ const paymentSlice = createSlice({
       });
 
       if (num === -1) {
+<<<<<<< HEAD
         state.items = initstate.items;
+=======
+        state.items = [...initstate.items];
+>>>>>>> dfbb0c1 (최종)
         state.items.push(action.payload);
       } else {
         state.items[num].count += action.payload.count;
       }
     },
     defaultPayment: (state, action) => {
+<<<<<<< HEAD
       state.items = initstate.items;
+=======
+      state.items = [...initstate.items];
+>>>>>>> dfbb0c1 (최종)
     }
   }
 }

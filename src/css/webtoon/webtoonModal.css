@@ -106,6 +106,10 @@
   box-sizing: border-box;
   background: #F05;
   border: 0;
+<<<<<<< HEAD
+=======
+  padding: 10px;
+>>>>>>> dfbb0c1 (최종)
   color: white;
   display: flex;
   align-items: center;
